@@ -1,0 +1,71 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608140818",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "reserva_quadra_tenis",
+  "fields": [
+    {
+      "fieldName": "emailDestino",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "templateEmail",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "semana",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "segundafeira",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tercafeira",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quartafeira",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quintafeira",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sextafeira",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sabado",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "domingo",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "instant",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "uuid",
+      "fieldType": "UUID"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ReservaQuadraTenis",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
