@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, com.br.gustavocaraciolo.domain.User.class.getName());
             createCache(cm, com.br.gustavocaraciolo.domain.Authority.class.getName());
             createCache(cm, com.br.gustavocaraciolo.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.br.gustavocaraciolo.domain.ReservaQuadraTenis.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
