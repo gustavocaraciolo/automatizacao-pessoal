@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reservaQuadraTenis">
+      <h2 data-cy="reservaQuadraTenisDetailsHeading">
+        <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.detail.title">Reserva Quadra Tenis</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.emailDestino">Email Destino</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.emailDestino }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.templateEmail">Template Email</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.templateEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.semana">Semana</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.semana | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundafeira">Segundafeira</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.segundafeira | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercafeira">Tercafeira</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.tercafeira | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartafeira">Quartafeira</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.quartafeira | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintafeira">Quintafeira</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.quintafeira | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextafeira">Sextafeira</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.sextafeira | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabado">Sabado</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.sabado | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo">Domingo</span></dt>
+        <dd>
+          <span>{{ reservaQuadraTenis.domingo | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

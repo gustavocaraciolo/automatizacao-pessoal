@@ -1,0 +1,33 @@
+{
+  "automatizacaoPessoalApp": {
+    "reservaQuadraTenis": {
+      "home": {
+        "title": "Reserva Quadra Tenis",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Reserva Quadra Tenis",
+        "createOrEditLabel": "Criar ou editar Reserva Quadra Tenis",
+        "notFound": "Nenhum Reserva Quadra Tenis encontrado"
+      },
+      "created": "Um novo Reserva Quadra Tenis foi criado com o identificador {{ param }}",
+      "updated": "Um Reserva Quadra Tenis foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Reserva Quadra Tenis foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Reserva Quadra Tenis {{ id }}?"
+      },
+      "detail": {
+        "title": "Reserva Quadra Tenis"
+      },
+      "id": "ID",
+      "emailDestino": "Email Destino",
+      "templateEmail": "Template Email",
+      "semana": "Semana",
+      "segundafeira": "Segundafeira",
+      "tercafeira": "Tercafeira",
+      "quartafeira": "Quartafeira",
+      "quintafeira": "Quintafeira",
+      "sextafeira": "Sextafeira",
+      "sabado": "Sabado",
+      "domingo": "Domingo"
+    }
+  }
+}
