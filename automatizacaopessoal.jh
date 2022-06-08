@@ -1,0 +1,27 @@
+
+entity ReservaQuadraTenis {
+    emailDestino String required
+    templateEmail TextBlob required
+    semana LocalDate
+    segundafeira ZonedDateTime
+    tercafeira ZonedDateTime
+    quartafeira ZonedDateTime
+    quintafeira ZonedDateTime
+    sextafeira ZonedDateTime
+    sabado ZonedDateTime
+    domingo ZonedDateTime
+    instant Instant
+    duration Duration
+    uuid UUID
+}
+
+paginate ReservaQuadraTenis with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
