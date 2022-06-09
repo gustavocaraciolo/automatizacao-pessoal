@@ -80,6 +80,7 @@
               ngbDatepicker
               #semanaDp="ngbDatepicker"
               formControlName="semana"
+              (dateSelect)="onDateSelect($event)"
             />
             <button type="button" class="btn btn-secondary" (click)="semanaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
           </div>
