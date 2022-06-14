@@ -5,7 +5,6 @@ import com.br.gustavocaraciolo.repository.ReservaQuadraTenisRepository;
 import com.br.gustavocaraciolo.utils.DiaDaSemanaEnum;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -21,14 +20,12 @@ public class ScheduledEmail {
         this.mailService = mailService;
     }
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(cron = "0 0 4 * * *", zone = "Africa/Luanda")
     public void scheduleFixedRateTask() {
         ZonedDateTime dtNowZonedDateTime = ZonedDateTime.now(ZoneId.of("Africa/Luanda"));
         List<ReservaQuadraTenis> all = this.reservaQuadraTenisRepository.findAll();
 
         for (ReservaQuadraTenis reservaQuadraTenis : all) {
-            //String templateEmailOriginal = reservaQuadraTenis.getTemplateEmail();
-
             ZonedDateTime dtSegundaFeira = reservaQuadraTenis.getSegundafeira().minusDays(2);
             ZonedDateTime dtTercaFeira = reservaQuadraTenis.getTercafeira().minusDays(2);
             ZonedDateTime dtQuartaFeira = reservaQuadraTenis.getQuartafeira().minusDays(2);
@@ -58,8 +55,6 @@ public class ScheduledEmail {
             if (compararDataHora(dtNowZonedDateTime, dtDomingo) && !reservaQuadraTenis.getDomingoEmailEnviado()) {
                 buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.DOMINGO);
             }
-            //reservaQuadraTenis.setTemplateEmail(templateEmailOriginal);
-            //reservaQuadraTenisRepository.save(reservaQuadraTenis);
         }
     }
 
@@ -130,11 +125,7 @@ public class ScheduledEmail {
         if (dataHora.getYear() == dtNowZonedDateTime.getYear()) {
             if (dataHora.getMonth() == dtNowZonedDateTime.getMonth()) {
                 if (dataHora.getDayOfMonth() == dtNowZonedDateTime.getDayOfMonth()) {
-                    if (dataHora.getHour() == dtNowZonedDateTime.getHour()) {
-                        if (dataHora.getMinute() == dtNowZonedDateTime.getMinute()) {
-                            retorno = true;
-                        }
-                    }
+                    retorno = true;
                 }
             }
         }
