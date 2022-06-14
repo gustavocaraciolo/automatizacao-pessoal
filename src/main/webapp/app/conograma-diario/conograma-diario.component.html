@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> < </button>
+    <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> > </button>
+    <h1 class="text-capitalize text-center">{{ dia }}</h1>
+    <!--<h1 class="text-capitalize text-center" jhiTranslate="conograma-diario.title">Title</h1>
+    <h5 class="text-center" jhiTranslate="conograma-diario.subtitle">Subtitle</h5>-->
+    <hr/>
+    <div class="btn-group" role="group" aria-label="Checkboxes with Bootstrap 5">
+      <input type="checkbox" formControlName="one" class="btn-check" id="zeroAM" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAM">00:00</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeDez" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAMeDez">00:10</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeVinte" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAMeVinte">00:20</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeTrinta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAMeTrinta">00:30</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeQuarenta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAMeQuarenta">00:40</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeCinquenta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="zeroAMeCinquenta">00:50</label>
+    </div>
+    <br/>
+    <div class="btn-group" role="group" aria-label="Checkboxes with Bootstrap 5">
+      <input type="checkbox" formControlName="one" class="btn-check" id="umAM" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAM">01:00</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeDez" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAMeDez">01:10</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeVinte" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAMeVinte">01:20</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeTrinta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAMeTrinta">01:30</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeQuarenta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAMeQuarenta">01:40</label>
+      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeCinquenta" autocomplete="off">
+      <label class="btn btn-outline-primary" for="umAMeCinquenta">01:50</label>
+    </div>
+
+    <!--<p class="text-justify" jhiTranslate="conograma-diario.content">Content</p>-->
+  </div>
+  <div class="col-md-1"></div>
+</div>

@@ -27,6 +27,12 @@
             </span>
           </a>
         </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="conograma-diario" (click)="collapseNavbar()">
+            <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+            <span jhiTranslate="global.menu.conograma-diario">Conograma Diario</span>
+          </a>
+        </li>
         <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
         <li
           *ngSwitchCase="true"
