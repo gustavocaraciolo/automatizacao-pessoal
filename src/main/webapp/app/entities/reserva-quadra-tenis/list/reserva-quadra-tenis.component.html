@@ -65,6 +65,34 @@
           <th scope="col" jhiSortBy="domingo">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo">Domingo</span> <fa-icon icon="sort"></fa-icon>
           </th>
+          <th scope="col" jhiSortBy="segundaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado">Segunda Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tercaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercaFeiraEmailEnviado">Terca Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quartaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartaFeiraEmailEnviado">Quarta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quintaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintaFeiraEmailEnviado">Quinta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sextaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextaFeiraEmailEnviado">Sexta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sabadoEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabadoEmailEnviado">Sabado Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="domingoEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado">Domingo Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -83,6 +111,13 @@
           <td>{{ reservaQuadraTenis.sextafeira | formatMediumDatetime }}</td>
           <td>{{ reservaQuadraTenis.sabado | formatMediumDatetime }}</td>
           <td>{{ reservaQuadraTenis.domingo | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.segundaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.tercaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.quartaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.quintaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.sextaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.sabadoEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.domingoEmailEnviado }}</td>
           <td class="text-end">
             <div class="btn-group">
               <button

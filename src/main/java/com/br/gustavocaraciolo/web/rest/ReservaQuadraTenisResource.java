@@ -162,6 +162,27 @@ public class ReservaQuadraTenisResource {
                 if (reservaQuadraTenis.getDomingo() != null) {
                     existingReservaQuadraTenis.setDomingo(reservaQuadraTenis.getDomingo());
                 }
+                if (reservaQuadraTenis.getSegundaFeiraEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setSegundaFeiraEmailEnviado(reservaQuadraTenis.getSegundaFeiraEmailEnviado());
+                }
+                if (reservaQuadraTenis.getTercaFeiraEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setTercaFeiraEmailEnviado(reservaQuadraTenis.getTercaFeiraEmailEnviado());
+                }
+                if (reservaQuadraTenis.getQuartaFeiraEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setQuartaFeiraEmailEnviado(reservaQuadraTenis.getQuartaFeiraEmailEnviado());
+                }
+                if (reservaQuadraTenis.getQuintaFeiraEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setQuintaFeiraEmailEnviado(reservaQuadraTenis.getQuintaFeiraEmailEnviado());
+                }
+                if (reservaQuadraTenis.getSextaFeiraEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setSextaFeiraEmailEnviado(reservaQuadraTenis.getSextaFeiraEmailEnviado());
+                }
+                if (reservaQuadraTenis.getSabadoEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setSabadoEmailEnviado(reservaQuadraTenis.getSabadoEmailEnviado());
+                }
+                if (reservaQuadraTenis.getDomingoEmailEnviado() != null) {
+                    existingReservaQuadraTenis.setDomingoEmailEnviado(reservaQuadraTenis.getDomingoEmailEnviado());
+                }
 
                 return existingReservaQuadraTenis;
             })

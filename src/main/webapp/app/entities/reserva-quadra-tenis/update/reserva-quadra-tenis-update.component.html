@@ -80,7 +80,6 @@
               ngbDatepicker
               #semanaDp="ngbDatepicker"
               formControlName="semana"
-              (dateSelect)="onDateSelect($event)"
             />
             <button type="button" class="btn btn-secondary" (click)="semanaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
           </div>
@@ -199,6 +198,125 @@
               placeholder="YYYY-MM-DD HH:mm"
             />
           </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado"
+            for="field_segundaFeiraEmailEnviado"
+            >Segunda Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="segundaFeiraEmailEnviado"
+            id="field_segundaFeiraEmailEnviado"
+            data-cy="segundaFeiraEmailEnviado"
+            formControlName="segundaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercaFeiraEmailEnviado"
+            for="field_tercaFeiraEmailEnviado"
+            >Terca Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="tercaFeiraEmailEnviado"
+            id="field_tercaFeiraEmailEnviado"
+            data-cy="tercaFeiraEmailEnviado"
+            formControlName="tercaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartaFeiraEmailEnviado"
+            for="field_quartaFeiraEmailEnviado"
+            >Quarta Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="quartaFeiraEmailEnviado"
+            id="field_quartaFeiraEmailEnviado"
+            data-cy="quartaFeiraEmailEnviado"
+            formControlName="quartaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintaFeiraEmailEnviado"
+            for="field_quintaFeiraEmailEnviado"
+            >Quinta Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="quintaFeiraEmailEnviado"
+            id="field_quintaFeiraEmailEnviado"
+            data-cy="quintaFeiraEmailEnviado"
+            formControlName="quintaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextaFeiraEmailEnviado"
+            for="field_sextaFeiraEmailEnviado"
+            >Sexta Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sextaFeiraEmailEnviado"
+            id="field_sextaFeiraEmailEnviado"
+            data-cy="sextaFeiraEmailEnviado"
+            formControlName="sextaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabadoEmailEnviado"
+            for="field_sabadoEmailEnviado"
+            >Sabado Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sabadoEmailEnviado"
+            id="field_sabadoEmailEnviado"
+            data-cy="sabadoEmailEnviado"
+            formControlName="sabadoEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado"
+            for="field_domingoEmailEnviado"
+            >Domingo Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="domingoEmailEnviado"
+            id="field_domingoEmailEnviado"
+            data-cy="domingoEmailEnviado"
+            formControlName="domingoEmailEnviado"
+          />
         </div>
       </div>
 

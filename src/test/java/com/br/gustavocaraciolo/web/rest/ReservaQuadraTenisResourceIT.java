@@ -66,6 +66,27 @@ class ReservaQuadraTenisResourceIT {
     private static final ZonedDateTime DEFAULT_DOMINGO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DOMINGO = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final Boolean DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_TERCA_FEIRA_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_TERCA_FEIRA_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_QUARTA_FEIRA_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_QUINTA_FEIRA_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_SABADO_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_SABADO_EMAIL_ENVIADO = true;
+
+    private static final Boolean DEFAULT_DOMINGO_EMAIL_ENVIADO = false;
+    private static final Boolean UPDATED_DOMINGO_EMAIL_ENVIADO = true;
+
     private static final String ENTITY_API_URL = "/api/reserva-quadra-tenis";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -100,7 +121,14 @@ class ReservaQuadraTenisResourceIT {
             .quintafeira(DEFAULT_QUINTAFEIRA)
             .sextafeira(DEFAULT_SEXTAFEIRA)
             .sabado(DEFAULT_SABADO)
-            .domingo(DEFAULT_DOMINGO);
+            .domingo(DEFAULT_DOMINGO)
+            .segundaFeiraEmailEnviado(DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO)
+            .tercaFeiraEmailEnviado(DEFAULT_TERCA_FEIRA_EMAIL_ENVIADO)
+            .quartaFeiraEmailEnviado(DEFAULT_QUARTA_FEIRA_EMAIL_ENVIADO)
+            .quintaFeiraEmailEnviado(DEFAULT_QUINTA_FEIRA_EMAIL_ENVIADO)
+            .sextaFeiraEmailEnviado(DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO)
+            .sabadoEmailEnviado(DEFAULT_SABADO_EMAIL_ENVIADO)
+            .domingoEmailEnviado(DEFAULT_DOMINGO_EMAIL_ENVIADO);
         return reservaQuadraTenis;
     }
 
@@ -121,7 +149,14 @@ class ReservaQuadraTenisResourceIT {
             .quintafeira(UPDATED_QUINTAFEIRA)
             .sextafeira(UPDATED_SEXTAFEIRA)
             .sabado(UPDATED_SABADO)
-            .domingo(UPDATED_DOMINGO);
+            .domingo(UPDATED_DOMINGO)
+            .segundaFeiraEmailEnviado(UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO)
+            .tercaFeiraEmailEnviado(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO)
+            .quartaFeiraEmailEnviado(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO)
+            .quintaFeiraEmailEnviado(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO)
+            .sextaFeiraEmailEnviado(UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO)
+            .sabadoEmailEnviado(UPDATED_SABADO_EMAIL_ENVIADO)
+            .domingoEmailEnviado(UPDATED_DOMINGO_EMAIL_ENVIADO);
         return reservaQuadraTenis;
     }
 
@@ -155,6 +190,13 @@ class ReservaQuadraTenisResourceIT {
         assertThat(testReservaQuadraTenis.getSextafeira()).isEqualTo(DEFAULT_SEXTAFEIRA);
         assertThat(testReservaQuadraTenis.getSabado()).isEqualTo(DEFAULT_SABADO);
         assertThat(testReservaQuadraTenis.getDomingo()).isEqualTo(DEFAULT_DOMINGO);
+        assertThat(testReservaQuadraTenis.getSegundaFeiraEmailEnviado()).isEqualTo(DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getTercaFeiraEmailEnviado()).isEqualTo(DEFAULT_TERCA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuartaFeiraEmailEnviado()).isEqualTo(DEFAULT_QUARTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuintaFeiraEmailEnviado()).isEqualTo(DEFAULT_QUINTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSextaFeiraEmailEnviado()).isEqualTo(DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSabadoEmailEnviado()).isEqualTo(DEFAULT_SABADO_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getDomingoEmailEnviado()).isEqualTo(DEFAULT_DOMINGO_EMAIL_ENVIADO);
     }
 
     @Test
@@ -217,7 +259,14 @@ class ReservaQuadraTenisResourceIT {
             .andExpect(jsonPath("$.[*].quintafeira").value(hasItem(sameInstant(DEFAULT_QUINTAFEIRA))))
             .andExpect(jsonPath("$.[*].sextafeira").value(hasItem(sameInstant(DEFAULT_SEXTAFEIRA))))
             .andExpect(jsonPath("$.[*].sabado").value(hasItem(sameInstant(DEFAULT_SABADO))))
-            .andExpect(jsonPath("$.[*].domingo").value(hasItem(sameInstant(DEFAULT_DOMINGO))));
+            .andExpect(jsonPath("$.[*].domingo").value(hasItem(sameInstant(DEFAULT_DOMINGO))))
+            .andExpect(jsonPath("$.[*].segundaFeiraEmailEnviado").value(hasItem(DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].tercaFeiraEmailEnviado").value(hasItem(DEFAULT_TERCA_FEIRA_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].quartaFeiraEmailEnviado").value(hasItem(DEFAULT_QUARTA_FEIRA_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].quintaFeiraEmailEnviado").value(hasItem(DEFAULT_QUINTA_FEIRA_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].sextaFeiraEmailEnviado").value(hasItem(DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].sabadoEmailEnviado").value(hasItem(DEFAULT_SABADO_EMAIL_ENVIADO.booleanValue())))
+            .andExpect(jsonPath("$.[*].domingoEmailEnviado").value(hasItem(DEFAULT_DOMINGO_EMAIL_ENVIADO.booleanValue())));
     }
 
     @Test
@@ -241,7 +290,14 @@ class ReservaQuadraTenisResourceIT {
             .andExpect(jsonPath("$.quintafeira").value(sameInstant(DEFAULT_QUINTAFEIRA)))
             .andExpect(jsonPath("$.sextafeira").value(sameInstant(DEFAULT_SEXTAFEIRA)))
             .andExpect(jsonPath("$.sabado").value(sameInstant(DEFAULT_SABADO)))
-            .andExpect(jsonPath("$.domingo").value(sameInstant(DEFAULT_DOMINGO)));
+            .andExpect(jsonPath("$.domingo").value(sameInstant(DEFAULT_DOMINGO)))
+            .andExpect(jsonPath("$.segundaFeiraEmailEnviado").value(DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.tercaFeiraEmailEnviado").value(DEFAULT_TERCA_FEIRA_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.quartaFeiraEmailEnviado").value(DEFAULT_QUARTA_FEIRA_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.quintaFeiraEmailEnviado").value(DEFAULT_QUINTA_FEIRA_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.sextaFeiraEmailEnviado").value(DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.sabadoEmailEnviado").value(DEFAULT_SABADO_EMAIL_ENVIADO.booleanValue()))
+            .andExpect(jsonPath("$.domingoEmailEnviado").value(DEFAULT_DOMINGO_EMAIL_ENVIADO.booleanValue()));
     }
 
     @Test
@@ -273,7 +329,14 @@ class ReservaQuadraTenisResourceIT {
             .quintafeira(UPDATED_QUINTAFEIRA)
             .sextafeira(UPDATED_SEXTAFEIRA)
             .sabado(UPDATED_SABADO)
-            .domingo(UPDATED_DOMINGO);
+            .domingo(UPDATED_DOMINGO)
+            .segundaFeiraEmailEnviado(UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO)
+            .tercaFeiraEmailEnviado(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO)
+            .quartaFeiraEmailEnviado(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO)
+            .quintaFeiraEmailEnviado(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO)
+            .sextaFeiraEmailEnviado(UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO)
+            .sabadoEmailEnviado(UPDATED_SABADO_EMAIL_ENVIADO)
+            .domingoEmailEnviado(UPDATED_DOMINGO_EMAIL_ENVIADO);
 
         restReservaQuadraTenisMockMvc
             .perform(
@@ -297,6 +360,13 @@ class ReservaQuadraTenisResourceIT {
         assertThat(testReservaQuadraTenis.getSextafeira()).isEqualTo(UPDATED_SEXTAFEIRA);
         assertThat(testReservaQuadraTenis.getSabado()).isEqualTo(UPDATED_SABADO);
         assertThat(testReservaQuadraTenis.getDomingo()).isEqualTo(UPDATED_DOMINGO);
+        assertThat(testReservaQuadraTenis.getSegundaFeiraEmailEnviado()).isEqualTo(UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getTercaFeiraEmailEnviado()).isEqualTo(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuartaFeiraEmailEnviado()).isEqualTo(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuintaFeiraEmailEnviado()).isEqualTo(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSextaFeiraEmailEnviado()).isEqualTo(UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSabadoEmailEnviado()).isEqualTo(UPDATED_SABADO_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getDomingoEmailEnviado()).isEqualTo(UPDATED_DOMINGO_EMAIL_ENVIADO);
     }
 
     @Test
@@ -369,7 +439,13 @@ class ReservaQuadraTenisResourceIT {
         ReservaQuadraTenis partialUpdatedReservaQuadraTenis = new ReservaQuadraTenis();
         partialUpdatedReservaQuadraTenis.setId(reservaQuadraTenis.getId());
 
-        partialUpdatedReservaQuadraTenis.semana(UPDATED_SEMANA);
+        partialUpdatedReservaQuadraTenis
+            .semana(UPDATED_SEMANA)
+            .tercaFeiraEmailEnviado(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO)
+            .quartaFeiraEmailEnviado(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO)
+            .quintaFeiraEmailEnviado(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO)
+            .sabadoEmailEnviado(UPDATED_SABADO_EMAIL_ENVIADO)
+            .domingoEmailEnviado(UPDATED_DOMINGO_EMAIL_ENVIADO);
 
         restReservaQuadraTenisMockMvc
             .perform(
@@ -393,6 +469,13 @@ class ReservaQuadraTenisResourceIT {
         assertThat(testReservaQuadraTenis.getSextafeira()).isEqualTo(DEFAULT_SEXTAFEIRA);
         assertThat(testReservaQuadraTenis.getSabado()).isEqualTo(DEFAULT_SABADO);
         assertThat(testReservaQuadraTenis.getDomingo()).isEqualTo(DEFAULT_DOMINGO);
+        assertThat(testReservaQuadraTenis.getSegundaFeiraEmailEnviado()).isEqualTo(DEFAULT_SEGUNDA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getTercaFeiraEmailEnviado()).isEqualTo(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuartaFeiraEmailEnviado()).isEqualTo(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuintaFeiraEmailEnviado()).isEqualTo(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSextaFeiraEmailEnviado()).isEqualTo(DEFAULT_SEXTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSabadoEmailEnviado()).isEqualTo(UPDATED_SABADO_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getDomingoEmailEnviado()).isEqualTo(UPDATED_DOMINGO_EMAIL_ENVIADO);
     }
 
     @Test
@@ -417,7 +500,14 @@ class ReservaQuadraTenisResourceIT {
             .quintafeira(UPDATED_QUINTAFEIRA)
             .sextafeira(UPDATED_SEXTAFEIRA)
             .sabado(UPDATED_SABADO)
-            .domingo(UPDATED_DOMINGO);
+            .domingo(UPDATED_DOMINGO)
+            .segundaFeiraEmailEnviado(UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO)
+            .tercaFeiraEmailEnviado(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO)
+            .quartaFeiraEmailEnviado(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO)
+            .quintaFeiraEmailEnviado(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO)
+            .sextaFeiraEmailEnviado(UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO)
+            .sabadoEmailEnviado(UPDATED_SABADO_EMAIL_ENVIADO)
+            .domingoEmailEnviado(UPDATED_DOMINGO_EMAIL_ENVIADO);
 
         restReservaQuadraTenisMockMvc
             .perform(
@@ -441,6 +531,13 @@ class ReservaQuadraTenisResourceIT {
         assertThat(testReservaQuadraTenis.getSextafeira()).isEqualTo(UPDATED_SEXTAFEIRA);
         assertThat(testReservaQuadraTenis.getSabado()).isEqualTo(UPDATED_SABADO);
         assertThat(testReservaQuadraTenis.getDomingo()).isEqualTo(UPDATED_DOMINGO);
+        assertThat(testReservaQuadraTenis.getSegundaFeiraEmailEnviado()).isEqualTo(UPDATED_SEGUNDA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getTercaFeiraEmailEnviado()).isEqualTo(UPDATED_TERCA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuartaFeiraEmailEnviado()).isEqualTo(UPDATED_QUARTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getQuintaFeiraEmailEnviado()).isEqualTo(UPDATED_QUINTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSextaFeiraEmailEnviado()).isEqualTo(UPDATED_SEXTA_FEIRA_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getSabadoEmailEnviado()).isEqualTo(UPDATED_SABADO_EMAIL_ENVIADO);
+        assertThat(testReservaQuadraTenis.getDomingoEmailEnviado()).isEqualTo(UPDATED_DOMINGO_EMAIL_ENVIADO);
     }
 
     @Test

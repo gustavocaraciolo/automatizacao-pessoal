@@ -27,7 +27,14 @@
       "quintafeira": "Quintafeira",
       "sextafeira": "Sextafeira",
       "sabado": "Sabado",
-      "domingo": "Domingo"
+      "domingo": "Domingo",
+      "segundaFeiraEmailEnviado": "Segunda Feira Email Enviado",
+      "tercaFeiraEmailEnviado": "Terca Feira Email Enviado",
+      "quartaFeiraEmailEnviado": "Quarta Feira Email Enviado",
+      "quintaFeiraEmailEnviado": "Quinta Feira Email Enviado",
+      "sextaFeiraEmailEnviado": "Sexta Feira Email Enviado",
+      "sabadoEmailEnviado": "Sabado Email Enviado",
+      "domingoEmailEnviado": "Domingo Email Enviado"
     }
   }
 }

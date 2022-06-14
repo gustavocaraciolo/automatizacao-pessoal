@@ -35,6 +35,13 @@ describe('ReservaQuadraTenis Service', () => {
       sextafeira: currentDate,
       sabado: currentDate,
       domingo: currentDate,
+      segundaFeiraEmailEnviado: false,
+      tercaFeiraEmailEnviado: false,
+      quartaFeiraEmailEnviado: false,
+      quintaFeiraEmailEnviado: false,
+      sextaFeiraEmailEnviado: false,
+      sabadoEmailEnviado: false,
+      domingoEmailEnviado: false,
     };
   });
 
@@ -112,6 +119,13 @@ describe('ReservaQuadraTenis Service', () => {
           sextafeira: currentDate.format(DATE_TIME_FORMAT),
           sabado: currentDate.format(DATE_TIME_FORMAT),
           domingo: currentDate.format(DATE_TIME_FORMAT),
+          segundaFeiraEmailEnviado: true,
+          tercaFeiraEmailEnviado: true,
+          quartaFeiraEmailEnviado: true,
+          quintaFeiraEmailEnviado: true,
+          sextaFeiraEmailEnviado: true,
+          sabadoEmailEnviado: true,
+          domingoEmailEnviado: true,
         },
         elemDefault
       );
@@ -145,6 +159,10 @@ describe('ReservaQuadraTenis Service', () => {
           tercafeira: currentDate.format(DATE_TIME_FORMAT),
           quintafeira: currentDate.format(DATE_TIME_FORMAT),
           sabado: currentDate.format(DATE_TIME_FORMAT),
+          segundaFeiraEmailEnviado: true,
+          tercaFeiraEmailEnviado: true,
+          sextaFeiraEmailEnviado: true,
+          sabadoEmailEnviado: true,
         },
         new ReservaQuadraTenis()
       );
@@ -186,6 +204,13 @@ describe('ReservaQuadraTenis Service', () => {
           sextafeira: currentDate.format(DATE_TIME_FORMAT),
           sabado: currentDate.format(DATE_TIME_FORMAT),
           domingo: currentDate.format(DATE_TIME_FORMAT),
+          segundaFeiraEmailEnviado: true,
+          tercaFeiraEmailEnviado: true,
+          quartaFeiraEmailEnviado: true,
+          quintaFeiraEmailEnviado: true,
+          sextaFeiraEmailEnviado: true,
+          sabadoEmailEnviado: true,
+          domingoEmailEnviado: true,
         },
         elemDefault
       );
@@ -249,7 +274,7 @@ describe('ReservaQuadraTenis Service', () => {
       });
 
       it('should add only unique ReservaQuadraTenis to an array', () => {
-        const reservaQuadraTenisArray: IReservaQuadraTenis[] = [{ id: 123 }, { id: 456 }, { id: 72075 }];
+        const reservaQuadraTenisArray: IReservaQuadraTenis[] = [{ id: 123 }, { id: 456 }, { id: 32439 }];
         const reservaQuadraTenisCollection: IReservaQuadraTenis[] = [{ id: 123 }];
         expectedResult = service.addReservaQuadraTenisToCollectionIfMissing(reservaQuadraTenisCollection, ...reservaQuadraTenisArray);
         expect(expectedResult).toHaveLength(3);

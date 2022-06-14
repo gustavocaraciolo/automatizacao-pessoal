@@ -58,6 +58,27 @@ public class ReservaQuadraTenis implements Serializable {
     @Column(name = "domingo")
     private ZonedDateTime domingo;
 
+    @Column(name = "segunda_feira_email_enviado")
+    private Boolean segundaFeiraEmailEnviado;
+
+    @Column(name = "terca_feira_email_enviado")
+    private Boolean tercaFeiraEmailEnviado;
+
+    @Column(name = "quarta_feira_email_enviado")
+    private Boolean quartaFeiraEmailEnviado;
+
+    @Column(name = "quinta_feira_email_enviado")
+    private Boolean quintaFeiraEmailEnviado;
+
+    @Column(name = "sexta_feira_email_enviado")
+    private Boolean sextaFeiraEmailEnviado;
+
+    @Column(name = "sabado_email_enviado")
+    private Boolean sabadoEmailEnviado;
+
+    @Column(name = "domingo_email_enviado")
+    private Boolean domingoEmailEnviado;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -203,6 +224,97 @@ public class ReservaQuadraTenis implements Serializable {
         this.domingo = domingo;
     }
 
+    public Boolean getSegundaFeiraEmailEnviado() {
+        return this.segundaFeiraEmailEnviado;
+    }
+
+    public ReservaQuadraTenis segundaFeiraEmailEnviado(Boolean segundaFeiraEmailEnviado) {
+        this.setSegundaFeiraEmailEnviado(segundaFeiraEmailEnviado);
+        return this;
+    }
+
+    public void setSegundaFeiraEmailEnviado(Boolean segundaFeiraEmailEnviado) {
+        this.segundaFeiraEmailEnviado = segundaFeiraEmailEnviado;
+    }
+
+    public Boolean getTercaFeiraEmailEnviado() {
+        return this.tercaFeiraEmailEnviado;
+    }
+
+    public ReservaQuadraTenis tercaFeiraEmailEnviado(Boolean tercaFeiraEmailEnviado) {
+        this.setTercaFeiraEmailEnviado(tercaFeiraEmailEnviado);
+        return this;
+    }
+
+    public void setTercaFeiraEmailEnviado(Boolean tercaFeiraEmailEnviado) {
+        this.tercaFeiraEmailEnviado = tercaFeiraEmailEnviado;
+    }
+
+    public Boolean getQuartaFeiraEmailEnviado() {
+        return this.quartaFeiraEmailEnviado;
+    }
+
+    public ReservaQuadraTenis quartaFeiraEmailEnviado(Boolean quartaFeiraEmailEnviado) {
+        this.setQuartaFeiraEmailEnviado(quartaFeiraEmailEnviado);
+        return this;
+    }
+
+    public void setQuartaFeiraEmailEnviado(Boolean quartaFeiraEmailEnviado) {
+        this.quartaFeiraEmailEnviado = quartaFeiraEmailEnviado;
+    }
+
+    public Boolean getQuintaFeiraEmailEnviado() {
+        return this.quintaFeiraEmailEnviado;
+    }
+
+    public ReservaQuadraTenis quintaFeiraEmailEnviado(Boolean quintaFeiraEmailEnviado) {
+        this.setQuintaFeiraEmailEnviado(quintaFeiraEmailEnviado);
+        return this;
+    }
+
+    public void setQuintaFeiraEmailEnviado(Boolean quintaFeiraEmailEnviado) {
+        this.quintaFeiraEmailEnviado = quintaFeiraEmailEnviado;
+    }
+
+    public Boolean getSextaFeiraEmailEnviado() {
+        return this.sextaFeiraEmailEnviado;
+    }
+
+    public ReservaQuadraTenis sextaFeiraEmailEnviado(Boolean sextaFeiraEmailEnviado) {
+        this.setSextaFeiraEmailEnviado(sextaFeiraEmailEnviado);
+        return this;
+    }
+
+    public void setSextaFeiraEmailEnviado(Boolean sextaFeiraEmailEnviado) {
+        this.sextaFeiraEmailEnviado = sextaFeiraEmailEnviado;
+    }
+
+    public Boolean getSabadoEmailEnviado() {
+        return this.sabadoEmailEnviado;
+    }
+
+    public ReservaQuadraTenis sabadoEmailEnviado(Boolean sabadoEmailEnviado) {
+        this.setSabadoEmailEnviado(sabadoEmailEnviado);
+        return this;
+    }
+
+    public void setSabadoEmailEnviado(Boolean sabadoEmailEnviado) {
+        this.sabadoEmailEnviado = sabadoEmailEnviado;
+    }
+
+    public Boolean getDomingoEmailEnviado() {
+        return this.domingoEmailEnviado;
+    }
+
+    public ReservaQuadraTenis domingoEmailEnviado(Boolean domingoEmailEnviado) {
+        this.setDomingoEmailEnviado(domingoEmailEnviado);
+        return this;
+    }
+
+    public void setDomingoEmailEnviado(Boolean domingoEmailEnviado) {
+        this.domingoEmailEnviado = domingoEmailEnviado;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -237,6 +349,13 @@ public class ReservaQuadraTenis implements Serializable {
             ", sextafeira='" + getSextafeira() + "'" +
             ", sabado='" + getSabado() + "'" +
             ", domingo='" + getDomingo() + "'" +
+            ", segundaFeiraEmailEnviado='" + getSegundaFeiraEmailEnviado() + "'" +
+            ", tercaFeiraEmailEnviado='" + getTercaFeiraEmailEnviado() + "'" +
+            ", quartaFeiraEmailEnviado='" + getQuartaFeiraEmailEnviado() + "'" +
+            ", quintaFeiraEmailEnviado='" + getQuintaFeiraEmailEnviado() + "'" +
+            ", sextaFeiraEmailEnviado='" + getSextaFeiraEmailEnviado() + "'" +
+            ", sabadoEmailEnviado='" + getSabadoEmailEnviado() + "'" +
+            ", domingoEmailEnviado='" + getDomingoEmailEnviado() + "'" +
             "}";
     }
 }

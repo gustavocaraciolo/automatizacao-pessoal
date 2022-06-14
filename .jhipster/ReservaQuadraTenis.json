@@ -47,6 +47,34 @@
     {
       "fieldName": "domingo",
       "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "segundaFeiraEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tercaFeiraEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "quartaFeiraEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "quintaFeiraEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sextaFeiraEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sabadoEmailEnviado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "domingoEmailEnviado",
+      "fieldType": "Boolean"
     }
   ],
   "fluentMethods": true,

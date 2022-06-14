@@ -44,6 +44,27 @@
             <column name="domingo" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
+            <column name="segunda_feira_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="terca_feira_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="quarta_feira_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="quinta_feira_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="sexta_feira_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="sabado_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="domingo_email_enviado" type="boolean">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="reserva_quadra_tenis" columnName="segundafeira" columnDataType="${datetimeType}"/>
@@ -82,6 +103,13 @@
             <column name="sextafeira" type="date"/>
             <column name="sabado" type="date"/>
             <column name="domingo" type="date"/>
+            <column name="segunda_feira_email_enviado" type="boolean"/>
+            <column name="terca_feira_email_enviado" type="boolean"/>
+            <column name="quarta_feira_email_enviado" type="boolean"/>
+            <column name="quinta_feira_email_enviado" type="boolean"/>
+            <column name="sexta_feira_email_enviado" type="boolean"/>
+            <column name="sabado_email_enviado" type="boolean"/>
+            <column name="domingo_email_enviado" type="boolean"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>
