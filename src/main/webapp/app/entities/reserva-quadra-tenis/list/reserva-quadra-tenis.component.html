@@ -32,15 +32,10 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="emailDestino">
+          <!--<th scope="col" jhiSortBy="emailDestino">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.emailDestino">Email Destino</span>
             <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="templateEmail">
-            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.templateEmail">Template Email</span>
-            <fa-icon icon="sort"></fa-icon>
-          </th>
+          </th>-->
           <th scope="col" jhiSortBy="semana">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.semana">Semana</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -65,7 +60,7 @@
           <th scope="col" jhiSortBy="domingo">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo">Domingo</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="segundaFeiraEmailEnviado">
+          <!--<th scope="col" jhiSortBy="segundaFeiraEmailEnviado">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado">Segunda Feira Email Enviado</span>
             <fa-icon icon="sort"></fa-icon>
           </th>
@@ -92,32 +87,28 @@
           <th scope="col" jhiSortBy="domingoEmailEnviado">
             <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado">Domingo Email Enviado</span>
             <fa-icon icon="sort"></fa-icon>
-          </th>
+          </th>-->
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let reservaQuadraTenis of reservaQuadraTenis; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'view']">{{ reservaQuadraTenis.id }}</a>
-          </td>
-          <td>{{ reservaQuadraTenis.emailDestino }}</td>
-          <td>{{ reservaQuadraTenis.templateEmail }}</td>
+          <!--<td>{{ reservaQuadraTenis.emailDestino }}</td>-->
           <td>{{ reservaQuadraTenis.semana | formatMediumDate }}</td>
-          <td>{{ reservaQuadraTenis.segundafeira | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.tercafeira | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.quartafeira | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.quintafeira | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.sextafeira | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.sabado | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.domingo | formatMediumDatetime }}</td>
-          <td>{{ reservaQuadraTenis.segundaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.segundafeira | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.tercafeira | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.quartafeira | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.quintafeira | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.sextafeira | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.sabado | formatMediumTime }}</td>
+          <td>{{ reservaQuadraTenis.domingo | formatMediumTime }}</td>
+          <!--<td>{{ reservaQuadraTenis.segundaFeiraEmailEnviado }}</td>
           <td>{{ reservaQuadraTenis.tercaFeiraEmailEnviado }}</td>
           <td>{{ reservaQuadraTenis.quartaFeiraEmailEnviado }}</td>
           <td>{{ reservaQuadraTenis.quintaFeiraEmailEnviado }}</td>
           <td>{{ reservaQuadraTenis.sextaFeiraEmailEnviado }}</td>
           <td>{{ reservaQuadraTenis.sabadoEmailEnviado }}</td>
-          <td>{{ reservaQuadraTenis.domingoEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.domingoEmailEnviado }}</td>-->
           <td class="text-end">
             <div class="btn-group">
               <button

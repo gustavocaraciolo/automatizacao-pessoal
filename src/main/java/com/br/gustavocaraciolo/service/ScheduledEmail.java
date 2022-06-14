@@ -2,6 +2,7 @@ package com.br.gustavocaraciolo.service;
 
 import com.br.gustavocaraciolo.domain.ReservaQuadraTenis;
 import com.br.gustavocaraciolo.repository.ReservaQuadraTenisRepository;
+import com.br.gustavocaraciolo.utils.DiaDaSemanaEnum;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ public class ScheduledEmail {
         List<ReservaQuadraTenis> all = this.reservaQuadraTenisRepository.findAll();
 
         for (ReservaQuadraTenis reservaQuadraTenis : all) {
+            //String templateEmailOriginal = reservaQuadraTenis.getTemplateEmail();
+
             ZonedDateTime dtSegundaFeira = reservaQuadraTenis.getSegundafeira().minusDays(2);
             ZonedDateTime dtTercaFeira = reservaQuadraTenis.getTercafeira().minusDays(2);
             ZonedDateTime dtQuartaFeira = reservaQuadraTenis.getQuartafeira().minusDays(2);
@@ -35,54 +38,90 @@ public class ScheduledEmail {
             ZonedDateTime dtDomingo = reservaQuadraTenis.getDomingo().minusDays(2);
 
             if (compararDataHora(dtNowZonedDateTime, dtSegundaFeira) && !reservaQuadraTenis.getSegundaFeiraEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "segunda-feira às " + reservaQuadraTenis.getSegundafeira().getHour() + ":" + reservaQuadraTenis.getSegundafeira().getMinute()));
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.SEGUNDA_FEIRA);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtTercaFeira) && !reservaQuadraTenis.getTercaFeiraEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.TERCA_FEIRA);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtQuartaFeira) && !reservaQuadraTenis.getQuintaFeiraEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.QUARTA_FEIRA);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtQuintaFeira) && !reservaQuadraTenis.getQuintaFeiraEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.QUINTA_FEIRA);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtSextaFeira) && !reservaQuadraTenis.getSextaFeiraEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.SEXTA_FEIRA);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtSabado) && !reservaQuadraTenis.getSabadoEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.SABADO);
+            }
+            if (compararDataHora(dtNowZonedDateTime, dtDomingo) && !reservaQuadraTenis.getDomingoEmailEnviado()) {
+                buildEmail(reservaQuadraTenis, DiaDaSemanaEnum.DOMINGO);
+            }
+            //reservaQuadraTenis.setTemplateEmail(templateEmailOriginal);
+            //reservaQuadraTenisRepository.save(reservaQuadraTenis);
+        }
+    }
+
+    private void buildEmail(ReservaQuadraTenis reservaQuadraTenis, DiaDaSemanaEnum dia) {
+        String templateEmailOriginal = reservaQuadraTenis.getTemplateEmail();
+        switch (dia) {
+            case SEGUNDA_FEIRA:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getSegundafeira().getHour() + ":"
+                        + reservaQuadraTenis.getSegundafeira().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setSegundaFeiraEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtTercaFeira) && !reservaQuadraTenis.getTercaFeiraEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "terça-feira às " + reservaQuadraTenis.getTercafeira().getHour() + ":" + reservaQuadraTenis.getTercafeira().getMinute()));
+                break;
+            case TERCA_FEIRA:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getTercafeira().getHour() + ":"
+                        + reservaQuadraTenis.getTercafeira().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setTercaFeiraEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtQuartaFeira) && !reservaQuadraTenis.getQuintaFeiraEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "quarta-feira às " + reservaQuadraTenis.getQuartafeira().getHour() + ":" + reservaQuadraTenis.getQuartafeira().getMinute()));
+                break;
+            case QUARTA_FEIRA:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getQuartafeira().getHour() + ":"
+                        + reservaQuadraTenis.getQuartafeira().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setQuartaFeiraEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtQuintaFeira) && !reservaQuadraTenis.getQuintaFeiraEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "quinta-feira às " + reservaQuadraTenis.getQuintafeira().getHour() + ":" + reservaQuadraTenis.getQuintafeira().getMinute()));
+                break;
+            case QUINTA_FEIRA:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getQuintafeira().getHour() + ":"
+                        + reservaQuadraTenis.getQuintafeira().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setQuintaFeiraEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtSextaFeira) && !reservaQuadraTenis.getSextaFeiraEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "sexta-feira às " + reservaQuadraTenis.getSextafeira().getHour() + ":" + reservaQuadraTenis.getSextafeira().getMinute()));
+                break;
+            case SEXTA_FEIRA:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getSextafeira().getHour() + ":"
+                        + reservaQuadraTenis.getSextafeira().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setSextaFeiraEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtSabado) && !reservaQuadraTenis.getSabadoEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "sábado às " + reservaQuadraTenis.getSabado().getHour() + ":" + reservaQuadraTenis.getSabado().getMinute()));
+                break;
+            case SABADO:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getSabado().getHour() + ":"
+                        + reservaQuadraTenis.getSabado().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setSabadoEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
-            if (compararDataHora(dtNowZonedDateTime, dtDomingo) && !reservaQuadraTenis.getDomingoEmailEnviado()) {
-                reservaQuadraTenis.setTemplateEmail(reservaQuadraTenis.getTemplateEmail().replace("{data_hora}",
-                    "domingo às " + reservaQuadraTenis.getDomingo().getHour() + ":" + reservaQuadraTenis.getDomingo().getMinute()));
+                break;
+            case DOMINGO:
+                reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
+                    dia.label + " às " + reservaQuadraTenis.getDomingo().getHour() + ":"
+                        + reservaQuadraTenis.getDomingo().getMinute()));
                 this.mailService.sendReservaQuadraTenisMail(reservaQuadraTenis);
                 reservaQuadraTenis.setDomingoEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
-            }
+                break;
         }
     }
 

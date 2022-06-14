@@ -8,6 +8,7 @@ import { AlertErrorComponent } from './alert/alert-error.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { DurationPipe } from './date/duration.pipe';
 import { FormatMediumDatetimePipe } from './date/format-medium-datetime.pipe';
+import { FormatMediumTimePipe } from './date/format-medium-time.pipe';
 import { FormatMediumDatePipe } from './date/format-medium-date.pipe';
 import { SortByDirective } from './sort/sort-by.directive';
 import { SortDirective } from './sort/sort.directive';
@@ -23,6 +24,7 @@ import { ItemCountComponent } from './pagination/item-count.component';
     HasAnyAuthorityDirective,
     DurationPipe,
     FormatMediumDatetimePipe,
+    FormatMediumTimePipe,
     FormatMediumDatePipe,
     SortByDirective,
     SortDirective,
@@ -37,6 +39,7 @@ import { ItemCountComponent } from './pagination/item-count.component';
     HasAnyAuthorityDirective,
     DurationPipe,
     FormatMediumDatetimePipe,
+    FormatMediumTimePipe,
     FormatMediumDatePipe,
     SortByDirective,
     SortDirective,
