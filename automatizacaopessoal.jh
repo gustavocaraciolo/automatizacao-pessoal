@@ -10,6 +10,13 @@ entity ReservaQuadraTenis {
     sextafeira ZonedDateTime
     sabado ZonedDateTime
     domingo ZonedDateTime
+    segundaFeiraEmailEnviado Boolean
+    tercaFeiraEmailEnviado Boolean
+    quartaFeiraEmailEnviado Boolean
+    quintaFeiraEmailEnviado Boolean
+    sextaFeiraEmailEnviado Boolean
+    sabadoEmailEnviado Boolean
+    domingoEmailEnviado Boolean
 }
 
 paginate ReservaQuadraTenis with pagination
