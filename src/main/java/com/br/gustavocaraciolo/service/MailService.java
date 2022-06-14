@@ -1,5 +1,6 @@
 package com.br.gustavocaraciolo.service;
 
+import com.br.gustavocaraciolo.domain.ReservaQuadraTenis;
 import com.br.gustavocaraciolo.domain.User;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -28,6 +29,8 @@ public class MailService {
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
     private static final String USER = "user";
+
+    private static final String RESERVA_QUADRA_TENIS = "reservaQuadraTenis";
 
     private static final String BASE_URL = "baseUrl";
 
@@ -108,5 +111,15 @@ public class MailService {
     public void sendPasswordResetMail(User user) {
         log.debug("Sending password reset email to '{}'", user.getEmail());
         sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title");
+    }
+
+    @Async
+    public void sendReservaQuadraTenisMail(ReservaQuadraTenis reservaQuadraTenis) {
+        log.debug("Sending reserva Quadra Tenis Email to '{}'", reservaQuadraTenis.getEmailDestino());
+        Locale locale = Locale.forLanguageTag("pt-BR");
+        Context context = new Context(locale);
+        context.setVariable(RESERVA_QUADRA_TENIS, reservaQuadraTenis);
+        String content = templateEngine.process("mail/reservaQuadraTenisEmail", context);
+        sendEmail(reservaQuadraTenis.getEmailDestino(), "Reserva Quadra de Tênis", content, false, true);
     }
 }

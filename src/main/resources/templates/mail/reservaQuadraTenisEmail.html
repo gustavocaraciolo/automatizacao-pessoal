@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt">
+  <head>
+    <title th:text="#{email.activation.title}">JHipster activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <p>Prezados, </p>
+    <p th:text="${reservaQuadraTenis.getTemplateEmail()}"></p>
+    <p>
+      <span>Aguardo retorno. </span>
+      <br />
+      <em>Torre 3, apartamento 204.</em>
+    </p>
+  </body>
+</html>
