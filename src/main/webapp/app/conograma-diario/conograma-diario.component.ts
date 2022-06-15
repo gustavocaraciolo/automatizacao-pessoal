@@ -25,6 +25,7 @@ export class ConogramaDiarioComponent implements OnInit {
 
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
   cronogramaDiario: ICronogramaDiario | null = null;
+  blocos?: IBlocos | null = null;
 
   editFormBlocos = this.fb.group({
     id: [],
@@ -184,6 +185,7 @@ export class ConogramaDiarioComponent implements OnInit {
               protected cronogramaDiarioService: CronogramaDiarioService,
               protected activatedRoute: ActivatedRoute,
               protected fb: FormBuilder) {
+    dayjs.tz.setDefault("Africa/Luanda")
     this.data = dayjs().startOf('day');
     this.dia = this.data.format(DATE_FORMAT_DESC);
   }
@@ -553,9 +555,20 @@ export class ConogramaDiarioComponent implements OnInit {
   protected createFromFormBlocos(): IBlocos {
     return {
       ...new Blocos(),
-      id: this.editFormBlocos.get(['id'])!.value,
-      zeroAM: dayjs().startOf('day'),
-      cronogramaDiario: this.cronogramaDiario,
+      id: 1,
+      zeroAM: this.data.utc(true),
+      zeroAMeDez: this.data.utc(true).minute(10),
+      zeroAMeVinte:this.data.utc(true).minute(20),
+      zeroAMeTrinta: this.data.utc(true).minute(30),
+      zeroAMeQuarenta: this.data.utc(true).minute(40),
+      zeroAMeCinquenta: this.data.utc(true).minute(50),
+      umAM: this.data.utc(true).hour(1),
+      umAMeDez: this.data.utc(true).hour(1).minute(10),
+      umAMeVinte: this.data.utc(true).hour(1).minute(20),
+      umAMeTrinta: this.data.utc(true).hour(1).minute(30),
+      umAMeQuarenta: this.data.utc(true).hour(1).minute(40),
+      umAMeCinquenta: this.data.utc(true).hour(1).minute(50),
+      cronogramaDiario: this.cronogramaDiario
     };
   }
 
@@ -597,7 +610,7 @@ export class ConogramaDiarioComponent implements OnInit {
     return {
       ...new CronogramaDiario(),
       id: this.cronogramaDiario?.id,
-      dia: this.data,
+      dia: this.data
     };
   }
 
