@@ -19,6 +19,180 @@ entity ReservaQuadraTenis {
     domingoEmailEnviado Boolean
 }
 
+entity Blocos {
+	zeroAM ZonedDateTime
+    zeroAMeDez ZonedDateTime
+    zeroAMeVinte ZonedDateTime
+    zeroAMeTrinta ZonedDateTime
+    zeroAMeQuarenta ZonedDateTime
+    zeroAMeCinquenta ZonedDateTime
+    zeroPM ZonedDateTime
+    zeroPMeDez ZonedDateTime
+    zeroPMeVinte ZonedDateTime
+    zeroPMeTrinta ZonedDateTime
+    zeroPMeQuarenta ZonedDateTime
+    zeroPMeCinquenta ZonedDateTime
+    
+    umAM ZonedDateTime
+    umAMeDez ZonedDateTime
+    umAMeVinte ZonedDateTime
+    umAMeTrinta ZonedDateTime
+    umAMeQuarenta ZonedDateTime
+    umAMeCinquenta ZonedDateTime
+	umPM ZonedDateTime
+    umPMeDez ZonedDateTime
+    umPMeVinte ZonedDateTime
+    umPMeTrinta ZonedDateTime
+    umPMeQuarenta ZonedDateTime
+    umPMeCinquenta ZonedDateTime
+
+    doisAM ZonedDateTime
+    doisAMeDez ZonedDateTime
+    doisAMeVinte ZonedDateTime
+    doisAMeTrinta ZonedDateTime
+    doisAMeQuarenta ZonedDateTime
+    doisAMeCinquenta ZonedDateTime
+    doisPM ZonedDateTime
+    doisPMeDez ZonedDateTime
+    doisPMeVinte ZonedDateTime
+    doisPMeTrinta ZonedDateTime
+    doisPMeQuarenta ZonedDateTime
+    doisPMeCinquenta ZonedDateTime
+
+	tresAM ZonedDateTime
+    tresAMeDez ZonedDateTime
+    tresAMeVinte ZonedDateTime
+    tresAMeTrinta ZonedDateTime
+    tresAMeQuarenta ZonedDateTime
+    tresAMeCinquenta ZonedDateTime
+    tresPM ZonedDateTime
+    tresPMeDez ZonedDateTime
+    tresPMeVinte ZonedDateTime
+    tresPMeTrinta ZonedDateTime
+    tresPMeQuarenta ZonedDateTime
+    tresPMeCinquenta ZonedDateTime
+	
+    quatroAM ZonedDateTime
+    quatroAMeDez ZonedDateTime
+    quatroAMeVinte ZonedDateTime
+    quatroAMeTrinta ZonedDateTime
+    quatroAMeQuarenta ZonedDateTime
+    quatroAMeCinquenta ZonedDateTime
+    quatroPM ZonedDateTime
+    quatroPMeDez ZonedDateTime
+    quatroPMeVinte ZonedDateTime
+    quatroPMeTrinta ZonedDateTime
+    quatroPMeQuarenta ZonedDateTime
+    quatroPMeCinquenta ZonedDateTime
+    
+    cincoAM ZonedDateTime
+    cincoAMeDez ZonedDateTime
+    cincoAMeVinte ZonedDateTime
+    cincoAMeTrinta ZonedDateTime
+    cincoAMeQuarenta ZonedDateTime
+    cincoAMeCinquenta ZonedDateTime
+    cincoPM ZonedDateTime
+    cincoPMeDez ZonedDateTime
+    cincoPMeVinte ZonedDateTime
+    cincoPMeTrinta ZonedDateTime
+    cincoPMeQuarenta ZonedDateTime
+    cincoPMeCinquenta ZonedDateTime
+	
+    seisAM ZonedDateTime
+    seisAMeDez ZonedDateTime
+    seisAMeVinte ZonedDateTime
+    seisAMeTrinta ZonedDateTime
+    seisAMeQuarenta ZonedDateTime
+    seisAMeCinquenta ZonedDateTime
+    seisPM ZonedDateTime
+    seisPMeDez ZonedDateTime
+    seisPMeVinte ZonedDateTime
+    seisPMeTrinta ZonedDateTime
+    seisPMeQuarenta ZonedDateTime
+    seisPMeCinquenta ZonedDateTime
+
+    seteAM ZonedDateTime
+    seteAMeDez ZonedDateTime
+    seteAMeVinte ZonedDateTime
+    seteAMeTrinta ZonedDateTime
+    seteAMeQuarenta ZonedDateTime
+    seteAMeCinquenta ZonedDateTime
+    setePM ZonedDateTime
+    setePMeDez ZonedDateTime
+    setePMeVinte ZonedDateTime
+    setePMeTrinta ZonedDateTime
+    setePMeQuarenta ZonedDateTime
+    setePMeCinquenta ZonedDateTime
+
+    oitoAM ZonedDateTime
+    oitoAMeDez ZonedDateTime
+    oitoAMeVinte ZonedDateTime
+    oitoAMeTrinta ZonedDateTime
+    oitoAMeQuarenta ZonedDateTime
+    oitoAMeCinquenta ZonedDateTime
+    oitoPM ZonedDateTime
+    oitoPMeDez ZonedDateTime
+    oitoPMeVinte ZonedDateTime
+    oitoPMeTrinta ZonedDateTime
+    oitoPMeQuarenta ZonedDateTime
+    oitoPMeCinquenta ZonedDateTime
+
+    noveAM ZonedDateTime
+    noveAMeDez ZonedDateTime
+    noveAMeVinte ZonedDateTime
+    noveAMeTrinta ZonedDateTime
+    noveAMeQuarenta ZonedDateTime
+    noveAMeCinquenta ZonedDateTime
+    novePM ZonedDateTime
+    novePMeDez ZonedDateTime
+    novePMeVinte ZonedDateTime
+    novePMeTrinta ZonedDateTime
+    novePMeQuarenta ZonedDateTime
+    novePMeCinquenta ZonedDateTime
+
+    dezAM ZonedDateTime
+    dezAMeDez ZonedDateTime
+    dezAMeVinte ZonedDateTime
+    dezAMeTrinta ZonedDateTime
+    dezAMeQuarenta ZonedDateTime
+    dezAMeCinquenta ZonedDateTime
+    dezPM ZonedDateTime
+    dezPMeDez ZonedDateTime
+    dezPMeVinte ZonedDateTime
+    dezPMeTrinta ZonedDateTime
+    dezPMeQuarenta ZonedDateTime
+    dezPMeCinquenta ZonedDateTime
+
+    onzeAM ZonedDateTime
+    onzeAMeDez ZonedDateTime
+    onzeAMeVinte ZonedDateTime
+    onzeAMeTrinta ZonedDateTime
+    onzeAMeQuarenta ZonedDateTime
+    onzeAMeCinquenta ZonedDateTime
+    onzePM ZonedDateTime
+    onzePMeDez ZonedDateTime
+    onzePMeVinte ZonedDateTime
+    onzePMeTrinta ZonedDateTime
+    onzePMeQuarenta ZonedDateTime
+    onzePMeCinquenta ZonedDateTime
+
+
+}
+
+entity CronogramaDiario {
+	dia LocalDate
+}
+
+entity Atividade {
+	cor String
+    descricao String
+}
+
+relationship OneToMany {
+    CronogramaDiario{blocos} to Blocos{cronogramaDiario(dia)}
+    Blocos{atividade} to Atividade{blocos}
+}
+
 paginate ReservaQuadraTenis with pagination
 
 // Use Data Transfer Objects (DTO)
