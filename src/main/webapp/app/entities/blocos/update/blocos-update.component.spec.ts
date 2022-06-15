@@ -145,7 +145,7 @@ describe('Blocos Management Update Component', () => {
     });
   });
 
-  describe('Tracking relationships identifiers', () => {
+  /*describe('Tracking relationships identifiers', () => {
     describe('trackCronogramaDiarioById', () => {
       it('Should return tracked CronogramaDiario primary key', () => {
         const entity = { id: 123 };
@@ -153,5 +153,5 @@ describe('Blocos Management Update Component', () => {
         expect(trackResult).toEqual(entity.id);
       });
     });
-  });
+  });*/
 });
