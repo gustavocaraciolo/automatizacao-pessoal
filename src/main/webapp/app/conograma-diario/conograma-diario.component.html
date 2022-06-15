@@ -1,43 +1,60 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> < </button>
-    <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> > </button>
-    <h1 class="text-capitalize text-center">{{ dia }}</h1>
-    <!--<h1 class="text-capitalize text-center" jhiTranslate="conograma-diario.title">Title</h1>
-    <h5 class="text-center" jhiTranslate="conograma-diario.subtitle">Subtitle</h5>-->
-    <hr/>
-    <div class="btn-group" role="group" aria-label="Checkboxes with Bootstrap 5">
-      <input type="checkbox" formControlName="one" class="btn-check" id="zeroAM" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAM">00:00</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeDez" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAMeDez">00:10</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeVinte" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAMeVinte">00:20</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeTrinta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAMeTrinta">00:30</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeQuarenta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAMeQuarenta">00:40</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="zeroAMeCinquenta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="zeroAMeCinquenta">00:50</label>
-    </div>
-    <br/>
-    <div class="btn-group" role="group" aria-label="Checkboxes with Bootstrap 5">
-      <input type="checkbox" formControlName="one" class="btn-check" id="umAM" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAM">01:00</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeDez" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAMeDez">01:10</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeVinte" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAMeVinte">01:20</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeTrinta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAMeTrinta">01:30</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeQuarenta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAMeQuarenta">01:40</label>
-      <input type="checkbox" formControlName="two" class="btn-check" id="umAMeCinquenta" autocomplete="off">
-      <label class="btn btn-outline-primary" for="umAMeCinquenta">01:50</label>
+<div class="d-flex justify-content-center">
+
+    <div class="col-md-10">
+      <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> <</button>
+      <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> ></button>
+      <h1 class="text-capitalize text-center">{{ dia }}</h1>
+      <!--<h1 class="text-capitalize text-center" jhiTranslate="conograma-diario.title">Title</h1>
+      <h5 class="text-center" jhiTranslate="conograma-diario.subtitle">Subtitle</h5>-->
+      <hr/>
+      <div class="d-flex" role="group">
+        <input type="checkbox" id="field_zeroAM" data-cy="zeroAM" class="btn-check" name="zeroAM" formControlName="zeroAM">
+        <label class="btn btn-outline-primary" for="field_zeroAM">00:00</label>
+        <input type="checkbox" id="field_zeroAMeDez" data-cy="zeroAMeDez" class="btn-check" name="zeroAMeDez" formControlName="zeroAMeDez">
+        <label class="btn btn-outline-primary" for="field_zeroAMeDez">00:10</label>
+        <input type="checkbox" id="field_zeroAMeVinte" data-cy="zeroAMeVinte" class="btn-check" name="zeroAMeVinte" formControlName="zeroAMeVinte">
+        <label class="btn btn-outline-primary" for="field_zeroAMeVinte">00:20</label>
+        <input type="checkbox" id="field_zeroAMeTrinta" data-cy="zeroAMeTrinta" class="btn-check" name="zeroAMeTrinta" formControlName="zeroAMeTrinta">
+        <label class="btn btn-outline-primary" for="field_zeroAMeTrinta">00:30</label>
+        <input type="checkbox" id="field_zeroAMeQuarenta" data-cy="zeroAMeQuarenta" class="btn-check" name="zeroAMeQuarenta" formControlName="zeroAMeQuarenta">
+        <label class="btn btn-outline-primary" for="field_zeroAMeQuarenta">00:40</label>
+        <input type="checkbox" id="field_zeroAMeCinquenta" data-cy="zeroAMeCinquenta" class="btn-check" name="zeroAMeCinquenta" formControlName="zeroAMeCinquenta">
+        <label class="btn btn-outline-primary" for="field_zeroAMeCinquenta">00:50</label>
+      </div>
+      <br/>
+      <div class="d-flex" role="group">
+        <input type="checkbox" id="field_umAM" data-cy="umAM" class="btn-check" name="umAM" formControlName="umAM">
+        <label class="btn btn-outline-primary" for="field_umAM">01:00</label>
+        <input type="checkbox" id="field_umAMeDez" data-cy="umAMeDez" class="btn-check" name="umAMeDez" formControlName="umAMeDez">
+        <label class="btn btn-outline-primary" for="field_umAMeDez">01:10</label>
+        <input type="checkbox" id="field_umAMeVinte" data-cy="umAMeVinte" class="btn-check" name="umAMeVinte" formControlName="umAMeVinte">
+        <label class="btn btn-outline-primary" for="field_umAMeVinte">01:20</label>
+        <input type="checkbox" id="field_umAMeTrinta" data-cy="umAMeTrinta" class="btn-check" name="umAMeTrinta" formControlName="umAMeTrinta">
+        <label class="btn btn-outline-primary" for="field_umAMeTrinta">01:30</label>
+        <input type="checkbox" id="field_umAMeQuarenta" data-cy="umAMeQuarenta" class="btn-check" name="umAMeQuarenta" formControlName="umAMeQuarenta">
+        <label class="btn btn-outline-primary" for="field_umAMeQuarenta">01:40</label>
+        <input type="checkbox" id="field_umAMeCinquenta" data-cy="umAMeCinquenta" class="btn-check" name="umAMeCinquenta" formControlName="umAMeCinquenta">
+        <label class="btn btn-outline-primary" for="field_umAMeCinquenta">01:50</label>
+      </div>
+
+      <!--<p class="text-justify" jhiTranslate="conograma-diario.content">Content</p>-->
     </div>
 
-    <!--<p class="text-justify" jhiTranslate="conograma-diario.content">Content</p>-->
-  </div>
-  <div class="col-md-1"></div>
+  <form name="editForm" role="form" novalidate (click)="save()" [formGroup]="editFormCronogramaDiario">
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editFormBlocos.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+  </form>
 </div>

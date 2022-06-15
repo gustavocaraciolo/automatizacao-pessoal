@@ -60,7 +60,7 @@ public class ScheduledEmail {
 
     private void buildEmail(ReservaQuadraTenis reservaQuadraTenis, DiaDaSemanaEnum dia) {
         String templateEmailOriginal = reservaQuadraTenis.getTemplateEmail();
-        switch (dia) {
+        /*switch (dia) {
             case SEGUNDA_FEIRA:
                 reservaQuadraTenis.setCorpoEmail(templateEmailOriginal.replace("{data_hora}",
                     dia.label + " às " + reservaQuadraTenis.getSegundafeira().getHour() + ":"
@@ -117,7 +117,7 @@ public class ScheduledEmail {
                 reservaQuadraTenis.setDomingoEmailEnviado(true);
                 reservaQuadraTenisRepository.save(reservaQuadraTenis);
                 break;
-        }
+        }*/
     }
 
     private boolean compararDataHora(ZonedDateTime dtNowZonedDateTime, ZonedDateTime dataHora) {
