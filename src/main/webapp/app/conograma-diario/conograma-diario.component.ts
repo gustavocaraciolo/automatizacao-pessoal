@@ -24,8 +24,8 @@ export class ConogramaDiarioComponent implements OnInit {
   isLoading = false;
 
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
-  cronogramaDiario: ICronogramaDiario | null = null;
   blocos?: IBlocos | null = null;
+  cronogramaDiario?: ICronogramaDiario | null = null;
 
   editFormBlocos = this.fb.group({
     id: [],
@@ -353,7 +353,7 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   save(): void {
-    this.saveCronogramaDiario();
+    //this.saveCronogramaDiario();
     this.saveBlocos();
   }
 
@@ -555,10 +555,10 @@ export class ConogramaDiarioComponent implements OnInit {
   protected createFromFormBlocos(): IBlocos {
     return {
       ...new Blocos(),
-      id: 1,
+      id: this.blocos?.id,
       zeroAM: this.data.utc(true),
       zeroAMeDez: this.data.utc(true).minute(10),
-      zeroAMeVinte:this.data.utc(true).minute(20),
+      zeroAMeVinte: this.data.utc(true).minute(20),
       zeroAMeTrinta: this.data.utc(true).minute(30),
       zeroAMeQuarenta: this.data.utc(true).minute(40),
       zeroAMeCinquenta: this.data.utc(true).minute(50),
@@ -568,7 +568,7 @@ export class ConogramaDiarioComponent implements OnInit {
       umAMeTrinta: this.data.utc(true).hour(1).minute(30),
       umAMeQuarenta: this.data.utc(true).hour(1).minute(40),
       umAMeCinquenta: this.data.utc(true).hour(1).minute(50),
-      cronogramaDiario: this.cronogramaDiario
+      cronogramaDiario: this.createFromFormCronogramaDiario()
     };
   }
 
@@ -577,26 +577,16 @@ export class ConogramaDiarioComponent implements OnInit {
     this.isLoading = true;
     // '2022-06-14'
     const findByDate = this.data.format(DATE_FORMAT);
-    this.cronogramaDiarioService.findByDate(findByDate).subscribe({
-      next: (res: HttpResponse<ICronogramaDiario>) => {
+    this.blocosService.findByDate(findByDate).subscribe({
+      next: (res: HttpResponse<IBlocos>) => {
         this.isLoading = false;
-        this.cronogramaDiario = res.body;
+        this.blocos = res.body;
       },
       error: () => {
-        this.cronogramaDiario = null;
+        this.blocos = null;
         this.isLoading = false;
       },
     });
-  }
-
-  saveCronogramaDiario(): void {
-    this.isSaving = true;
-    const cronogramaDiario = this.createFromFormCronogramaDiario();
-    if (cronogramaDiario.id !== undefined) {
-      this.subscribeToSaveResponseCronogramaDiario(this.cronogramaDiarioService.update(cronogramaDiario));
-    } else {
-      this.subscribeToSaveResponseCronogramaDiario(this.cronogramaDiarioService.create(cronogramaDiario));
-    }
   }
 
   protected subscribeToSaveResponseCronogramaDiario(result: Observable<HttpResponse<ICronogramaDiario>>): void {
@@ -610,7 +600,7 @@ export class ConogramaDiarioComponent implements OnInit {
     return {
       ...new CronogramaDiario(),
       id: this.cronogramaDiario?.id,
-      dia: this.data
+      dia: this.data.utc(true)
     };
   }
 

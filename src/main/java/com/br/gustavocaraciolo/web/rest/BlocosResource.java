@@ -1,13 +1,18 @@
 package com.br.gustavocaraciolo.web.rest;
 
 import com.br.gustavocaraciolo.domain.Blocos;
+import com.br.gustavocaraciolo.domain.CronogramaDiario;
 import com.br.gustavocaraciolo.repository.BlocosRepository;
+import com.br.gustavocaraciolo.repository.CronogramaDiarioRepository;
 import com.br.gustavocaraciolo.web.rest.errors.BadRequestAlertException;
+
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,8 +39,11 @@ public class BlocosResource {
 
     private final BlocosRepository blocosRepository;
 
-    public BlocosResource(BlocosRepository blocosRepository) {
+    private final CronogramaDiarioRepository cronogramaDiarioRepository;
+
+    public BlocosResource(BlocosRepository blocosRepository, CronogramaDiarioRepository cronogramaDiarioRepository) {
         this.blocosRepository = blocosRepository;
+        this.cronogramaDiarioRepository = cronogramaDiarioRepository;
     }
 
     /**
@@ -51,6 +59,18 @@ public class BlocosResource {
         if (blocos.getId() != null) {
             throw new BadRequestAlertException("A new blocos cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        if (blocos.getCronogramaDiario() != null && blocos.getCronogramaDiario().getDia() != null) {
+            Optional<CronogramaDiario> cronogramaDiario = cronogramaDiarioRepository.findByDiaEquals(blocos.getCronogramaDiario().getDia());
+            if(cronogramaDiario.isPresent()) {
+                blocos.setCronogramaDiario(cronogramaDiario.get());
+            }else {
+                CronogramaDiario save = new CronogramaDiario();
+                save.setDia(blocos.getCronogramaDiario().getDia());
+                save = cronogramaDiarioRepository.save(save);
+                blocos.setCronogramaDiario(save);
+            }
+        }
+
         Blocos result = blocosRepository.save(blocos);
         return ResponseEntity
             .created(new URI("/api/blocos/" + result.getId()))
@@ -61,7 +81,7 @@ public class BlocosResource {
     /**
      * {@code PUT  /blocos/:id} : Updates an existing blocos.
      *
-     * @param id the id of the blocos to save.
+     * @param id     the id of the blocos to save.
      * @param blocos the blocos to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated blocos,
      * or with status {@code 400 (Bad Request)} if the blocos is not valid,
@@ -93,7 +113,7 @@ public class BlocosResource {
     /**
      * {@code PATCH  /blocos/:id} : Partial updates given fields of an existing blocos, field will ignore if it is null
      *
-     * @param id the id of the blocos to save.
+     * @param id     the id of the blocos to save.
      * @param blocos the blocos to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated blocos,
      * or with status {@code 400 (Bad Request)} if the blocos is not valid,
@@ -101,7 +121,7 @@ public class BlocosResource {
      * or with status {@code 500 (Internal Server Error)} if the blocos couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/blocos/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/blocos/{id}", consumes = {"application/json", "application/merge-patch+json"})
     public ResponseEntity<Blocos> partialUpdateBlocos(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Blocos blocos
@@ -603,5 +623,12 @@ public class BlocosResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/blocos/by-date/{date}")
+    public ResponseEntity<Blocos> getCronogramaDiarioByDate(@PathVariable LocalDate date) {
+        log.debug("REST request to get CronogramaDiario : {}", date);
+        Optional<Blocos> blocos = blocosRepository.findByCronogramaDiario_DiaEquals(date);
+        return ResponseUtil.wrapOrNotFound(blocos);
     }
 }

@@ -8,13 +8,13 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IBlocos, getBlocosIdentifier } from '../blocos.model';
-
 export type EntityResponseType = HttpResponse<IBlocos>;
 export type EntityArrayResponseType = HttpResponse<IBlocos[]>;
 
 @Injectable({ providedIn: 'root' })
 export class BlocosService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/blocos');
+  protected resourceUrlByDate = this.applicationConfigService.getEndpointFor('api/blocos/by-date');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -42,6 +42,12 @@ export class BlocosService {
   find(id: number): Observable<EntityResponseType> {
     return this.http
       .get<IBlocos>(`${this.resourceUrl}/${id}`, { observe: 'response' })
+      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
+  findByDate(date: string): Observable<EntityResponseType> {
+    return this.http
+      .get<IBlocos>(`${this.resourceUrlByDate}/${date}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

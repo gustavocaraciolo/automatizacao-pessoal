@@ -16,7 +16,6 @@ export type EntityArrayResponseType = HttpResponse<ICronogramaDiario[]>;
 @Injectable({ providedIn: 'root' })
 export class CronogramaDiarioService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/cronograma-diarios');
-  protected resourceUrlByDate = this.applicationConfigService.getEndpointFor('api/cronograma-diarios/by-date');
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
@@ -48,12 +47,6 @@ export class CronogramaDiarioService {
   find(id: number): Observable<EntityResponseType> {
     return this.http
       .get<ICronogramaDiario>(`${this.resourceUrl}/${id}`, { observe: 'response' })
-      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
-  }
-
-  findByDate(date: string): Observable<EntityResponseType> {
-    return this.http
-      .get<ICronogramaDiario>(`${this.resourceUrlByDate}/${date}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

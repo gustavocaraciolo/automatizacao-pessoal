@@ -1,6 +1,8 @@
 package com.br.gustavocaraciolo.repository;
 
 import com.br.gustavocaraciolo.domain.Blocos;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -25,6 +27,8 @@ public interface BlocosRepository extends JpaRepository<Blocos, Long> {
     default Page<Blocos> findAllWithEagerRelationships(Pageable pageable) {
         return this.findAllWithToOneRelationships(pageable);
     }
+
+    Optional<Blocos> findByCronogramaDiario_DiaEquals(LocalDate dia);
 
     @Query(
         value = "select distinct blocos from Blocos blocos left join fetch blocos.cronogramaDiario",
