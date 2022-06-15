@@ -164,7 +164,7 @@ export class ReservaQuadraTenisUpdateComponent implements OnInit {
   protected createFromForm(): IReservaQuadraTenis {
     return {
       ...new ReservaQuadraTenis(),
-      id: this.editForm.get(['id'])!.value,
+      id: this.editForm.get(['id'])!.value ? this.editForm.get(['id'])!.value : undefined,
       emailDestino: this.editForm.get(['emailDestino'])!.value,
       templateEmail: this.editForm.get(['templateEmail'])!.value,
       semana: this.editForm.get(['semana'])!.value,
