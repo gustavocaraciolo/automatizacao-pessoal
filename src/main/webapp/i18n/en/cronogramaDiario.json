@@ -1,0 +1,25 @@
+{
+  "automatizacaoPessoalApp": {
+    "cronogramaDiario": {
+      "home": {
+        "title": "Cronograma Diarios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cronograma Diario",
+        "createOrEditLabel": "Create or edit a Cronograma Diario",
+        "notFound": "No Cronograma Diarios found"
+      },
+      "created": "A new Cronograma Diario is created with identifier {{ param }}",
+      "updated": "A Cronograma Diario is updated with identifier {{ param }}",
+      "deleted": "A Cronograma Diario is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cronograma Diario {{ id }}?"
+      },
+      "detail": {
+        "title": "Cronograma Diario"
+      },
+      "id": "ID",
+      "dia": "Dia",
+      "blocos": "Blocos"
+    }
+  }
+}

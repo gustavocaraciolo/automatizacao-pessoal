@@ -12,15 +12,14 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <!--<div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>-->
+        </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.emailDestino"
-                 for="field_emailDestino"
-          >Email Destino</label
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.emailDestino" for="field_emailDestino"
+            >Email Destino</label
           >
           <input
             type="text"
@@ -44,9 +43,8 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.templateEmail"
-                 for="field_templateEmail"
-          >Template Email</label
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.templateEmail" for="field_templateEmail"
+            >Template Email</label
           >
           <textarea
             class="form-control"
@@ -82,263 +80,248 @@
               ngbDatepicker
               #semanaDp="ngbDatepicker"
               formControlName="semana"
-              (dateSelect)="onDateSelect($event)"
             />
-            <button type="button" class="btn btn-secondary" (click)="semanaDp.toggle()">
-              <fa-icon icon="calendar-alt"></fa-icon>
-            </button>
+            <button type="button" class="btn btn-secondary" (click)="semanaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundafeira"
-                   for="field_segundafeira">Segundafeira</label>
-            <div class="d-flex">
-              <input
-                id="field_segundafeira"
-                data-cy="segundafeira"
-                type="datetime-local"
-                class="form-control"
-                name="segundafeira"
-                formControlName="segundafeira"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado"
-              for="field_segundaFeiraEmailEnviado"
-            >Segunda Feira Email Enviado</label>
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundafeira" for="field_segundafeira"
+            >Segundafeira</label
+          >
+          <div class="d-flex">
             <input
-              type="checkbox"
-              class="form-check"
-              name="segundaFeiraEmailEnviado"
-              id="field_segundaFeiraEmailEnviado"
-              data-cy="segundaFeiraEmailEnviado"
-              formControlName="segundaFeiraEmailEnviado"
+              id="field_segundafeira"
+              data-cy="segundafeira"
+              type="datetime-local"
+              class="form-control"
+              name="segundafeira"
+              formControlName="segundafeira"
+              placeholder="YYYY-MM-DD HH:mm"
             />
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercafeira"
-                   for="field_tercafeira"
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercafeira" for="field_tercafeira"
             >Tercafeira</label
-            >
-            <div class="d-flex">
-              <input
-                id="field_tercafeira"
-                data-cy="tercafeira"
-                type="datetime-local"
-                class="form-control"
-                name="tercafeira"
-                formControlName="tercafeira"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercaFeiraEmailEnviado"
-              for="field_tercaFeiraEmailEnviado"
-            >Terca Feira Email Enviado</label
-            >
+          >
+          <div class="d-flex">
             <input
-              type="checkbox"
-              class="form-check"
-              name="tercaFeiraEmailEnviado"
-              id="field_tercaFeiraEmailEnviado"
-              data-cy="tercaFeiraEmailEnviado"
-              formControlName="tercaFeiraEmailEnviado"
+              id="field_tercafeira"
+              data-cy="tercafeira"
+              type="datetime-local"
+              class="form-control"
+              name="tercafeira"
+              formControlName="tercafeira"
+              placeholder="YYYY-MM-DD HH:mm"
             />
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartafeira"
-                   for="field_quartafeira"
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartafeira" for="field_quartafeira"
             >Quartafeira</label
-            >
-            <div class="d-flex">
-              <input
-                id="field_quartafeira"
-                data-cy="quartafeira"
-                type="datetime-local"
-                class="form-control"
-                name="quartafeira"
-                formControlName="quartafeira"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartaFeiraEmailEnviado"
-              for="field_quartaFeiraEmailEnviado"
-            >Quarta Feira Email Enviado</label
-            >
+          >
+          <div class="d-flex">
             <input
-              type="checkbox"
-              class="form-check"
-              name="quartaFeiraEmailEnviado"
-              id="field_quartaFeiraEmailEnviado"
-              data-cy="quartaFeiraEmailEnviado"
-              formControlName="quartaFeiraEmailEnviado"
+              id="field_quartafeira"
+              data-cy="quartafeira"
+              type="datetime-local"
+              class="form-control"
+              name="quartafeira"
+              formControlName="quartafeira"
+              placeholder="YYYY-MM-DD HH:mm"
             />
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintafeira"
-                   for="field_quintafeira"
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintafeira" for="field_quintafeira"
             >Quintafeira</label
-            >
-            <div class="d-flex">
-              <input
-                id="field_quintafeira"
-                data-cy="quintafeira"
-                type="datetime-local"
-                class="form-control"
-                name="quintafeira"
-                formControlName="quintafeira"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintaFeiraEmailEnviado"
-              for="field_quintaFeiraEmailEnviado"
-            >Quinta Feira Email Enviado</label
-            >
+          >
+          <div class="d-flex">
             <input
-              type="checkbox"
-              class="form-check"
-              name="quintaFeiraEmailEnviado"
-              id="field_quintaFeiraEmailEnviado"
-              data-cy="quintaFeiraEmailEnviado"
-              formControlName="quintaFeiraEmailEnviado"
+              id="field_quintafeira"
+              data-cy="quintafeira"
+              type="datetime-local"
+              class="form-control"
+              name="quintafeira"
+              formControlName="quintafeira"
+              placeholder="YYYY-MM-DD HH:mm"
             />
           </div>
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextafeira"
-                   for="field_sextafeira"
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextafeira" for="field_sextafeira"
             >Sextafeira</label
-            >
-            <div class="d-flex">
-              <input
-                id="field_sextafeira"
-                data-cy="sextafeira"
-                type="datetime-local"
-                class="form-control"
-                name="sextafeira"
-                formControlName="sextafeira"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
+          >
+          <div class="d-flex">
+            <input
+              id="field_sextafeira"
+              data-cy="sextafeira"
+              type="datetime-local"
+              class="form-control"
+              name="sextafeira"
+              formControlName="sextafeira"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
           </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextaFeiraEmailEnviado"
-              for="field_sextaFeiraEmailEnviado"
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabado" for="field_sabado">Sabado</label>
+          <div class="d-flex">
+            <input
+              id="field_sabado"
+              data-cy="sabado"
+              type="datetime-local"
+              class="form-control"
+              name="sabado"
+              formControlName="sabado"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo" for="field_domingo">Domingo</label>
+          <div class="d-flex">
+            <input
+              id="field_domingo"
+              data-cy="domingo"
+              type="datetime-local"
+              class="form-control"
+              name="domingo"
+              formControlName="domingo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado"
+            for="field_segundaFeiraEmailEnviado"
+            >Segunda Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="segundaFeiraEmailEnviado"
+            id="field_segundaFeiraEmailEnviado"
+            data-cy="segundaFeiraEmailEnviado"
+            formControlName="segundaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercaFeiraEmailEnviado"
+            for="field_tercaFeiraEmailEnviado"
+            >Terca Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="tercaFeiraEmailEnviado"
+            id="field_tercaFeiraEmailEnviado"
+            data-cy="tercaFeiraEmailEnviado"
+            formControlName="tercaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartaFeiraEmailEnviado"
+            for="field_quartaFeiraEmailEnviado"
+            >Quarta Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="quartaFeiraEmailEnviado"
+            id="field_quartaFeiraEmailEnviado"
+            data-cy="quartaFeiraEmailEnviado"
+            formControlName="quartaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintaFeiraEmailEnviado"
+            for="field_quintaFeiraEmailEnviado"
+            >Quinta Feira Email Enviado</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="quintaFeiraEmailEnviado"
+            id="field_quintaFeiraEmailEnviado"
+            data-cy="quintaFeiraEmailEnviado"
+            formControlName="quintaFeiraEmailEnviado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextaFeiraEmailEnviado"
+            for="field_sextaFeiraEmailEnviado"
             >Sexta Feira Email Enviado</label
-            >
-            <input
-              type="checkbox"
-              class="form-check"
-              name="sextaFeiraEmailEnviado"
-              id="field_sextaFeiraEmailEnviado"
-              data-cy="sextaFeiraEmailEnviado"
-              formControlName="sextaFeiraEmailEnviado"
-            />
-          </div>
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sextaFeiraEmailEnviado"
+            id="field_sextaFeiraEmailEnviado"
+            data-cy="sextaFeiraEmailEnviado"
+            formControlName="sextaFeiraEmailEnviado"
+          />
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabado"
-                   for="field_sabado">Sabado</label>
-            <div class="d-flex">
-              <input
-                id="field_sabado"
-                data-cy="sabado"
-                type="datetime-local"
-                class="form-control"
-                name="sabado"
-                formControlName="sabado"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabadoEmailEnviado"
-              for="field_sabadoEmailEnviado"
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabadoEmailEnviado"
+            for="field_sabadoEmailEnviado"
             >Sabado Email Enviado</label
-            >
-            <input
-              type="checkbox"
-              class="form-check"
-              name="sabadoEmailEnviado"
-              id="field_sabadoEmailEnviado"
-              data-cy="sabadoEmailEnviado"
-              formControlName="sabadoEmailEnviado"
-            />
-          </div>
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sabadoEmailEnviado"
+            id="field_sabadoEmailEnviado"
+            data-cy="sabadoEmailEnviado"
+            formControlName="sabadoEmailEnviado"
+          />
         </div>
 
         <div class="row mb-3">
-          <div class="col">
-            <label class="form-label" jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo"
-                   for="field_domingo">Domingo</label>
-            <div class="d-flex">
-              <input
-                id="field_domingo"
-                data-cy="domingo"
-                type="datetime-local"
-                class="form-control"
-                name="domingo"
-                formControlName="domingo"
-                placeholder="YYYY-MM-DD HH:mm"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label
-              class="form-label"
-              jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado"
-              for="field_domingoEmailEnviado"
+          <label
+            class="form-label"
+            jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado"
+            for="field_domingoEmailEnviado"
             >Domingo Email Enviado</label
-            >
-            <input
-              type="checkbox"
-              class="form-check"
-              name="domingoEmailEnviado"
-              id="field_domingoEmailEnviado"
-              data-cy="domingoEmailEnviado"
-              formControlName="domingoEmailEnviado"
-            />
-          </div>
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="domingoEmailEnviado"
+            id="field_domingoEmailEnviado"
+            data-cy="domingoEmailEnviado"
+            formControlName="domingoEmailEnviado"
+          />
         </div>
       </div>
 
       <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary"
-                (click)="previousState()">
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
           <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
 

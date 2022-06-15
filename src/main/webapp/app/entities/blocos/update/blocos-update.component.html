@@ -1,0 +1,2403 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-blocos-heading" data-cy="BlocosCreateUpdateHeading" jhiTranslate="automatizacaoPessoalApp.blocos.home.createOrEditLabel">
+        Create or edit a Blocos
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAM" for="field_zeroAM">Zero AM</label>
+          <div class="d-flex">
+            <input
+              id="field_zeroAM"
+              data-cy="zeroAM"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAM"
+              formControlName="zeroAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeDez" for="field_zeroAMeDez">Zero A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_zeroAMeDez"
+              data-cy="zeroAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAMeDez"
+              formControlName="zeroAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeVinte" for="field_zeroAMeVinte"
+            >Zero A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroAMeVinte"
+              data-cy="zeroAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAMeVinte"
+              formControlName="zeroAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeTrinta" for="field_zeroAMeTrinta"
+            >Zero A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroAMeTrinta"
+              data-cy="zeroAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAMeTrinta"
+              formControlName="zeroAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeQuarenta" for="field_zeroAMeQuarenta"
+            >Zero A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroAMeQuarenta"
+              data-cy="zeroAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAMeQuarenta"
+              formControlName="zeroAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeCinquenta" for="field_zeroAMeCinquenta"
+            >Zero A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroAMeCinquenta"
+              data-cy="zeroAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroAMeCinquenta"
+              formControlName="zeroAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPM" for="field_zeroPM">Zero PM</label>
+          <div class="d-flex">
+            <input
+              id="field_zeroPM"
+              data-cy="zeroPM"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPM"
+              formControlName="zeroPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeDez" for="field_zeroPMeDez">Zero P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_zeroPMeDez"
+              data-cy="zeroPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPMeDez"
+              formControlName="zeroPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeVinte" for="field_zeroPMeVinte"
+            >Zero P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroPMeVinte"
+              data-cy="zeroPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPMeVinte"
+              formControlName="zeroPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeTrinta" for="field_zeroPMeTrinta"
+            >Zero P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroPMeTrinta"
+              data-cy="zeroPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPMeTrinta"
+              formControlName="zeroPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeQuarenta" for="field_zeroPMeQuarenta"
+            >Zero P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroPMeQuarenta"
+              data-cy="zeroPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPMeQuarenta"
+              formControlName="zeroPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeCinquenta" for="field_zeroPMeCinquenta"
+            >Zero P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zeroPMeCinquenta"
+              data-cy="zeroPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="zeroPMeCinquenta"
+              formControlName="zeroPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAM" for="field_umAM">Um AM</label>
+          <div class="d-flex">
+            <input
+              id="field_umAM"
+              data-cy="umAM"
+              type="datetime-local"
+              class="form-control"
+              name="umAM"
+              formControlName="umAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAMeDez" for="field_umAMeDez">Um A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_umAMeDez"
+              data-cy="umAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="umAMeDez"
+              formControlName="umAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAMeVinte" for="field_umAMeVinte">Um A Me Vinte</label>
+          <div class="d-flex">
+            <input
+              id="field_umAMeVinte"
+              data-cy="umAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="umAMeVinte"
+              formControlName="umAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAMeTrinta" for="field_umAMeTrinta">Um A Me Trinta</label>
+          <div class="d-flex">
+            <input
+              id="field_umAMeTrinta"
+              data-cy="umAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="umAMeTrinta"
+              formControlName="umAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAMeQuarenta" for="field_umAMeQuarenta"
+            >Um A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_umAMeQuarenta"
+              data-cy="umAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="umAMeQuarenta"
+              formControlName="umAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umAMeCinquenta" for="field_umAMeCinquenta"
+            >Um A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_umAMeCinquenta"
+              data-cy="umAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="umAMeCinquenta"
+              formControlName="umAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPM" for="field_umPM">Um PM</label>
+          <div class="d-flex">
+            <input
+              id="field_umPM"
+              data-cy="umPM"
+              type="datetime-local"
+              class="form-control"
+              name="umPM"
+              formControlName="umPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPMeDez" for="field_umPMeDez">Um P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_umPMeDez"
+              data-cy="umPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="umPMeDez"
+              formControlName="umPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPMeVinte" for="field_umPMeVinte">Um P Me Vinte</label>
+          <div class="d-flex">
+            <input
+              id="field_umPMeVinte"
+              data-cy="umPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="umPMeVinte"
+              formControlName="umPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPMeTrinta" for="field_umPMeTrinta">Um P Me Trinta</label>
+          <div class="d-flex">
+            <input
+              id="field_umPMeTrinta"
+              data-cy="umPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="umPMeTrinta"
+              formControlName="umPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPMeQuarenta" for="field_umPMeQuarenta"
+            >Um P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_umPMeQuarenta"
+              data-cy="umPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="umPMeQuarenta"
+              formControlName="umPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.umPMeCinquenta" for="field_umPMeCinquenta"
+            >Um P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_umPMeCinquenta"
+              data-cy="umPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="umPMeCinquenta"
+              formControlName="umPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAM" for="field_doisAM">Dois AM</label>
+          <div class="d-flex">
+            <input
+              id="field_doisAM"
+              data-cy="doisAM"
+              type="datetime-local"
+              class="form-control"
+              name="doisAM"
+              formControlName="doisAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeDez" for="field_doisAMeDez">Dois A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_doisAMeDez"
+              data-cy="doisAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="doisAMeDez"
+              formControlName="doisAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeVinte" for="field_doisAMeVinte"
+            >Dois A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisAMeVinte"
+              data-cy="doisAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="doisAMeVinte"
+              formControlName="doisAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeTrinta" for="field_doisAMeTrinta"
+            >Dois A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisAMeTrinta"
+              data-cy="doisAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="doisAMeTrinta"
+              formControlName="doisAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeQuarenta" for="field_doisAMeQuarenta"
+            >Dois A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisAMeQuarenta"
+              data-cy="doisAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="doisAMeQuarenta"
+              formControlName="doisAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeCinquenta" for="field_doisAMeCinquenta"
+            >Dois A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisAMeCinquenta"
+              data-cy="doisAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="doisAMeCinquenta"
+              formControlName="doisAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPM" for="field_doisPM">Dois PM</label>
+          <div class="d-flex">
+            <input
+              id="field_doisPM"
+              data-cy="doisPM"
+              type="datetime-local"
+              class="form-control"
+              name="doisPM"
+              formControlName="doisPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeDez" for="field_doisPMeDez">Dois P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_doisPMeDez"
+              data-cy="doisPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="doisPMeDez"
+              formControlName="doisPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeVinte" for="field_doisPMeVinte"
+            >Dois P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisPMeVinte"
+              data-cy="doisPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="doisPMeVinte"
+              formControlName="doisPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeTrinta" for="field_doisPMeTrinta"
+            >Dois P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisPMeTrinta"
+              data-cy="doisPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="doisPMeTrinta"
+              formControlName="doisPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeQuarenta" for="field_doisPMeQuarenta"
+            >Dois P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisPMeQuarenta"
+              data-cy="doisPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="doisPMeQuarenta"
+              formControlName="doisPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeCinquenta" for="field_doisPMeCinquenta"
+            >Dois P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_doisPMeCinquenta"
+              data-cy="doisPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="doisPMeCinquenta"
+              formControlName="doisPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAM" for="field_tresAM">Tres AM</label>
+          <div class="d-flex">
+            <input
+              id="field_tresAM"
+              data-cy="tresAM"
+              type="datetime-local"
+              class="form-control"
+              name="tresAM"
+              formControlName="tresAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeDez" for="field_tresAMeDez">Tres A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_tresAMeDez"
+              data-cy="tresAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="tresAMeDez"
+              formControlName="tresAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeVinte" for="field_tresAMeVinte"
+            >Tres A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresAMeVinte"
+              data-cy="tresAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="tresAMeVinte"
+              formControlName="tresAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeTrinta" for="field_tresAMeTrinta"
+            >Tres A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresAMeTrinta"
+              data-cy="tresAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="tresAMeTrinta"
+              formControlName="tresAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeQuarenta" for="field_tresAMeQuarenta"
+            >Tres A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresAMeQuarenta"
+              data-cy="tresAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="tresAMeQuarenta"
+              formControlName="tresAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeCinquenta" for="field_tresAMeCinquenta"
+            >Tres A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresAMeCinquenta"
+              data-cy="tresAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="tresAMeCinquenta"
+              formControlName="tresAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPM" for="field_tresPM">Tres PM</label>
+          <div class="d-flex">
+            <input
+              id="field_tresPM"
+              data-cy="tresPM"
+              type="datetime-local"
+              class="form-control"
+              name="tresPM"
+              formControlName="tresPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeDez" for="field_tresPMeDez">Tres P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_tresPMeDez"
+              data-cy="tresPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="tresPMeDez"
+              formControlName="tresPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeVinte" for="field_tresPMeVinte"
+            >Tres P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresPMeVinte"
+              data-cy="tresPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="tresPMeVinte"
+              formControlName="tresPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeTrinta" for="field_tresPMeTrinta"
+            >Tres P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresPMeTrinta"
+              data-cy="tresPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="tresPMeTrinta"
+              formControlName="tresPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeQuarenta" for="field_tresPMeQuarenta"
+            >Tres P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresPMeQuarenta"
+              data-cy="tresPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="tresPMeQuarenta"
+              formControlName="tresPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeCinquenta" for="field_tresPMeCinquenta"
+            >Tres P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_tresPMeCinquenta"
+              data-cy="tresPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="tresPMeCinquenta"
+              formControlName="tresPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAM" for="field_quatroAM">Quatro AM</label>
+          <div class="d-flex">
+            <input
+              id="field_quatroAM"
+              data-cy="quatroAM"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAM"
+              formControlName="quatroAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeDez" for="field_quatroAMeDez"
+            >Quatro A Me Dez</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroAMeDez"
+              data-cy="quatroAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAMeDez"
+              formControlName="quatroAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeVinte" for="field_quatroAMeVinte"
+            >Quatro A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroAMeVinte"
+              data-cy="quatroAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAMeVinte"
+              formControlName="quatroAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeTrinta" for="field_quatroAMeTrinta"
+            >Quatro A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroAMeTrinta"
+              data-cy="quatroAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAMeTrinta"
+              formControlName="quatroAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeQuarenta" for="field_quatroAMeQuarenta"
+            >Quatro A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroAMeQuarenta"
+              data-cy="quatroAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAMeQuarenta"
+              formControlName="quatroAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeCinquenta" for="field_quatroAMeCinquenta"
+            >Quatro A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroAMeCinquenta"
+              data-cy="quatroAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroAMeCinquenta"
+              formControlName="quatroAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPM" for="field_quatroPM">Quatro PM</label>
+          <div class="d-flex">
+            <input
+              id="field_quatroPM"
+              data-cy="quatroPM"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPM"
+              formControlName="quatroPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeDez" for="field_quatroPMeDez"
+            >Quatro P Me Dez</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroPMeDez"
+              data-cy="quatroPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPMeDez"
+              formControlName="quatroPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeVinte" for="field_quatroPMeVinte"
+            >Quatro P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroPMeVinte"
+              data-cy="quatroPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPMeVinte"
+              formControlName="quatroPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeTrinta" for="field_quatroPMeTrinta"
+            >Quatro P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroPMeTrinta"
+              data-cy="quatroPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPMeTrinta"
+              formControlName="quatroPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeQuarenta" for="field_quatroPMeQuarenta"
+            >Quatro P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroPMeQuarenta"
+              data-cy="quatroPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPMeQuarenta"
+              formControlName="quatroPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeCinquenta" for="field_quatroPMeCinquenta"
+            >Quatro P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_quatroPMeCinquenta"
+              data-cy="quatroPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="quatroPMeCinquenta"
+              formControlName="quatroPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAM" for="field_cincoAM">Cinco AM</label>
+          <div class="d-flex">
+            <input
+              id="field_cincoAM"
+              data-cy="cincoAM"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAM"
+              formControlName="cincoAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeDez" for="field_cincoAMeDez">Cinco A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_cincoAMeDez"
+              data-cy="cincoAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAMeDez"
+              formControlName="cincoAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeVinte" for="field_cincoAMeVinte"
+            >Cinco A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoAMeVinte"
+              data-cy="cincoAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAMeVinte"
+              formControlName="cincoAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeTrinta" for="field_cincoAMeTrinta"
+            >Cinco A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoAMeTrinta"
+              data-cy="cincoAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAMeTrinta"
+              formControlName="cincoAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeQuarenta" for="field_cincoAMeQuarenta"
+            >Cinco A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoAMeQuarenta"
+              data-cy="cincoAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAMeQuarenta"
+              formControlName="cincoAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeCinquenta" for="field_cincoAMeCinquenta"
+            >Cinco A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoAMeCinquenta"
+              data-cy="cincoAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoAMeCinquenta"
+              formControlName="cincoAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPM" for="field_cincoPM">Cinco PM</label>
+          <div class="d-flex">
+            <input
+              id="field_cincoPM"
+              data-cy="cincoPM"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPM"
+              formControlName="cincoPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeDez" for="field_cincoPMeDez">Cinco P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_cincoPMeDez"
+              data-cy="cincoPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPMeDez"
+              formControlName="cincoPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeVinte" for="field_cincoPMeVinte"
+            >Cinco P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoPMeVinte"
+              data-cy="cincoPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPMeVinte"
+              formControlName="cincoPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeTrinta" for="field_cincoPMeTrinta"
+            >Cinco P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoPMeTrinta"
+              data-cy="cincoPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPMeTrinta"
+              formControlName="cincoPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeQuarenta" for="field_cincoPMeQuarenta"
+            >Cinco P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoPMeQuarenta"
+              data-cy="cincoPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPMeQuarenta"
+              formControlName="cincoPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeCinquenta" for="field_cincoPMeCinquenta"
+            >Cinco P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_cincoPMeCinquenta"
+              data-cy="cincoPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="cincoPMeCinquenta"
+              formControlName="cincoPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAM" for="field_seisAM">Seis AM</label>
+          <div class="d-flex">
+            <input
+              id="field_seisAM"
+              data-cy="seisAM"
+              type="datetime-local"
+              class="form-control"
+              name="seisAM"
+              formControlName="seisAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeDez" for="field_seisAMeDez">Seis A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_seisAMeDez"
+              data-cy="seisAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="seisAMeDez"
+              formControlName="seisAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeVinte" for="field_seisAMeVinte"
+            >Seis A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisAMeVinte"
+              data-cy="seisAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="seisAMeVinte"
+              formControlName="seisAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeTrinta" for="field_seisAMeTrinta"
+            >Seis A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisAMeTrinta"
+              data-cy="seisAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="seisAMeTrinta"
+              formControlName="seisAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeQuarenta" for="field_seisAMeQuarenta"
+            >Seis A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisAMeQuarenta"
+              data-cy="seisAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="seisAMeQuarenta"
+              formControlName="seisAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeCinquenta" for="field_seisAMeCinquenta"
+            >Seis A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisAMeCinquenta"
+              data-cy="seisAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="seisAMeCinquenta"
+              formControlName="seisAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPM" for="field_seisPM">Seis PM</label>
+          <div class="d-flex">
+            <input
+              id="field_seisPM"
+              data-cy="seisPM"
+              type="datetime-local"
+              class="form-control"
+              name="seisPM"
+              formControlName="seisPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeDez" for="field_seisPMeDez">Seis P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_seisPMeDez"
+              data-cy="seisPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="seisPMeDez"
+              formControlName="seisPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeVinte" for="field_seisPMeVinte"
+            >Seis P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisPMeVinte"
+              data-cy="seisPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="seisPMeVinte"
+              formControlName="seisPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeTrinta" for="field_seisPMeTrinta"
+            >Seis P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisPMeTrinta"
+              data-cy="seisPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="seisPMeTrinta"
+              formControlName="seisPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeQuarenta" for="field_seisPMeQuarenta"
+            >Seis P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisPMeQuarenta"
+              data-cy="seisPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="seisPMeQuarenta"
+              formControlName="seisPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeCinquenta" for="field_seisPMeCinquenta"
+            >Seis P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seisPMeCinquenta"
+              data-cy="seisPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="seisPMeCinquenta"
+              formControlName="seisPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAM" for="field_seteAM">Sete AM</label>
+          <div class="d-flex">
+            <input
+              id="field_seteAM"
+              data-cy="seteAM"
+              type="datetime-local"
+              class="form-control"
+              name="seteAM"
+              formControlName="seteAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeDez" for="field_seteAMeDez">Sete A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_seteAMeDez"
+              data-cy="seteAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="seteAMeDez"
+              formControlName="seteAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeVinte" for="field_seteAMeVinte"
+            >Sete A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seteAMeVinte"
+              data-cy="seteAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="seteAMeVinte"
+              formControlName="seteAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeTrinta" for="field_seteAMeTrinta"
+            >Sete A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seteAMeTrinta"
+              data-cy="seteAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="seteAMeTrinta"
+              formControlName="seteAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeQuarenta" for="field_seteAMeQuarenta"
+            >Sete A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seteAMeQuarenta"
+              data-cy="seteAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="seteAMeQuarenta"
+              formControlName="seteAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeCinquenta" for="field_seteAMeCinquenta"
+            >Sete A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_seteAMeCinquenta"
+              data-cy="seteAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="seteAMeCinquenta"
+              formControlName="seteAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePM" for="field_setePM">Sete PM</label>
+          <div class="d-flex">
+            <input
+              id="field_setePM"
+              data-cy="setePM"
+              type="datetime-local"
+              class="form-control"
+              name="setePM"
+              formControlName="setePM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePMeDez" for="field_setePMeDez">Sete P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_setePMeDez"
+              data-cy="setePMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="setePMeDez"
+              formControlName="setePMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePMeVinte" for="field_setePMeVinte"
+            >Sete P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_setePMeVinte"
+              data-cy="setePMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="setePMeVinte"
+              formControlName="setePMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePMeTrinta" for="field_setePMeTrinta"
+            >Sete P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_setePMeTrinta"
+              data-cy="setePMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="setePMeTrinta"
+              formControlName="setePMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePMeQuarenta" for="field_setePMeQuarenta"
+            >Sete P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_setePMeQuarenta"
+              data-cy="setePMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="setePMeQuarenta"
+              formControlName="setePMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.setePMeCinquenta" for="field_setePMeCinquenta"
+            >Sete P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_setePMeCinquenta"
+              data-cy="setePMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="setePMeCinquenta"
+              formControlName="setePMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAM" for="field_oitoAM">Oito AM</label>
+          <div class="d-flex">
+            <input
+              id="field_oitoAM"
+              data-cy="oitoAM"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAM"
+              formControlName="oitoAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeDez" for="field_oitoAMeDez">Oito A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_oitoAMeDez"
+              data-cy="oitoAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAMeDez"
+              formControlName="oitoAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeVinte" for="field_oitoAMeVinte"
+            >Oito A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoAMeVinte"
+              data-cy="oitoAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAMeVinte"
+              formControlName="oitoAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeTrinta" for="field_oitoAMeTrinta"
+            >Oito A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoAMeTrinta"
+              data-cy="oitoAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAMeTrinta"
+              formControlName="oitoAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeQuarenta" for="field_oitoAMeQuarenta"
+            >Oito A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoAMeQuarenta"
+              data-cy="oitoAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAMeQuarenta"
+              formControlName="oitoAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeCinquenta" for="field_oitoAMeCinquenta"
+            >Oito A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoAMeCinquenta"
+              data-cy="oitoAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoAMeCinquenta"
+              formControlName="oitoAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPM" for="field_oitoPM">Oito PM</label>
+          <div class="d-flex">
+            <input
+              id="field_oitoPM"
+              data-cy="oitoPM"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPM"
+              formControlName="oitoPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeDez" for="field_oitoPMeDez">Oito P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_oitoPMeDez"
+              data-cy="oitoPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPMeDez"
+              formControlName="oitoPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeVinte" for="field_oitoPMeVinte"
+            >Oito P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoPMeVinte"
+              data-cy="oitoPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPMeVinte"
+              formControlName="oitoPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeTrinta" for="field_oitoPMeTrinta"
+            >Oito P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoPMeTrinta"
+              data-cy="oitoPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPMeTrinta"
+              formControlName="oitoPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeQuarenta" for="field_oitoPMeQuarenta"
+            >Oito P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoPMeQuarenta"
+              data-cy="oitoPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPMeQuarenta"
+              formControlName="oitoPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeCinquenta" for="field_oitoPMeCinquenta"
+            >Oito P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_oitoPMeCinquenta"
+              data-cy="oitoPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="oitoPMeCinquenta"
+              formControlName="oitoPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAM" for="field_noveAM">Nove AM</label>
+          <div class="d-flex">
+            <input
+              id="field_noveAM"
+              data-cy="noveAM"
+              type="datetime-local"
+              class="form-control"
+              name="noveAM"
+              formControlName="noveAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeDez" for="field_noveAMeDez">Nove A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_noveAMeDez"
+              data-cy="noveAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="noveAMeDez"
+              formControlName="noveAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeVinte" for="field_noveAMeVinte"
+            >Nove A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_noveAMeVinte"
+              data-cy="noveAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="noveAMeVinte"
+              formControlName="noveAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeTrinta" for="field_noveAMeTrinta"
+            >Nove A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_noveAMeTrinta"
+              data-cy="noveAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="noveAMeTrinta"
+              formControlName="noveAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeQuarenta" for="field_noveAMeQuarenta"
+            >Nove A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_noveAMeQuarenta"
+              data-cy="noveAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="noveAMeQuarenta"
+              formControlName="noveAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeCinquenta" for="field_noveAMeCinquenta"
+            >Nove A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_noveAMeCinquenta"
+              data-cy="noveAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="noveAMeCinquenta"
+              formControlName="noveAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePM" for="field_novePM">Nove PM</label>
+          <div class="d-flex">
+            <input
+              id="field_novePM"
+              data-cy="novePM"
+              type="datetime-local"
+              class="form-control"
+              name="novePM"
+              formControlName="novePM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePMeDez" for="field_novePMeDez">Nove P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_novePMeDez"
+              data-cy="novePMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="novePMeDez"
+              formControlName="novePMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePMeVinte" for="field_novePMeVinte"
+            >Nove P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_novePMeVinte"
+              data-cy="novePMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="novePMeVinte"
+              formControlName="novePMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePMeTrinta" for="field_novePMeTrinta"
+            >Nove P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_novePMeTrinta"
+              data-cy="novePMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="novePMeTrinta"
+              formControlName="novePMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePMeQuarenta" for="field_novePMeQuarenta"
+            >Nove P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_novePMeQuarenta"
+              data-cy="novePMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="novePMeQuarenta"
+              formControlName="novePMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.novePMeCinquenta" for="field_novePMeCinquenta"
+            >Nove P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_novePMeCinquenta"
+              data-cy="novePMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="novePMeCinquenta"
+              formControlName="novePMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAM" for="field_dezAM">Dez AM</label>
+          <div class="d-flex">
+            <input
+              id="field_dezAM"
+              data-cy="dezAM"
+              type="datetime-local"
+              class="form-control"
+              name="dezAM"
+              formControlName="dezAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeDez" for="field_dezAMeDez">Dez A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_dezAMeDez"
+              data-cy="dezAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="dezAMeDez"
+              formControlName="dezAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeVinte" for="field_dezAMeVinte">Dez A Me Vinte</label>
+          <div class="d-flex">
+            <input
+              id="field_dezAMeVinte"
+              data-cy="dezAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="dezAMeVinte"
+              formControlName="dezAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeTrinta" for="field_dezAMeTrinta"
+            >Dez A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezAMeTrinta"
+              data-cy="dezAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="dezAMeTrinta"
+              formControlName="dezAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeQuarenta" for="field_dezAMeQuarenta"
+            >Dez A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezAMeQuarenta"
+              data-cy="dezAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="dezAMeQuarenta"
+              formControlName="dezAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeCinquenta" for="field_dezAMeCinquenta"
+            >Dez A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezAMeCinquenta"
+              data-cy="dezAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="dezAMeCinquenta"
+              formControlName="dezAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPM" for="field_dezPM">Dez PM</label>
+          <div class="d-flex">
+            <input
+              id="field_dezPM"
+              data-cy="dezPM"
+              type="datetime-local"
+              class="form-control"
+              name="dezPM"
+              formControlName="dezPM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeDez" for="field_dezPMeDez">Dez P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_dezPMeDez"
+              data-cy="dezPMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="dezPMeDez"
+              formControlName="dezPMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeVinte" for="field_dezPMeVinte">Dez P Me Vinte</label>
+          <div class="d-flex">
+            <input
+              id="field_dezPMeVinte"
+              data-cy="dezPMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="dezPMeVinte"
+              formControlName="dezPMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeTrinta" for="field_dezPMeTrinta"
+            >Dez P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezPMeTrinta"
+              data-cy="dezPMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="dezPMeTrinta"
+              formControlName="dezPMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeQuarenta" for="field_dezPMeQuarenta"
+            >Dez P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezPMeQuarenta"
+              data-cy="dezPMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="dezPMeQuarenta"
+              formControlName="dezPMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeCinquenta" for="field_dezPMeCinquenta"
+            >Dez P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dezPMeCinquenta"
+              data-cy="dezPMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="dezPMeCinquenta"
+              formControlName="dezPMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAM" for="field_onzeAM">Onze AM</label>
+          <div class="d-flex">
+            <input
+              id="field_onzeAM"
+              data-cy="onzeAM"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAM"
+              formControlName="onzeAM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeDez" for="field_onzeAMeDez">Onze A Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_onzeAMeDez"
+              data-cy="onzeAMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAMeDez"
+              formControlName="onzeAMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeVinte" for="field_onzeAMeVinte"
+            >Onze A Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzeAMeVinte"
+              data-cy="onzeAMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAMeVinte"
+              formControlName="onzeAMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeTrinta" for="field_onzeAMeTrinta"
+            >Onze A Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzeAMeTrinta"
+              data-cy="onzeAMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAMeTrinta"
+              formControlName="onzeAMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeQuarenta" for="field_onzeAMeQuarenta"
+            >Onze A Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzeAMeQuarenta"
+              data-cy="onzeAMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAMeQuarenta"
+              formControlName="onzeAMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeCinquenta" for="field_onzeAMeCinquenta"
+            >Onze A Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzeAMeCinquenta"
+              data-cy="onzeAMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="onzeAMeCinquenta"
+              formControlName="onzeAMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePM" for="field_onzePM">Onze PM</label>
+          <div class="d-flex">
+            <input
+              id="field_onzePM"
+              data-cy="onzePM"
+              type="datetime-local"
+              class="form-control"
+              name="onzePM"
+              formControlName="onzePM"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeDez" for="field_onzePMeDez">Onze P Me Dez</label>
+          <div class="d-flex">
+            <input
+              id="field_onzePMeDez"
+              data-cy="onzePMeDez"
+              type="datetime-local"
+              class="form-control"
+              name="onzePMeDez"
+              formControlName="onzePMeDez"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeVinte" for="field_onzePMeVinte"
+            >Onze P Me Vinte</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzePMeVinte"
+              data-cy="onzePMeVinte"
+              type="datetime-local"
+              class="form-control"
+              name="onzePMeVinte"
+              formControlName="onzePMeVinte"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeTrinta" for="field_onzePMeTrinta"
+            >Onze P Me Trinta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzePMeTrinta"
+              data-cy="onzePMeTrinta"
+              type="datetime-local"
+              class="form-control"
+              name="onzePMeTrinta"
+              formControlName="onzePMeTrinta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeQuarenta" for="field_onzePMeQuarenta"
+            >Onze P Me Quarenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzePMeQuarenta"
+              data-cy="onzePMeQuarenta"
+              type="datetime-local"
+              class="form-control"
+              name="onzePMeQuarenta"
+              formControlName="onzePMeQuarenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeCinquenta" for="field_onzePMeCinquenta"
+            >Onze P Me Cinquenta</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_onzePMeCinquenta"
+              data-cy="onzePMeCinquenta"
+              type="datetime-local"
+              class="form-control"
+              name="onzePMeCinquenta"
+              formControlName="onzePMeCinquenta"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cronogramaDiario" for="field_cronogramaDiario"
+            >Cronograma Diario</label
+          >
+          <select
+            class="form-control"
+            id="field_cronogramaDiario"
+            data-cy="cronogramaDiario"
+            name="cronogramaDiario"
+            formControlName="cronogramaDiario"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                cronogramaDiarioOption.id === editForm.get('cronogramaDiario')!.value?.id
+                  ? editForm.get('cronogramaDiario')!.value
+                  : cronogramaDiarioOption
+              "
+              *ngFor="let cronogramaDiarioOption of cronogramaDiariosSharedCollection; trackBy: trackCronogramaDiarioById"
+            >
+              {{ cronogramaDiarioOption.dia }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
