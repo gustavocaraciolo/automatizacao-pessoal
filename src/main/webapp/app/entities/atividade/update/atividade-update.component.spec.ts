@@ -48,12 +48,12 @@ describe('Atividade Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Blocos query and add missing value', () => {
       const atividade: IAtividade = { id: 456 };
-      const blocos: IBlocos[] = [{ id: 64053 }];
+      const blocos: IBlocos = { id: 64053 };
       atividade.blocos = blocos;
 
       const blocosCollection: IBlocos[] = [{ id: 89662 }];
       jest.spyOn(blocosService, 'query').mockReturnValue(of(new HttpResponse({ body: blocosCollection })));
-      const additionalBlocos = [...blocos];
+      const additionalBlocos = [blocos];
       const expectedCollection: IBlocos[] = [...additionalBlocos, ...blocosCollection];
       jest.spyOn(blocosService, 'addBlocosToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -68,7 +68,7 @@ describe('Atividade Management Update Component', () => {
     it('Should update editForm', () => {
       const atividade: IAtividade = { id: 456 };
       const blocos: IBlocos = { id: 12881 };
-      atividade.blocos = [blocos];
+      atividade.blocos = blocos;
 
       activatedRoute.data = of({ atividade });
       comp.ngOnInit();
@@ -148,34 +148,6 @@ describe('Atividade Management Update Component', () => {
         const entity = { id: 123 };
         const trackResult = comp.trackBlocosById(0, entity);
         expect(trackResult).toEqual(entity.id);
-      });
-    });
-  });
-
-  describe('Getting selected relationships', () => {
-    describe('getSelectedBlocos', () => {
-      it('Should return option if no Blocos is selected', () => {
-        const option = { id: 123 };
-        const result = comp.getSelectedBlocos(option);
-        expect(result === option).toEqual(true);
-      });
-
-      it('Should return selected Blocos for according option', () => {
-        const option = { id: 123 };
-        const selected = { id: 123 };
-        const selected2 = { id: 456 };
-        const result = comp.getSelectedBlocos(option, [selected2, selected]);
-        expect(result === selected).toEqual(true);
-        expect(result === selected2).toEqual(false);
-        expect(result === option).toEqual(false);
-      });
-
-      it('Should return option if this Blocos is not selected', () => {
-        const option = { id: 123 };
-        const selected = { id: 456 };
-        const result = comp.getSelectedBlocos(option, [selected]);
-        expect(result === option).toEqual(true);
-        expect(result === selected).toEqual(false);
       });
     });
   });

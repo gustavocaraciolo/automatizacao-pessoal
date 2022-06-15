@@ -2,8 +2,6 @@ package com.br.gustavocaraciolo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -30,15 +28,9 @@ public class Atividade implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @ManyToMany
-    @JoinTable(
-        name = "rel_atividade__blocos",
-        joinColumns = @JoinColumn(name = "atividade_id"),
-        inverseJoinColumns = @JoinColumn(name = "blocos_id")
-    )
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "cronogramaDiario", "atividades" }, allowSetters = true)
-    private Set<Blocos> blocos = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = { "atividades", "cronogramaDiario" }, allowSetters = true)
+    private Blocos blocos;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -81,28 +73,16 @@ public class Atividade implements Serializable {
         this.descricao = descricao;
     }
 
-    public Set<Blocos> getBlocos() {
+    public Blocos getBlocos() {
         return this.blocos;
     }
 
-    public void setBlocos(Set<Blocos> blocos) {
+    public void setBlocos(Blocos blocos) {
         this.blocos = blocos;
     }
 
-    public Atividade blocos(Set<Blocos> blocos) {
+    public Atividade blocos(Blocos blocos) {
         this.setBlocos(blocos);
-        return this;
-    }
-
-    public Atividade addBlocos(Blocos blocos) {
-        this.blocos.add(blocos);
-        blocos.getAtividades().add(this);
-        return this;
-    }
-
-    public Atividade removeBlocos(Blocos blocos) {
-        this.blocos.remove(blocos);
-        blocos.getAtividades().remove(this);
         return this;
     }
 

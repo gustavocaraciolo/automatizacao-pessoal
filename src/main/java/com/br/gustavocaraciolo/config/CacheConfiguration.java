@@ -54,7 +54,6 @@ public class CacheConfiguration {
             createCache(cm, com.br.gustavocaraciolo.domain.CronogramaDiario.class.getName());
             createCache(cm, com.br.gustavocaraciolo.domain.CronogramaDiario.class.getName() + ".blocos");
             createCache(cm, com.br.gustavocaraciolo.domain.Atividade.class.getName());
-            createCache(cm, com.br.gustavocaraciolo.domain.Atividade.class.getName() + ".blocos");
             // jhipster-needle-ehcache-add-entry
         };
     }

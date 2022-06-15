@@ -16,12 +16,12 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220608141905_added_entity_ReservaQuadraTenis.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220615074158_added_entity_Blocos.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220615074159_added_entity_CronogramaDiario.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220615074200_added_entity_Atividade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220615222548_added_entity_Blocos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220615222549_added_entity_CronogramaDiario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220615222550_added_entity_Atividade.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20220615074158_added_entity_constraints_Blocos.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220615074200_added_entity_constraints_Atividade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220615222548_added_entity_constraints_Blocos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220615222550_added_entity_constraints_Atividade.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

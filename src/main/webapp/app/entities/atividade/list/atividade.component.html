@@ -47,10 +47,9 @@
           <td>{{ atividade.cor }}</td>
           <td>{{ atividade.descricao }}</td>
           <td>
-            <span *ngFor="let blocos of atividade.blocos; let last = last">
-              <a class="form-control-static" [routerLink]="['/blocos', blocos.id, 'view']">{{ blocos.id }}</a
-              >{{ last ? '' : ', ' }}
-            </span>
+            <div *ngIf="atividade.blocos">
+              <a [routerLink]="['/blocos', atividade.blocos?.id, 'view']">{{ atividade.blocos?.id }}</a>
+            </div>
           </td>
           <td class="text-end">
             <div class="btn-group">

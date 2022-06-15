@@ -188,12 +188,9 @@ entity Atividade {
     descricao String
 }
 
-relationship ManyToMany {
-    Atividade{blocos} to Blocos{atividade(descricao)}
-}
-
 relationship OneToMany {
     CronogramaDiario{blocos} to Blocos{cronogramaDiario(dia)}
+    Blocos{atividade} to Atividade{blocos}
 }
 
 paginate ReservaQuadraTenis with pagination

@@ -24,10 +24,9 @@
         </dd>
         <dt><span jhiTranslate="automatizacaoPessoalApp.atividade.blocos">Blocos</span></dt>
         <dd>
-          <span *ngFor="let blocos of atividade.blocos; let last = last">
-            <a [routerLink]="['/blocos', blocos?.id, 'view']">{{ blocos.id }}</a
-            >{{ last ? '' : ', ' }}
-          </span>
+          <div *ngIf="atividade.blocos">
+            <a [routerLink]="['/blocos', atividade.blocos?.id, 'view']">{{ atividade.blocos?.id }}</a>
+          </div>
         </dd>
       </dl>
 

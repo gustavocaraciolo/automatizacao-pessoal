@@ -1,6 +1,6 @@
 import dayjs from 'dayjs/esm';
-import { ICronogramaDiario } from 'app/entities/cronograma-diario/cronograma-diario.model';
 import { IAtividade } from 'app/entities/atividade/atividade.model';
+import { ICronogramaDiario } from 'app/entities/cronograma-diario/cronograma-diario.model';
 
 export interface IBlocos {
   id?: number;
@@ -148,8 +148,8 @@ export interface IBlocos {
   onzePMeTrinta?: dayjs.Dayjs | null;
   onzePMeQuarenta?: dayjs.Dayjs | null;
   onzePMeCinquenta?: dayjs.Dayjs | null;
-  cronogramaDiario?: ICronogramaDiario | null;
   atividades?: IAtividade[] | null;
+  cronogramaDiario?: ICronogramaDiario | null;
 }
 
 export class Blocos implements IBlocos {
@@ -299,8 +299,8 @@ export class Blocos implements IBlocos {
     public onzePMeTrinta?: dayjs.Dayjs | null,
     public onzePMeQuarenta?: dayjs.Dayjs | null,
     public onzePMeCinquenta?: dayjs.Dayjs | null,
-    public cronogramaDiario?: ICronogramaDiario | null,
-    public atividades?: IAtividade[] | null
+    public atividades?: IAtividade[] | null,
+    public cronogramaDiario?: ICronogramaDiario | null
   ) {}
 }
 

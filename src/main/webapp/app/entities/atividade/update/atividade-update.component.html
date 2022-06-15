@@ -28,10 +28,11 @@
         </div>
 
         <div class="row mb-3">
-          <label jhiTranslate="automatizacaoPessoalApp.atividade.blocos" for="field_blocos">Blocos</label>
-          <select class="form-control" id="field_blocos" data-cy="blocos" multiple name="blocos" formControlName="blocos">
+          <label class="form-label" jhiTranslate="automatizacaoPessoalApp.atividade.blocos" for="field_blocos">Blocos</label>
+          <select class="form-control" id="field_blocos" data-cy="blocos" name="blocos" formControlName="blocos">
+            <option [ngValue]="null"></option>
             <option
-              [ngValue]="getSelectedBlocos(blocosOption, editForm.get('blocos')!.value)"
+              [ngValue]="blocosOption.id === editForm.get('blocos')!.value?.id ? editForm.get('blocos')!.value : blocosOption"
               *ngFor="let blocosOption of blocosSharedCollection; trackBy: trackBlocosById"
             >
               {{ blocosOption.id }}

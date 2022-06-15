@@ -59,17 +59,6 @@ export class AtividadeUpdateComponent implements OnInit {
     return item.id!;
   }
 
-  getSelectedBlocos(option: IBlocos, selectedVals?: IBlocos[]): IBlocos {
-    if (selectedVals) {
-      for (const selectedVal of selectedVals) {
-        if (option.id === selectedVal.id) {
-          return selectedVal;
-        }
-      }
-    }
-    return option;
-  }
-
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IAtividade>>): void {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe({
       next: () => this.onSaveSuccess(),
@@ -97,19 +86,14 @@ export class AtividadeUpdateComponent implements OnInit {
       blocos: atividade.blocos,
     });
 
-    this.blocosSharedCollection = this.blocosService.addBlocosToCollectionIfMissing(
-      this.blocosSharedCollection,
-      ...(atividade.blocos ?? [])
-    );
+    this.blocosSharedCollection = this.blocosService.addBlocosToCollectionIfMissing(this.blocosSharedCollection, atividade.blocos);
   }
 
   protected loadRelationshipsOptions(): void {
     this.blocosService
       .query()
       .pipe(map((res: HttpResponse<IBlocos[]>) => res.body ?? []))
-      .pipe(
-        map((blocos: IBlocos[]) => this.blocosService.addBlocosToCollectionIfMissing(blocos, ...(this.editForm.get('blocos')!.value ?? [])))
-      )
+      .pipe(map((blocos: IBlocos[]) => this.blocosService.addBlocosToCollectionIfMissing(blocos, this.editForm.get('blocos')!.value)))
       .subscribe((blocos: IBlocos[]) => (this.blocosSharedCollection = blocos));
   }
 
