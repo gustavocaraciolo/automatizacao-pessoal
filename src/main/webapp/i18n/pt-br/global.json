@@ -9,6 +9,9 @@
       "entities": {
         "main": "Entidades",
         "reservaQuadraTenis": "Reserva Quadra Tenis",
+        "blocos": "Blocos",
+        "cronogramaDiario": "Cronograma Diario",
+        "atividade": "Atividade",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

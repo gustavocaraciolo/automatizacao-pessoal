@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220615222550",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "atividade",
+  "fields": [
+    {
+      "fieldName": "cor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Atividade",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "blocos",
+      "otherEntityRelationshipName": "atividade",
+      "relationshipName": "blocos",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

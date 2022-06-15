@@ -49,6 +49,11 @@ public class CacheConfiguration {
             createCache(cm, com.br.gustavocaraciolo.domain.Authority.class.getName());
             createCache(cm, com.br.gustavocaraciolo.domain.User.class.getName() + ".authorities");
             createCache(cm, com.br.gustavocaraciolo.domain.ReservaQuadraTenis.class.getName());
+            createCache(cm, com.br.gustavocaraciolo.domain.Blocos.class.getName());
+            createCache(cm, com.br.gustavocaraciolo.domain.Blocos.class.getName() + ".atividades");
+            createCache(cm, com.br.gustavocaraciolo.domain.CronogramaDiario.class.getName());
+            createCache(cm, com.br.gustavocaraciolo.domain.CronogramaDiario.class.getName() + ".blocos");
+            createCache(cm, com.br.gustavocaraciolo.domain.Atividade.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

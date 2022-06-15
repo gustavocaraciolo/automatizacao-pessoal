@@ -31,96 +31,122 @@
   <div class="table-responsive" id="entities" *ngIf="reservaQuadraTenis && reservaQuadraTenis.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
-      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
-        <th scope="col" jhiSortBy="semana">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.semana">Semana</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="segundafeira">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundafeira">Segundafeira</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="tercafeira">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercafeira">Tercafeira</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="quartafeira">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartafeira">Quartafeira</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="quintafeira">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintafeira">Quintafeira</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="sextafeira">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextafeira">Sextafeira</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="sabado">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabado">Sabado</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col" jhiSortBy="domingo">
-          <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo">Domingo</span>
-          <fa-icon icon="sort"></fa-icon>
-        </th>
-        <th scope="col"></th>
-      </tr>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="emailDestino">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.emailDestino">Email Destino</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="templateEmail">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.templateEmail">Template Email</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="semana">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.semana">Semana</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="segundafeira">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundafeira">Segundafeira</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tercafeira">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercafeira">Tercafeira</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quartafeira">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartafeira">Quartafeira</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quintafeira">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintafeira">Quintafeira</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sextafeira">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextafeira">Sextafeira</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sabado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabado">Sabado</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="domingo">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingo">Domingo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="segundaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.segundaFeiraEmailEnviado">Segunda Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tercaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.tercaFeiraEmailEnviado">Terca Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quartaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quartaFeiraEmailEnviado">Quarta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quintaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.quintaFeiraEmailEnviado">Quinta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sextaFeiraEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sextaFeiraEmailEnviado">Sexta Feira Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sabadoEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.sabadoEmailEnviado">Sabado Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="domingoEmailEnviado">
+            <span jhiTranslate="automatizacaoPessoalApp.reservaQuadraTenis.domingoEmailEnviado">Domingo Email Enviado</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let reservaQuadraTenis of reservaQuadraTenis; trackBy: trackId" data-cy="entityTable">
-        <td>{{ reservaQuadraTenis.semana | formatMediumDate }} </td>
-        <td>{{ reservaQuadraTenis.segundafeira | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.segundaFeiraEmailEnviado />
-        </td>
-        <td>{{ reservaQuadraTenis.tercafeira | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.tercaFeiraEmailEnviado />
-        </td>
-        <td>{{ reservaQuadraTenis.quartafeira | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.quartaFeiraEmailEnviado />
-        </td>
-        <td>{{ reservaQuadraTenis.quintafeira | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.quintaFeiraEmailEnviado/>
-        </td>
-        <td>{{ reservaQuadraTenis.sextafeira | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.sextaFeiraEmailEnviado/>
-        </td>
-        <td>{{ reservaQuadraTenis.sabado | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.sabadoEmailEnviado/>
-        </td>
-        <td>{{ reservaQuadraTenis.domingo | formatMediumTime }}
-          <input type="checkbox" disabled [checked]=reservaQuadraTenis.domingoEmailEnviado/>
-        </td>
-        <td class="text-end">
-          <div class="btn-group">
-            <button
-              type="submit"
-              [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'view']"
-              class="btn btn-info btn-sm"
-              data-cy="entityDetailsButton"
-            >
-              <fa-icon icon="eye"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-            </button>
+        <tr *ngFor="let reservaQuadraTenis of reservaQuadraTenis; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'view']">{{ reservaQuadraTenis.id }}</a>
+          </td>
+          <td>{{ reservaQuadraTenis.emailDestino }}</td>
+          <td>{{ reservaQuadraTenis.templateEmail }}</td>
+          <td>{{ reservaQuadraTenis.semana | formatMediumDate }}</td>
+          <td>{{ reservaQuadraTenis.segundafeira | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.tercafeira | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.quartafeira | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.quintafeira | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.sextafeira | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.sabado | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.domingo | formatMediumDatetime }}</td>
+          <td>{{ reservaQuadraTenis.segundaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.tercaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.quartaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.quintaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.sextaFeiraEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.sabadoEmailEnviado }}</td>
+          <td>{{ reservaQuadraTenis.domingoEmailEnviado }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
 
-            <button
-              type="submit"
-              [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'edit']"
-              class="btn btn-primary btn-sm"
-              data-cy="entityEditButton"
-            >
-              <fa-icon icon="pencil-alt"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-            </button>
+              <button
+                type="submit"
+                [routerLink]="['/reserva-quadra-tenis', reservaQuadraTenis.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
 
-            <button type="submit" (click)="delete(reservaQuadraTenis)" class="btn btn-danger btn-sm"
-                    data-cy="entityDeleteButton">
-              <fa-icon icon="times"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-            </button>
-          </div>
-        </td>
-      </tr>
+              <button type="submit" (click)="delete(reservaQuadraTenis)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
