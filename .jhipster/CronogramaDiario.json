@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220616002338",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cronograma_diario",
+  "fields": [
+    {
+      "fieldName": "dia",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CronogramaDiario",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "blocos",
+      "otherEntityRelationshipName": "cronogramaDiario",
+      "relationshipName": "blocos",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
