@@ -195,158 +195,11 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadCronogramaDiario();
+    this.loadBlocos();
     this.loadAllAtividades();
-    this.activatedRoute.data.subscribe(({blocos}) => {
-      /*if (blocos.id === undefined) {
-        const today = dayjs().startOf('day');
-        blocos.zeroAM = today;
-        blocos.zeroAMeDez = today;
-        blocos.zeroAMeVinte = today;
-        blocos.zeroAMeTrinta = today;
-        blocos.zeroAMeQuarenta = today;
-        blocos.zeroAMeCinquenta = today;
-        blocos.zeroPM = today;
-        blocos.zeroPMeDez = today;
-        blocos.zeroPMeVinte = today;
-        blocos.zeroPMeTrinta = today;
-        blocos.zeroPMeQuarenta = today;
-        blocos.zeroPMeCinquenta = today;
-        blocos.umAM = today;
-        blocos.umAMeDez = today;
-        blocos.umAMeVinte = today;
-        blocos.umAMeTrinta = today;
-        blocos.umAMeQuarenta = today;
-        blocos.umAMeCinquenta = today;
-        blocos.umPM = today;
-        blocos.umPMeDez = today;
-        blocos.umPMeVinte = today;
-        blocos.umPMeTrinta = today;
-        blocos.umPMeQuarenta = today;
-        blocos.umPMeCinquenta = today;
-        blocos.doisAM = today;
-        blocos.doisAMeDez = today;
-        blocos.doisAMeVinte = today;
-        blocos.doisAMeTrinta = today;
-        blocos.doisAMeQuarenta = today;
-        blocos.doisAMeCinquenta = today;
-        blocos.doisPM = today;
-        blocos.doisPMeDez = today;
-        blocos.doisPMeVinte = today;
-        blocos.doisPMeTrinta = today;
-        blocos.doisPMeQuarenta = today;
-        blocos.doisPMeCinquenta = today;
-        blocos.tresAM = today;
-        blocos.tresAMeDez = today;
-        blocos.tresAMeVinte = today;
-        blocos.tresAMeTrinta = today;
-        blocos.tresAMeQuarenta = today;
-        blocos.tresAMeCinquenta = today;
-        blocos.tresPM = today;
-        blocos.tresPMeDez = today;
-        blocos.tresPMeVinte = today;
-        blocos.tresPMeTrinta = today;
-        blocos.tresPMeQuarenta = today;
-        blocos.tresPMeCinquenta = today;
-        blocos.quatroAM = today;
-        blocos.quatroAMeDez = today;
-        blocos.quatroAMeVinte = today;
-        blocos.quatroAMeTrinta = today;
-        blocos.quatroAMeQuarenta = today;
-        blocos.quatroAMeCinquenta = today;
-        blocos.quatroPM = today;
-        blocos.quatroPMeDez = today;
-        blocos.quatroPMeVinte = today;
-        blocos.quatroPMeTrinta = today;
-        blocos.quatroPMeQuarenta = today;
-        blocos.quatroPMeCinquenta = today;
-        blocos.cincoAM = today;
-        blocos.cincoAMeDez = today;
-        blocos.cincoAMeVinte = today;
-        blocos.cincoAMeTrinta = today;
-        blocos.cincoAMeQuarenta = today;
-        blocos.cincoAMeCinquenta = today;
-        blocos.cincoPM = today;
-        blocos.cincoPMeDez = today;
-        blocos.cincoPMeVinte = today;
-        blocos.cincoPMeTrinta = today;
-        blocos.cincoPMeQuarenta = today;
-        blocos.cincoPMeCinquenta = today;
-        blocos.seisAM = today;
-        blocos.seisAMeDez = today;
-        blocos.seisAMeVinte = today;
-        blocos.seisAMeTrinta = today;
-        blocos.seisAMeQuarenta = today;
-        blocos.seisAMeCinquenta = today;
-        blocos.seisPM = today;
-        blocos.seisPMeDez = today;
-        blocos.seisPMeVinte = today;
-        blocos.seisPMeTrinta = today;
-        blocos.seisPMeQuarenta = today;
-        blocos.seisPMeCinquenta = today;
-        blocos.seteAM = today;
-        blocos.seteAMeDez = today;
-        blocos.seteAMeVinte = today;
-        blocos.seteAMeTrinta = today;
-        blocos.seteAMeQuarenta = today;
-        blocos.seteAMeCinquenta = today;
-        blocos.setePM = today;
-        blocos.setePMeDez = today;
-        blocos.setePMeVinte = today;
-        blocos.setePMeTrinta = today;
-        blocos.setePMeQuarenta = today;
-        blocos.setePMeCinquenta = today;
-        blocos.oitoAM = today;
-        blocos.oitoAMeDez = today;
-        blocos.oitoAMeVinte = today;
-        blocos.oitoAMeTrinta = today;
-        blocos.oitoAMeQuarenta = today;
-        blocos.oitoAMeCinquenta = today;
-        blocos.oitoPM = today;
-        blocos.oitoPMeDez = today;
-        blocos.oitoPMeVinte = today;
-        blocos.oitoPMeTrinta = today;
-        blocos.oitoPMeQuarenta = today;
-        blocos.oitoPMeCinquenta = today;
-        blocos.noveAM = today;
-        blocos.noveAMeDez = today;
-        blocos.noveAMeVinte = today;
-        blocos.noveAMeTrinta = today;
-        blocos.noveAMeQuarenta = today;
-        blocos.noveAMeCinquenta = today;
-        blocos.novePM = today;
-        blocos.novePMeDez = today;
-        blocos.novePMeVinte = today;
-        blocos.novePMeTrinta = today;
-        blocos.novePMeQuarenta = today;
-        blocos.novePMeCinquenta = today;
-        blocos.dezAM = today;
-        blocos.dezAMeDez = today;
-        blocos.dezAMeVinte = today;
-        blocos.dezAMeTrinta = today;
-        blocos.dezAMeQuarenta = today;
-        blocos.dezAMeCinquenta = today;
-        blocos.dezPM = today;
-        blocos.dezPMeDez = today;
-        blocos.dezPMeVinte = today;
-        blocos.dezPMeTrinta = today;
-        blocos.dezPMeQuarenta = today;
-        blocos.dezPMeCinquenta = today;
-        blocos.onzeAM = today;
-        blocos.onzeAMeDez = today;
-        blocos.onzeAMeVinte = today;
-        blocos.onzeAMeTrinta = today;
-        blocos.onzeAMeQuarenta = today;
-        blocos.onzeAMeCinquenta = today;
-        blocos.onzePM = today;
-        blocos.onzePMeDez = today;
-        blocos.onzePMeVinte = today;
-        blocos.onzePMeTrinta = today;
-        blocos.onzePMeQuarenta = today;
-        blocos.onzePMeCinquenta = today;
-      }*/
+    this.activatedRoute.data.subscribe(({conogramaDiario}) => {
 
-      // this.updateFormBlocos(blocos);
+    this.updateFormBlocos(conogramaDiario);
 
       // this.loadRelationshipsOptions();
     });
@@ -606,7 +459,7 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   //* CRONOGRAMA DIÁRIO */
-  loadCronogramaDiario(): void {
+  loadBlocos(): void {
     this.isLoading = true;
     // '2022-06-14'
     const findByDate = this.data.format(DATE_FORMAT);
@@ -639,13 +492,13 @@ export class ConogramaDiarioComponent implements OnInit {
 
   addDays(): void {
     this.data = this.data.add(1, 'day');
-    this.loadCronogramaDiario();
+    this.loadBlocos();
     this.dia = this.data.format(DATE_FORMAT_DESC);
   }
 
   subDays(): void {
     this.data = this.data.add(-1, 'day');
-    this.loadCronogramaDiario();
+    this.loadBlocos();
     this.dia = this.data.format(DATE_FORMAT_DESC);
   }
 }

@@ -27,9 +27,7 @@ const reservaQuadraTenisRoute: Routes = [
   {
     path: 'new',
     component: ReservaQuadraTenisUpdateComponent,
-    resolve: {
-      reservaQuadraTenis: ReservaQuadraTenisRoutingResolveService,
-    },
+
     canActivate: [UserRouteAccessService],
   },
   {
