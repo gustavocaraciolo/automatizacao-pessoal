@@ -474,7 +474,7 @@ export class ConogramaDiarioComponent implements OnInit {
   protected createFromFormAtividades(): IAtividade {
     return {
       ...new Atividade(),
-      id: 1101
+      id: 1
     };
   }
 

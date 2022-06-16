@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
@@ -79,6 +80,8 @@ public class ReservaQuadraTenis implements Serializable {
     @Column(name = "domingo_email_enviado")
     private Boolean domingoEmailEnviado;
 
+    @Transient
+    private String corpoEmail;
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -315,6 +318,18 @@ public class ReservaQuadraTenis implements Serializable {
         this.domingoEmailEnviado = domingoEmailEnviado;
     }
 
+    public String getCorpoEmail() {
+        return this.corpoEmail;
+    }
+
+    public ReservaQuadraTenis dataHora(String dataHora) {
+        this.setCorpoEmail(dataHora);
+        return this;
+    }
+
+    public void setCorpoEmail(String corpoEmail) {
+        this.corpoEmail = corpoEmail;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
