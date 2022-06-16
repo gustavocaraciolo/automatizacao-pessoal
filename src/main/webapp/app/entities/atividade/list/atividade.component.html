@@ -35,7 +35,6 @@
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.atividade.cor">Cor</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.atividade.descricao">Descricao</span></th>
-          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.atividade.blocos">Blocos</span></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -46,12 +45,6 @@
           </td>
           <td>{{ atividade.cor }}</td>
           <td>{{ atividade.descricao }}</td>
-          <td>
-            <span *ngFor="let blocos of atividade.blocos; let last = last">
-              <a class="form-control-static" [routerLink]="['/blocos', blocos.id, 'view']">{{ blocos.id }}</a
-              >{{ last ? '' : ', ' }}
-            </span>
-          </td>
           <td class="text-end">
             <div class="btn-group">
               <button

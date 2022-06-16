@@ -30,7 +30,7 @@ public class CronogramaDiario implements Serializable {
 
     @OneToMany(mappedBy = "cronogramaDiario")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "cronogramaDiario", "atividades" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "atividades", "cronogramaDiario" }, allowSetters = true)
     private Set<Blocos> blocos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

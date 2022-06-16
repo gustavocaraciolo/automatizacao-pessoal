@@ -34,7 +34,7 @@
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAM">Zero AM</span></th>
-          <!--<th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeDez">Zero A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeDez">Zero A Me Dez</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeVinte">Zero A Me Vinte</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeTrinta">Zero A Me Trinta</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeQuarenta">Zero A Me Quarenta</span></th>
@@ -176,7 +176,8 @@
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeVinte">Onze P Me Vinte</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeTrinta">Onze P Me Trinta</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeQuarenta">Onze P Me Quarenta</span></th>
-          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeCinquenta">Onze P Me Cinquenta</span></th>-->
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeCinquenta">Onze P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.atividade">Atividade</span></th>
           <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cronogramaDiario">Cronograma Diario</span></th>
           <th scope="col"></th>
         </tr>
@@ -188,7 +189,7 @@
           </td>
           <td>{{ blocos.zeroAM | formatMediumDatetime }}</td>
           <td>{{ blocos.zeroAMeDez | formatMediumDatetime }}</td>
-          <!--<td>{{ blocos.zeroAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeVinte | formatMediumDatetime }}</td>
           <td>{{ blocos.zeroAMeTrinta | formatMediumDatetime }}</td>
           <td>{{ blocos.zeroAMeQuarenta | formatMediumDatetime }}</td>
           <td>{{ blocos.zeroAMeCinquenta | formatMediumDatetime }}</td>
@@ -328,8 +329,14 @@
           <td>{{ blocos.onzePMeDez | formatMediumDatetime }}</td>
           <td>{{ blocos.onzePMeVinte | formatMediumDatetime }}</td>
           <td>{{ blocos.onzePMeTrinta | formatMediumDatetime }}</td>
-          <td>{{ blocos.onzePMeQuarenta | formatMediumDatetime }}</td>-->
+          <td>{{ blocos.onzePMeQuarenta | formatMediumDatetime }}</td>
           <td>{{ blocos.onzePMeCinquenta | formatMediumDatetime }}</td>
+          <td>
+            <span *ngFor="let atividade of blocos.atividades; let last = last">
+              <a class="form-control-static" [routerLink]="['/atividade', atividade.id, 'view']">{{ atividade.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
           <td>
             <div *ngIf="blocos.cronogramaDiario">
               <a [routerLink]="['/cronograma-diario', blocos.cronogramaDiario?.id, 'view']">{{ blocos.cronogramaDiario?.dia }}</a>

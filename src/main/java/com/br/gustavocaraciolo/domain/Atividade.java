@@ -30,14 +30,9 @@ public class Atividade implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @ManyToMany
-    @JoinTable(
-        name = "rel_atividade__blocos",
-        joinColumns = @JoinColumn(name = "atividade_id"),
-        inverseJoinColumns = @JoinColumn(name = "blocos_id")
-    )
+    @ManyToMany(mappedBy = "atividades")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "cronogramaDiario", "atividades" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "atividades", "cronogramaDiario" }, allowSetters = true)
     private Set<Blocos> blocos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -86,6 +81,12 @@ public class Atividade implements Serializable {
     }
 
     public void setBlocos(Set<Blocos> blocos) {
+        if (this.blocos != null) {
+            this.blocos.forEach(i -> i.removeAtividade(this));
+        }
+        if (blocos != null) {
+            blocos.forEach(i -> i.addAtividade(this));
+        }
         this.blocos = blocos;
     }
 

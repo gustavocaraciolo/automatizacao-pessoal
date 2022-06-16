@@ -8,8 +8,6 @@ import { of, Subject, from } from 'rxjs';
 
 import { AtividadeService } from '../service/atividade.service';
 import { IAtividade, Atividade } from '../atividade.model';
-import { IBlocos } from 'app/entities/blocos/blocos.model';
-import { BlocosService } from 'app/entities/blocos/service/blocos.service';
 
 import { AtividadeUpdateComponent } from './atividade-update.component';
 
@@ -18,7 +16,6 @@ describe('Atividade Management Update Component', () => {
   let fixture: ComponentFixture<AtividadeUpdateComponent>;
   let activatedRoute: ActivatedRoute;
   let atividadeService: AtividadeService;
-  let blocosService: BlocosService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -40,41 +37,18 @@ describe('Atividade Management Update Component', () => {
     fixture = TestBed.createComponent(AtividadeUpdateComponent);
     activatedRoute = TestBed.inject(ActivatedRoute);
     atividadeService = TestBed.inject(AtividadeService);
-    blocosService = TestBed.inject(BlocosService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call Blocos query and add missing value', () => {
-      const atividade: IAtividade = { id: 456 };
-      const blocos: IBlocos[] = [{ id: 64053 }];
-      atividade.blocos = blocos;
-
-      const blocosCollection: IBlocos[] = [{ id: 89662 }];
-      jest.spyOn(blocosService, 'query').mockReturnValue(of(new HttpResponse({ body: blocosCollection })));
-      const additionalBlocos = [...blocos];
-      const expectedCollection: IBlocos[] = [...additionalBlocos, ...blocosCollection];
-      jest.spyOn(blocosService, 'addBlocosToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ atividade });
-      comp.ngOnInit();
-
-      expect(blocosService.query).toHaveBeenCalled();
-      expect(blocosService.addBlocosToCollectionIfMissing).toHaveBeenCalledWith(blocosCollection, ...additionalBlocos);
-      expect(comp.blocosSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should update editForm', () => {
       const atividade: IAtividade = { id: 456 };
-      const blocos: IBlocos = { id: 12881 };
-      atividade.blocos = [blocos];
 
       activatedRoute.data = of({ atividade });
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(atividade));
-      expect(comp.blocosSharedCollection).toContain(blocos);
     });
   });
 
@@ -139,44 +113,6 @@ describe('Atividade Management Update Component', () => {
       expect(atividadeService.update).toHaveBeenCalledWith(atividade);
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Tracking relationships identifiers', () => {
-    describe('trackBlocosById', () => {
-      it('Should return tracked Blocos primary key', () => {
-        const entity = { id: 123 };
-        const trackResult = comp.trackBlocosById(0, entity);
-        expect(trackResult).toEqual(entity.id);
-      });
-    });
-  });
-
-  describe('Getting selected relationships', () => {
-    describe('getSelectedBlocos', () => {
-      it('Should return option if no Blocos is selected', () => {
-        const option = { id: 123 };
-        const result = comp.getSelectedBlocos(option);
-        expect(result === option).toEqual(true);
-      });
-
-      it('Should return selected Blocos for according option', () => {
-        const option = { id: 123 };
-        const selected = { id: 123 };
-        const selected2 = { id: 456 };
-        const result = comp.getSelectedBlocos(option, [selected2, selected]);
-        expect(result === selected).toEqual(true);
-        expect(result === selected2).toEqual(false);
-        expect(result === option).toEqual(false);
-      });
-
-      it('Should return option if this Blocos is not selected', () => {
-        const option = { id: 123 };
-        const selected = { id: 456 };
-        const result = comp.getSelectedBlocos(option, [selected]);
-        expect(result === option).toEqual(true);
-        expect(result === selected).toEqual(false);
-      });
     });
   });
 });

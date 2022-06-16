@@ -1,6 +1,6 @@
 {
   "applications": "*",
-  "changelogDate": "20220615074200",
+  "changelogDate": "20220616100515",
   "dto": "no",
   "embedded": false,
   "entityTableName": "atividade",
@@ -23,7 +23,7 @@
     {
       "otherEntityName": "blocos",
       "otherEntityRelationshipName": "atividade",
-      "ownerSide": true,
+      "ownerSide": false,
       "relationshipName": "blocos",
       "relationshipType": "many-to-many"
     }

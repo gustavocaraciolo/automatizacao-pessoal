@@ -26,18 +26,6 @@
           <label class="form-label" jhiTranslate="automatizacaoPessoalApp.atividade.descricao" for="field_descricao">Descricao</label>
           <input type="text" class="form-control" name="descricao" id="field_descricao" data-cy="descricao" formControlName="descricao" />
         </div>
-
-        <div class="row mb-3">
-          <label jhiTranslate="automatizacaoPessoalApp.atividade.blocos" for="field_blocos">Blocos</label>
-          <select class="form-control" id="field_blocos" data-cy="blocos" multiple name="blocos" formControlName="blocos">
-            <option
-              [ngValue]="getSelectedBlocos(blocosOption, editForm.get('blocos')!.value)"
-              *ngFor="let blocosOption of blocosSharedCollection; trackBy: trackBlocosById"
-            >
-              {{ blocosOption.id }}
-            </option>
-          </select>
-        </div>
       </div>
 
       <div>

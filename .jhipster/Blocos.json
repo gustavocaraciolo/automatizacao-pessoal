@@ -1,6 +1,6 @@
 {
   "applications": "*",
-  "changelogDate": "20220615074158",
+  "changelogDate": "20220616100513",
   "dto": "no",
   "embedded": false,
   "entityTableName": "blocos",
@@ -589,19 +589,18 @@
   "readOnly": false,
   "relationships": [
     {
+      "otherEntityName": "atividade",
+      "otherEntityRelationshipName": "blocos",
+      "ownerSide": true,
+      "relationshipName": "atividade",
+      "relationshipType": "many-to-many"
+    },
+    {
       "otherEntityField": "dia",
       "otherEntityName": "cronogramaDiario",
       "otherEntityRelationshipName": "blocos",
       "relationshipName": "cronogramaDiario",
       "relationshipType": "many-to-one"
-    },
-    {
-      "otherEntityField": "descricao",
-      "otherEntityName": "atividade",
-      "otherEntityRelationshipName": "blocos",
-      "ownerSide": false,
-      "relationshipName": "atividade",
-      "relationshipType": "many-to-many"
     }
   ],
   "service": "no"

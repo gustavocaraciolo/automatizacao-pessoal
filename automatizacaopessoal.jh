@@ -189,7 +189,7 @@ entity Atividade {
 }
 
 relationship ManyToMany {
-    Atividade{blocos} to Blocos{atividade(descricao)}
+    Blocos{atividade} to Atividade{blocos}
 }
 
 relationship OneToMany {

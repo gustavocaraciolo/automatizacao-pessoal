@@ -2358,6 +2358,18 @@
         </div>
 
         <div class="row mb-3">
+          <label jhiTranslate="automatizacaoPessoalApp.blocos.atividade" for="field_atividades">Atividade</label>
+          <select class="form-control" id="field_atividades" data-cy="atividade" multiple name="atividades" formControlName="atividades">
+            <option
+              [ngValue]="getSelectedAtividade(atividadeOption, editForm.get('atividades')!.value)"
+              *ngFor="let atividadeOption of atividadesSharedCollection; trackBy: trackAtividadeById"
+            >
+              {{ atividadeOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="automatizacaoPessoalApp.blocos.cronogramaDiario" for="field_cronogramaDiario"
             >Cronograma Diario</label
           >

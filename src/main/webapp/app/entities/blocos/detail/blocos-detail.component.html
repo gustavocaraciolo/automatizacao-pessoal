@@ -590,6 +590,13 @@
         <dd>
           <span>{{ blocos.onzePMeCinquenta | formatMediumDatetime }}</span>
         </dd>
+        <dt><span jhiTranslate="automatizacaoPessoalApp.blocos.atividade">Atividade</span></dt>
+        <dd>
+          <span *ngFor="let atividade of blocos.atividades; let last = last">
+            <a [routerLink]="['/atividade', atividade?.id, 'view']">{{ atividade.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
         <dt><span jhiTranslate="automatizacaoPessoalApp.blocos.cronogramaDiario">Cronograma Diario</span></dt>
         <dd>
           <div *ngIf="blocos.cronogramaDiario">

@@ -457,14 +457,19 @@ public class Blocos implements Serializable {
     @Column(name = "onze_p_me_cinquenta")
     private ZonedDateTime onzePMeCinquenta;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = { "blocos" }, allowSetters = true)
-    private CronogramaDiario cronogramaDiario;
-
-    @ManyToMany(mappedBy = "blocos")
+    @ManyToMany
+    @JoinTable(
+        name = "rel_blocos__atividade",
+        joinColumns = @JoinColumn(name = "blocos_id"),
+        inverseJoinColumns = @JoinColumn(name = "atividade_id")
+    )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "blocos" }, allowSetters = true)
     private Set<Atividade> atividades = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = { "blocos" }, allowSetters = true)
+    private CronogramaDiario cronogramaDiario;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -2353,30 +2358,11 @@ public class Blocos implements Serializable {
         this.onzePMeCinquenta = onzePMeCinquenta;
     }
 
-    public CronogramaDiario getCronogramaDiario() {
-        return this.cronogramaDiario;
-    }
-
-    public void setCronogramaDiario(CronogramaDiario cronogramaDiario) {
-        this.cronogramaDiario = cronogramaDiario;
-    }
-
-    public Blocos cronogramaDiario(CronogramaDiario cronogramaDiario) {
-        this.setCronogramaDiario(cronogramaDiario);
-        return this;
-    }
-
     public Set<Atividade> getAtividades() {
         return this.atividades;
     }
 
     public void setAtividades(Set<Atividade> atividades) {
-        if (this.atividades != null) {
-            this.atividades.forEach(i -> i.removeBlocos(this));
-        }
-        if (atividades != null) {
-            atividades.forEach(i -> i.addBlocos(this));
-        }
         this.atividades = atividades;
     }
 
@@ -2394,6 +2380,19 @@ public class Blocos implements Serializable {
     public Blocos removeAtividade(Atividade atividade) {
         this.atividades.remove(atividade);
         atividade.getBlocos().remove(this);
+        return this;
+    }
+
+    public CronogramaDiario getCronogramaDiario() {
+        return this.cronogramaDiario;
+    }
+
+    public void setCronogramaDiario(CronogramaDiario cronogramaDiario) {
+        this.cronogramaDiario = cronogramaDiario;
+    }
+
+    public Blocos cronogramaDiario(CronogramaDiario cronogramaDiario) {
+        this.setCronogramaDiario(cronogramaDiario);
         return this;
     }
 

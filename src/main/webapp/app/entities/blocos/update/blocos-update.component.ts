@@ -10,6 +10,8 @@ import { DATE_TIME_FORMAT } from 'app/config/input.constants';
 
 import { IBlocos, Blocos } from '../blocos.model';
 import { BlocosService } from '../service/blocos.service';
+import { IAtividade } from 'app/entities/atividade/atividade.model';
+import { AtividadeService } from 'app/entities/atividade/service/atividade.service';
 import { ICronogramaDiario } from 'app/entities/cronograma-diario/cronograma-diario.model';
 import { CronogramaDiarioService } from 'app/entities/cronograma-diario/service/cronograma-diario.service';
 
@@ -20,6 +22,7 @@ import { CronogramaDiarioService } from 'app/entities/cronograma-diario/service/
 export class BlocosUpdateComponent implements OnInit {
   isSaving = false;
 
+  atividadesSharedCollection: IAtividade[] = [];
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
 
   editForm = this.fb.group({
@@ -168,11 +171,13 @@ export class BlocosUpdateComponent implements OnInit {
     onzePMeTrinta: [],
     onzePMeQuarenta: [],
     onzePMeCinquenta: [],
+    atividades: [],
     cronogramaDiario: [],
   });
 
   constructor(
     protected blocosService: BlocosService,
+    protected atividadeService: AtividadeService,
     protected cronogramaDiarioService: CronogramaDiarioService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder
@@ -348,8 +353,23 @@ export class BlocosUpdateComponent implements OnInit {
     }
   }
 
+  trackAtividadeById(_index: number, item: IAtividade): number {
+    return item.id!;
+  }
+
   trackCronogramaDiarioById(_index: number, item: ICronogramaDiario): number {
     return item.id!;
+  }
+
+  getSelectedAtividade(option: IAtividade, selectedVals?: IAtividade[]): IAtividade {
+    if (selectedVals) {
+      for (const selectedVal of selectedVals) {
+        if (option.id === selectedVal.id) {
+          return selectedVal;
+        }
+      }
+    }
+    return option;
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IBlocos>>): void {
@@ -518,9 +538,14 @@ export class BlocosUpdateComponent implements OnInit {
       onzePMeTrinta: blocos.onzePMeTrinta ? blocos.onzePMeTrinta.format(DATE_TIME_FORMAT) : null,
       onzePMeQuarenta: blocos.onzePMeQuarenta ? blocos.onzePMeQuarenta.format(DATE_TIME_FORMAT) : null,
       onzePMeCinquenta: blocos.onzePMeCinquenta ? blocos.onzePMeCinquenta.format(DATE_TIME_FORMAT) : null,
+      atividades: blocos.atividades,
       cronogramaDiario: blocos.cronogramaDiario,
     });
 
+    this.atividadesSharedCollection = this.atividadeService.addAtividadeToCollectionIfMissing(
+      this.atividadesSharedCollection,
+      ...(blocos.atividades ?? [])
+    );
     this.cronogramaDiariosSharedCollection = this.cronogramaDiarioService.addCronogramaDiarioToCollectionIfMissing(
       this.cronogramaDiariosSharedCollection,
       blocos.cronogramaDiario
@@ -528,6 +553,16 @@ export class BlocosUpdateComponent implements OnInit {
   }
 
   protected loadRelationshipsOptions(): void {
+    this.atividadeService
+      .query()
+      .pipe(map((res: HttpResponse<IAtividade[]>) => res.body ?? []))
+      .pipe(
+        map((atividades: IAtividade[]) =>
+          this.atividadeService.addAtividadeToCollectionIfMissing(atividades, ...(this.editForm.get('atividades')!.value ?? []))
+        )
+      )
+      .subscribe((atividades: IAtividade[]) => (this.atividadesSharedCollection = atividades));
+
     this.cronogramaDiarioService
       .query()
       .pipe(map((res: HttpResponse<ICronogramaDiario[]>) => res.body ?? []))
@@ -886,6 +921,7 @@ export class BlocosUpdateComponent implements OnInit {
       onzePMeCinquenta: this.editForm.get(['onzePMeCinquenta'])!.value
         ? dayjs(this.editForm.get(['onzePMeCinquenta'])!.value, DATE_TIME_FORMAT)
         : undefined,
+      atividades: this.editForm.get(['atividades'])!.value,
       cronogramaDiario: this.editForm.get(['cronogramaDiario'])!.value,
     };
   }

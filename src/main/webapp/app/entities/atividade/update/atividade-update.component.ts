@@ -3,12 +3,10 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { finalize, map } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 import { IAtividade, Atividade } from '../atividade.model';
 import { AtividadeService } from '../service/atividade.service';
-import { IBlocos } from 'app/entities/blocos/blocos.model';
-import { BlocosService } from 'app/entities/blocos/service/blocos.service';
 
 @Component({
   selector: 'jhi-atividade-update',
@@ -17,27 +15,17 @@ import { BlocosService } from 'app/entities/blocos/service/blocos.service';
 export class AtividadeUpdateComponent implements OnInit {
   isSaving = false;
 
-  blocosSharedCollection: IBlocos[] = [];
-
   editForm = this.fb.group({
     id: [],
     cor: [],
     descricao: [],
-    blocos: [],
   });
 
-  constructor(
-    protected atividadeService: AtividadeService,
-    protected blocosService: BlocosService,
-    protected activatedRoute: ActivatedRoute,
-    protected fb: FormBuilder
-  ) {}
+  constructor(protected atividadeService: AtividadeService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ atividade }) => {
       this.updateForm(atividade);
-
-      this.loadRelationshipsOptions();
     });
   }
 
@@ -53,21 +41,6 @@ export class AtividadeUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.atividadeService.create(atividade));
     }
-  }
-
-  trackBlocosById(_index: number, item: IBlocos): number {
-    return item.id!;
-  }
-
-  getSelectedBlocos(option: IBlocos, selectedVals?: IBlocos[]): IBlocos {
-    if (selectedVals) {
-      for (const selectedVal of selectedVals) {
-        if (option.id === selectedVal.id) {
-          return selectedVal;
-        }
-      }
-    }
-    return option;
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IAtividade>>): void {
@@ -94,23 +67,7 @@ export class AtividadeUpdateComponent implements OnInit {
       id: atividade.id,
       cor: atividade.cor,
       descricao: atividade.descricao,
-      blocos: atividade.blocos,
     });
-
-    this.blocosSharedCollection = this.blocosService.addBlocosToCollectionIfMissing(
-      this.blocosSharedCollection,
-      ...(atividade.blocos ?? [])
-    );
-  }
-
-  protected loadRelationshipsOptions(): void {
-    this.blocosService
-      .query()
-      .pipe(map((res: HttpResponse<IBlocos[]>) => res.body ?? []))
-      .pipe(
-        map((blocos: IBlocos[]) => this.blocosService.addBlocosToCollectionIfMissing(blocos, ...(this.editForm.get('blocos')!.value ?? [])))
-      )
-      .subscribe((blocos: IBlocos[]) => (this.blocosSharedCollection = blocos));
   }
 
   protected createFromForm(): IAtividade {
@@ -119,7 +76,6 @@ export class AtividadeUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       cor: this.editForm.get(['cor'])!.value,
       descricao: this.editForm.get(['descricao'])!.value,
-      blocos: this.editForm.get(['blocos'])!.value,
     };
   }
 }

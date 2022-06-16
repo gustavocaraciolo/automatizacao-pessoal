@@ -22,13 +22,6 @@
         <dd>
           <span>{{ atividade.descricao }}</span>
         </dd>
-        <dt><span jhiTranslate="automatizacaoPessoalApp.atividade.blocos">Blocos</span></dt>
-        <dd>
-          <span *ngFor="let blocos of atividade.blocos; let last = last">
-            <a [routerLink]="['/blocos', blocos?.id, 'view']">{{ blocos.id }}</a
-            >{{ last ? '' : ', ' }}
-          </span>
-        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

@@ -8,6 +8,8 @@ import { of, Subject, from } from 'rxjs';
 
 import { BlocosService } from '../service/blocos.service';
 import { IBlocos, Blocos } from '../blocos.model';
+import { IAtividade } from 'app/entities/atividade/atividade.model';
+import { AtividadeService } from 'app/entities/atividade/service/atividade.service';
 import { ICronogramaDiario } from 'app/entities/cronograma-diario/cronograma-diario.model';
 import { CronogramaDiarioService } from 'app/entities/cronograma-diario/service/cronograma-diario.service';
 
@@ -18,6 +20,7 @@ describe('Blocos Management Update Component', () => {
   let fixture: ComponentFixture<BlocosUpdateComponent>;
   let activatedRoute: ActivatedRoute;
   let blocosService: BlocosService;
+  let atividadeService: AtividadeService;
   let cronogramaDiarioService: CronogramaDiarioService;
 
   beforeEach(() => {
@@ -40,12 +43,32 @@ describe('Blocos Management Update Component', () => {
     fixture = TestBed.createComponent(BlocosUpdateComponent);
     activatedRoute = TestBed.inject(ActivatedRoute);
     blocosService = TestBed.inject(BlocosService);
+    atividadeService = TestBed.inject(AtividadeService);
     cronogramaDiarioService = TestBed.inject(CronogramaDiarioService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
+    it('Should call Atividade query and add missing value', () => {
+      const blocos: IBlocos = { id: 456 };
+      const atividades: IAtividade[] = [{ id: 27767 }];
+      blocos.atividades = atividades;
+
+      const atividadeCollection: IAtividade[] = [{ id: 41357 }];
+      jest.spyOn(atividadeService, 'query').mockReturnValue(of(new HttpResponse({ body: atividadeCollection })));
+      const additionalAtividades = [...atividades];
+      const expectedCollection: IAtividade[] = [...additionalAtividades, ...atividadeCollection];
+      jest.spyOn(atividadeService, 'addAtividadeToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ blocos });
+      comp.ngOnInit();
+
+      expect(atividadeService.query).toHaveBeenCalled();
+      expect(atividadeService.addAtividadeToCollectionIfMissing).toHaveBeenCalledWith(atividadeCollection, ...additionalAtividades);
+      expect(comp.atividadesSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should call CronogramaDiario query and add missing value', () => {
       const blocos: IBlocos = { id: 456 };
       const cronogramaDiario: ICronogramaDiario = { id: 92667 };
@@ -70,6 +93,8 @@ describe('Blocos Management Update Component', () => {
 
     it('Should update editForm', () => {
       const blocos: IBlocos = { id: 456 };
+      const atividades: IAtividade = { id: 63373 };
+      blocos.atividades = [atividades];
       const cronogramaDiario: ICronogramaDiario = { id: 32332 };
       blocos.cronogramaDiario = cronogramaDiario;
 
@@ -77,6 +102,7 @@ describe('Blocos Management Update Component', () => {
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(blocos));
+      expect(comp.atividadesSharedCollection).toContain(atividades);
       expect(comp.cronogramaDiariosSharedCollection).toContain(cronogramaDiario);
     });
   });
@@ -145,7 +171,15 @@ describe('Blocos Management Update Component', () => {
     });
   });
 
-  /*describe('Tracking relationships identifiers', () => {
+  describe('Tracking relationships identifiers', () => {
+    describe('trackAtividadeById', () => {
+      it('Should return tracked Atividade primary key', () => {
+        const entity = { id: 123 };
+        const trackResult = comp.trackAtividadeById(0, entity);
+        expect(trackResult).toEqual(entity.id);
+      });
+    });
+
     describe('trackCronogramaDiarioById', () => {
       it('Should return tracked CronogramaDiario primary key', () => {
         const entity = { id: 123 };
@@ -153,5 +187,33 @@ describe('Blocos Management Update Component', () => {
         expect(trackResult).toEqual(entity.id);
       });
     });
-  });*/
+  });
+
+  describe('Getting selected relationships', () => {
+    describe('getSelectedAtividade', () => {
+      it('Should return option if no Atividade is selected', () => {
+        const option = { id: 123 };
+        const result = comp.getSelectedAtividade(option);
+        expect(result === option).toEqual(true);
+      });
+
+      it('Should return selected Atividade for according option', () => {
+        const option = { id: 123 };
+        const selected = { id: 123 };
+        const selected2 = { id: 456 };
+        const result = comp.getSelectedAtividade(option, [selected2, selected]);
+        expect(result === selected).toEqual(true);
+        expect(result === selected2).toEqual(false);
+        expect(result === option).toEqual(false);
+      });
+
+      it('Should return option if this Atividade is not selected', () => {
+        const option = { id: 123 };
+        const selected = { id: 456 };
+        const result = comp.getSelectedAtividade(option, [selected]);
+        expect(result === option).toEqual(true);
+        expect(result === selected).toEqual(false);
+      });
+    });
+  });
 });
