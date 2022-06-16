@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 import { Blocos, IBlocos } from '../entities/blocos/blocos.model';
 import { finalize, map } from 'rxjs/operators';
+import { Atividade, IAtividade } from '../entities/atividade/atividade.model';
+import { AtividadeService } from '../entities/atividade/service/atividade.service';
 
 @Component({
   selector: 'jhi-conograma-diario',
@@ -26,6 +28,7 @@ export class ConogramaDiarioComponent implements OnInit {
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
   blocos?: IBlocos | null = null;
   cronogramaDiario?: ICronogramaDiario | null = null;
+  atividades?: IAtividade[] | null = null;
 
   editFormBlocos = this.fb.group({
     id: [],
@@ -183,6 +186,7 @@ export class ConogramaDiarioComponent implements OnInit {
   constructor(@Inject(LOCALE_ID) private locale: string,
               protected blocosService: BlocosService,
               protected cronogramaDiarioService: CronogramaDiarioService,
+              protected atividadeService: AtividadeService,
               protected activatedRoute: ActivatedRoute,
               protected fb: FormBuilder) {
     dayjs.tz.setDefault("Africa/Luanda")
@@ -192,6 +196,7 @@ export class ConogramaDiarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCronogramaDiario();
+    this.loadAllAtividades();
     this.activatedRoute.data.subscribe(({blocos}) => {
       /*if (blocos.id === undefined) {
         const today = dayjs().startOf('day');
@@ -568,7 +573,35 @@ export class ConogramaDiarioComponent implements OnInit {
       umAMeTrinta: this.data.utc(true).hour(1).minute(30),
       umAMeQuarenta: this.data.utc(true).hour(1).minute(40),
       umAMeCinquenta: this.data.utc(true).hour(1).minute(50),
-      cronogramaDiario: this.createFromFormCronogramaDiario()
+      cronogramaDiario: this.createFromFormCronogramaDiario(),
+      atividades: this.buildAtividades()
+    };
+  }
+
+  //* ATIVIDADES */
+  loadAllAtividades(): void {
+    this.isLoading = true;
+    this.atividadeService.query().subscribe({
+      next: (res: HttpResponse<IAtividade[]>) => {
+        this.isLoading = false;
+        this.atividades = res.body ?? [];
+      },
+      error: () => {
+        this.isLoading = false;
+      },
+    });
+  }
+
+  buildAtividades(): IAtividade[] {
+    const arr: IAtividade[] = [];
+    arr.push(this.createFromFormAtividades());
+    return arr;
+  }
+
+  protected createFromFormAtividades(): IAtividade {
+    return {
+      ...new Atividade(),
+      id: 1101
     };
   }
 
