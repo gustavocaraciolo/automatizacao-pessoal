@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <form name="editForm" role="form" novalidate (click)="save()" [formGroup]="editFormBlocos">
+  <form name="editForm" role="form" novalidate [formGroup]="editFormBlocos">
     <div class="col-md-10">
       <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> <</button>
       <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> ></button>
@@ -58,7 +58,7 @@
       </button>
 
       <button
-        type="submit"
+        (click)="save()"
         id="save-entity"
         data-cy="entityCreateSaveButton"
         [disabled]="editFormBlocos.invalid || isSaving"

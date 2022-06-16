@@ -199,7 +199,7 @@ export class ConogramaDiarioComponent implements OnInit {
     this.loadAllAtividades();
     this.activatedRoute.data.subscribe(({conogramaDiario}) => {
 
-    this.updateFormBlocos(conogramaDiario);
+      this.updateFormBlocos(conogramaDiario);
 
       // this.loadRelationshipsOptions();
     });
@@ -411,21 +411,23 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   protected createFromFormBlocos(): IBlocos {
+    const value = this.editFormBlocos.get(['zeroAM'])!.value;
+    console.log(value);
     return {
       ...new Blocos(),
       id: this.blocos?.id,
-      zeroAM: this.data.utc(true),
-      zeroAMeDez: this.data.utc(true).minute(10),
-      zeroAMeVinte: this.data.utc(true).minute(20),
-      zeroAMeTrinta: this.data.utc(true).minute(30),
-      zeroAMeQuarenta: this.data.utc(true).minute(40),
-      zeroAMeCinquenta: this.data.utc(true).minute(50),
-      umAM: this.data.utc(true).hour(1),
-      umAMeDez: this.data.utc(true).hour(1).minute(10),
-      umAMeVinte: this.data.utc(true).hour(1).minute(20),
-      umAMeTrinta: this.data.utc(true).hour(1).minute(30),
-      umAMeQuarenta: this.data.utc(true).hour(1).minute(40),
-      umAMeCinquenta: this.data.utc(true).hour(1).minute(50),
+      zeroAM: this.editFormBlocos.get(['zeroAM'])!.value ? this.data.utc(true) : null,
+      zeroAMeDez: this.editFormBlocos.get(['zeroAMeDez'])!.value ? this.data.utc(true).minute(10) : null,
+      zeroAMeVinte: this.editFormBlocos.get(['zeroAMeVinte'])!.value ? this.data.utc(true).minute(20) : null,
+      zeroAMeTrinta: this.editFormBlocos.get(['zeroAMeTrinta'])!.value ? this.data.utc(true).minute(30) : null,
+      zeroAMeQuarenta: this.editFormBlocos.get(['zeroAMeQuarenta'])!.value ? this.data.utc(true).minute(40) : null,
+      zeroAMeCinquenta: this.editFormBlocos.get(['zeroAMeCinquenta'])!.value ? this.data.utc(true).minute(50) : null,
+      umAM: this.editFormBlocos.get(['umAM'])!.value ? this.data.utc(true).hour(1) : null,
+      umAMeDez: this.editFormBlocos.get(['umAMeDez'])!.value ? this.data.utc(true).hour(1).minute(10) : null,
+      umAMeVinte: this.editFormBlocos.get(['umAMeVinte'])!.value ? this.data.utc(true).hour(1).minute(20) : null,
+      umAMeTrinta: this.editFormBlocos.get(['umAMeTrinta'])!.value ? this.data.utc(true).hour(1).minute(30) : null,
+      umAMeQuarenta: this.editFormBlocos.get(['umAMeQuarenta'])!.value ? this.data.utc(true).hour(1).minute(40) : null,
+      umAMeCinquenta: this.editFormBlocos.get(['umAMeCinquenta'])!.value ? this.data.utc(true).hour(1).minute(50) : null,
       cronogramaDiario: this.createFromFormCronogramaDiario(),
       atividades: this.buildAtividades()
     };
