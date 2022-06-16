@@ -45,10 +45,10 @@ export class BlocosService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  findByDate(date: string): Observable<EntityResponseType> {
+  findByDate(date: string): Observable<EntityArrayResponseType> {
     return this.http
-      .get<IBlocos>(`${this.resourceUrlByDate}/${date}`, { observe: 'response' })
-      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+      .get<IBlocos[]>(`${this.resourceUrlByDate}/${date}`, { observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {

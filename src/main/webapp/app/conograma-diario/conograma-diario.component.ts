@@ -26,7 +26,8 @@ export class ConogramaDiarioComponent implements OnInit {
   isLoading = false;
 
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
-  blocos?: IBlocos | null = null;
+  blocos?: IBlocos[] | null = null;
+  bloco?: IBlocos | null = null;
   cronogramaDiario?: ICronogramaDiario | null = null;
   atividades?: IAtividade[] | null = null;
 
@@ -195,11 +196,11 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadBlocos();
     this.loadAllAtividades();
+    this.loadBlocos();
     this.activatedRoute.data.subscribe(({conogramaDiario}) => {
 
-      this.updateFormBlocos(conogramaDiario);
+      // this.updateFormBlocos(conogramaDiario);
 
       // this.loadRelationshipsOptions();
     });
@@ -239,28 +240,47 @@ export class ConogramaDiarioComponent implements OnInit {
     this.isSaving = false;
   }
 
-  protected updateFormBlocos(blocos: IBlocos): void {
+  private findBlocosByAtividades(blocos: IBlocos[]) {
+    let blocoAux: IBlocos = {};
+    if (this.atividades) {
+      this.atividades.forEach(function (atividade) {
+        blocos.forEach(function (bloco) {
+          if (bloco.atividades) {
+            bloco.atividades.forEach(function (ativi) {
+              if (ativi.cor === atividade.cor) {
+                blocoAux = bloco;
+              }
+            });
+          }
+        });
+      });
+    }
+    return blocoAux;
+  }
+
+  protected updateFormBlocos(blocos: IBlocos[]): void {
+    let blocoAux = this.findBlocosByAtividades(blocos)
     this.editFormBlocos.patchValue({
-      id: blocos.id,
-      zeroAM: blocos.zeroAM ? blocos.zeroAM.format(DATE_TIME_FORMAT) : null,
-      zeroAMeDez: blocos.zeroAMeDez ? blocos.zeroAMeDez.format(DATE_TIME_FORMAT) : null,
-      zeroAMeVinte: blocos.zeroAMeVinte ? blocos.zeroAMeVinte.format(DATE_TIME_FORMAT) : null,
-      zeroAMeTrinta: blocos.zeroAMeTrinta ? blocos.zeroAMeTrinta.format(DATE_TIME_FORMAT) : null,
-      zeroAMeQuarenta: blocos.zeroAMeQuarenta ? blocos.zeroAMeQuarenta.format(DATE_TIME_FORMAT) : null,
-      zeroAMeCinquenta: blocos.zeroAMeCinquenta ? blocos.zeroAMeCinquenta.format(DATE_TIME_FORMAT) : null,
-      zeroPM: blocos.zeroPM ? blocos.zeroPM.format(DATE_TIME_FORMAT) : null,
+      id: blocoAux.id,
+      zeroAM: !!blocoAux.zeroAM,
+      zeroAMeDez: !!blocoAux.zeroAMeDez,
+      zeroAMeVinte: !!blocoAux.zeroAMeVinte,
+      zeroAMeTrinta: !!blocoAux.zeroAMeTrinta,
+      zeroAMeQuarenta: !!blocoAux.zeroAMeQuarenta,
+      zeroAMeCinquenta: !!blocoAux.zeroAMeCinquenta,
+      /*zeroPM: blocos.zeroPM ? blocos.zeroPM.format(DATE_TIME_FORMAT) : null,
       zeroPMeDez: blocos.zeroPMeDez ? blocos.zeroPMeDez.format(DATE_TIME_FORMAT) : null,
       zeroPMeVinte: blocos.zeroPMeVinte ? blocos.zeroPMeVinte.format(DATE_TIME_FORMAT) : null,
       zeroPMeTrinta: blocos.zeroPMeTrinta ? blocos.zeroPMeTrinta.format(DATE_TIME_FORMAT) : null,
       zeroPMeQuarenta: blocos.zeroPMeQuarenta ? blocos.zeroPMeQuarenta.format(DATE_TIME_FORMAT) : null,
-      zeroPMeCinquenta: blocos.zeroPMeCinquenta ? blocos.zeroPMeCinquenta.format(DATE_TIME_FORMAT) : null,
-      umAM: blocos.umAM ? blocos.umAM.format(DATE_TIME_FORMAT) : null,
-      umAMeDez: blocos.umAMeDez ? blocos.umAMeDez.format(DATE_TIME_FORMAT) : null,
-      umAMeVinte: blocos.umAMeVinte ? blocos.umAMeVinte.format(DATE_TIME_FORMAT) : null,
-      umAMeTrinta: blocos.umAMeTrinta ? blocos.umAMeTrinta.format(DATE_TIME_FORMAT) : null,
-      umAMeQuarenta: blocos.umAMeQuarenta ? blocos.umAMeQuarenta.format(DATE_TIME_FORMAT) : null,
-      umAMeCinquenta: blocos.umAMeCinquenta ? blocos.umAMeCinquenta.format(DATE_TIME_FORMAT) : null,
-      umPM: blocos.umPM ? blocos.umPM.format(DATE_TIME_FORMAT) : null,
+      zeroPMeCinquenta: blocos.zeroPMeCinquenta ? blocos.zeroPMeCinquenta.format(DATE_TIME_FORMAT) : null,*/
+      umAM: !!blocoAux.umAM,
+      umAMeDez: !!blocoAux.umAMeDez,
+      umAMeVinte: !!blocoAux.umAMeVinte,
+      umAMeTrinta: !!blocoAux.umAMeTrinta,
+      umAMeQuarenta: !!blocoAux.umAMeQuarenta,
+      umAMeCinquenta: !!blocoAux.umAMeCinquenta,
+      /*umPM: blocos.umPM ? blocos.umPM.format(DATE_TIME_FORMAT) : null,
       umPMeDez: blocos.umPMeDez ? blocos.umPMeDez.format(DATE_TIME_FORMAT) : null,
       umPMeVinte: blocos.umPMeVinte ? blocos.umPMeVinte.format(DATE_TIME_FORMAT) : null,
       umPMeTrinta: blocos.umPMeTrinta ? blocos.umPMeTrinta.format(DATE_TIME_FORMAT) : null,
@@ -386,13 +406,13 @@ export class ConogramaDiarioComponent implements OnInit {
       onzePMeTrinta: blocos.onzePMeTrinta ? blocos.onzePMeTrinta.format(DATE_TIME_FORMAT) : null,
       onzePMeQuarenta: blocos.onzePMeQuarenta ? blocos.onzePMeQuarenta.format(DATE_TIME_FORMAT) : null,
       onzePMeCinquenta: blocos.onzePMeCinquenta ? blocos.onzePMeCinquenta.format(DATE_TIME_FORMAT) : null,
-      cronogramaDiario: blocos.cronogramaDiario,
+      cronogramaDiario: blocos.cronogramaDiario,*/
     });
 
-    this.cronogramaDiariosSharedCollection = this.cronogramaDiarioService.addCronogramaDiarioToCollectionIfMissing(
+    /*this.cronogramaDiariosSharedCollection = this.cronogramaDiarioService.addCronogramaDiarioToCollectionIfMissing(
       this.cronogramaDiariosSharedCollection,
-      blocos.cronogramaDiario
-    );
+      blocos[0].cronogramaDiario
+    );*/
   }
 
   protected loadRelationshipsOptions(): void {
@@ -411,11 +431,9 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   protected createFromFormBlocos(): IBlocos {
-    const value = this.editFormBlocos.get(['zeroAM'])!.value;
-    console.log(value);
     return {
       ...new Blocos(),
-      id: this.blocos?.id,
+      id: this.bloco?.id,
       zeroAM: this.editFormBlocos.get(['zeroAM'])!.value ? this.data.utc(true) : null,
       zeroAMeDez: this.editFormBlocos.get(['zeroAMeDez'])!.value ? this.data.utc(true).minute(10) : null,
       zeroAMeVinte: this.editFormBlocos.get(['zeroAMeVinte'])!.value ? this.data.utc(true).minute(20) : null,
@@ -466,9 +484,12 @@ export class ConogramaDiarioComponent implements OnInit {
     // '2022-06-14'
     const findByDate = this.data.format(DATE_FORMAT);
     this.blocosService.findByDate(findByDate).subscribe({
-      next: (res: HttpResponse<IBlocos>) => {
+      next: (res: HttpResponse<IBlocos[]>) => {
         this.isLoading = false;
         this.blocos = res.body;
+        if (this.blocos) {
+          this.updateFormBlocos(this.blocos);
+        }
       },
       error: () => {
         this.blocos = null;
