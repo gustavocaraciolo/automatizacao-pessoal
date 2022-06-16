@@ -21,20 +21,20 @@
       "emailDestino": "Email Destino",
       "templateEmail": "Template Email",
       "semana": "Semana",
-      "segundafeira": "Segunda-feira",
-      "tercafeira": "Terça-feira",
-      "quartafeira": "Quarta-feira",
-      "quintafeira": "Quinta-feira",
-      "sextafeira": "Sexta-feira",
-      "sabado": "Sábado",
+      "segundafeira": "Segundafeira",
+      "tercafeira": "Tercafeira",
+      "quartafeira": "Quartafeira",
+      "quintafeira": "Quintafeira",
+      "sextafeira": "Sextafeira",
+      "sabado": "Sabado",
       "domingo": "Domingo",
-      "segundaFeiraEmailEnviado": "Enviado",
-      "tercaFeiraEmailEnviado": "Enviado",
-      "quartaFeiraEmailEnviado": "Enviado",
-      "quintaFeiraEmailEnviado": "Enviado",
-      "sextaFeiraEmailEnviado": "Enviado",
-      "sabadoEmailEnviado": "Enviado",
-      "domingoEmailEnviado": "Enviado"
+      "segundaFeiraEmailEnviado": "Segunda Feira Email Enviado",
+      "tercaFeiraEmailEnviado": "Terca Feira Email Enviado",
+      "quartaFeiraEmailEnviado": "Quarta Feira Email Enviado",
+      "quintaFeiraEmailEnviado": "Quinta Feira Email Enviado",
+      "sextaFeiraEmailEnviado": "Sexta Feira Email Enviado",
+      "sabadoEmailEnviado": "Sabado Email Enviado",
+      "domingoEmailEnviado": "Domingo Email Enviado"
     }
   }
 }

@@ -1,0 +1,367 @@
+<div>
+  <h2 id="page-heading" data-cy="BlocosHeading">
+    <span jhiTranslate="automatizacaoPessoalApp.blocos.home.title">Blocos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="automatizacaoPessoalApp.blocos.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-blocos"
+        [routerLink]="['/blocos/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="automatizacaoPessoalApp.blocos.home.createLabel"> Create a new Blocos </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="blocos?.length === 0">
+    <span jhiTranslate="automatizacaoPessoalApp.blocos.home.notFound">No blocos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="blocos && blocos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAM">Zero AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeDez">Zero A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeVinte">Zero A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeTrinta">Zero A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeQuarenta">Zero A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroAMeCinquenta">Zero A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPM">Zero PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeDez">Zero P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeVinte">Zero P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeTrinta">Zero P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeQuarenta">Zero P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.zeroPMeCinquenta">Zero P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAM">Um AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAMeDez">Um A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAMeVinte">Um A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAMeTrinta">Um A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAMeQuarenta">Um A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umAMeCinquenta">Um A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPM">Um PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPMeDez">Um P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPMeVinte">Um P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPMeTrinta">Um P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPMeQuarenta">Um P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.umPMeCinquenta">Um P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAM">Dois AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeDez">Dois A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeVinte">Dois A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeTrinta">Dois A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeQuarenta">Dois A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisAMeCinquenta">Dois A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPM">Dois PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeDez">Dois P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeVinte">Dois P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeTrinta">Dois P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeQuarenta">Dois P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.doisPMeCinquenta">Dois P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAM">Tres AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeDez">Tres A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeVinte">Tres A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeTrinta">Tres A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeQuarenta">Tres A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresAMeCinquenta">Tres A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPM">Tres PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeDez">Tres P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeVinte">Tres P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeTrinta">Tres P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeQuarenta">Tres P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.tresPMeCinquenta">Tres P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAM">Quatro AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeDez">Quatro A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeVinte">Quatro A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeTrinta">Quatro A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeQuarenta">Quatro A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroAMeCinquenta">Quatro A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPM">Quatro PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeDez">Quatro P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeVinte">Quatro P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeTrinta">Quatro P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeQuarenta">Quatro P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.quatroPMeCinquenta">Quatro P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAM">Cinco AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeDez">Cinco A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeVinte">Cinco A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeTrinta">Cinco A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeQuarenta">Cinco A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoAMeCinquenta">Cinco A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPM">Cinco PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeDez">Cinco P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeVinte">Cinco P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeTrinta">Cinco P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeQuarenta">Cinco P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cincoPMeCinquenta">Cinco P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAM">Seis AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeDez">Seis A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeVinte">Seis A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeTrinta">Seis A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeQuarenta">Seis A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisAMeCinquenta">Seis A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPM">Seis PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeDez">Seis P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeVinte">Seis P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeTrinta">Seis P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeQuarenta">Seis P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seisPMeCinquenta">Seis P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAM">Sete AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeDez">Sete A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeVinte">Sete A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeTrinta">Sete A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeQuarenta">Sete A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.seteAMeCinquenta">Sete A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePM">Sete PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePMeDez">Sete P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePMeVinte">Sete P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePMeTrinta">Sete P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePMeQuarenta">Sete P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.setePMeCinquenta">Sete P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAM">Oito AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeDez">Oito A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeVinte">Oito A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeTrinta">Oito A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeQuarenta">Oito A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoAMeCinquenta">Oito A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPM">Oito PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeDez">Oito P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeVinte">Oito P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeTrinta">Oito P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeQuarenta">Oito P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.oitoPMeCinquenta">Oito P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAM">Nove AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeDez">Nove A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeVinte">Nove A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeTrinta">Nove A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeQuarenta">Nove A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.noveAMeCinquenta">Nove A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePM">Nove PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePMeDez">Nove P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePMeVinte">Nove P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePMeTrinta">Nove P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePMeQuarenta">Nove P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.novePMeCinquenta">Nove P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAM">Dez AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeDez">Dez A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeVinte">Dez A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeTrinta">Dez A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeQuarenta">Dez A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezAMeCinquenta">Dez A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPM">Dez PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeDez">Dez P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeVinte">Dez P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeTrinta">Dez P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeQuarenta">Dez P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.dezPMeCinquenta">Dez P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAM">Onze AM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeDez">Onze A Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeVinte">Onze A Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeTrinta">Onze A Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeQuarenta">Onze A Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzeAMeCinquenta">Onze A Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePM">Onze PM</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeDez">Onze P Me Dez</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeVinte">Onze P Me Vinte</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeTrinta">Onze P Me Trinta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeQuarenta">Onze P Me Quarenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.onzePMeCinquenta">Onze P Me Cinquenta</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.atividade">Atividade</span></th>
+          <th scope="col"><span jhiTranslate="automatizacaoPessoalApp.blocos.cronogramaDiario">Cronograma Diario</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blocos of blocos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/blocos', blocos.id, 'view']">{{ blocos.id }}</a>
+          </td>
+          <td>{{ blocos.zeroAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.zeroPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.umPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.doisPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.tresPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.quatroPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.cincoPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seisPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.seteAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePM | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.setePMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.oitoPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.noveAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePM | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.novePMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPM | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.dezPMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAM | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzeAMeCinquenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePM | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePMeDez | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePMeVinte | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePMeTrinta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePMeQuarenta | formatMediumDatetime }}</td>
+          <td>{{ blocos.onzePMeCinquenta | formatMediumDatetime }}</td>
+          <td>
+            <span *ngFor="let atividade of blocos.atividades; let last = last">
+              <a class="form-control-static" [routerLink]="['/atividade', atividade.id, 'view']">{{ atividade.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <div *ngIf="blocos.cronogramaDiario">
+              <a [routerLink]="['/cronograma-diario', blocos.cronogramaDiario?.id, 'view']">{{ blocos.cronogramaDiario?.dia }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/blocos', blocos.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/blocos', blocos.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(blocos)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
