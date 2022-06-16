@@ -59,17 +59,7 @@ public class BlocosResource {
         if (blocos.getId() != null) {
             throw new BadRequestAlertException("A new blocos cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        if (blocos.getCronogramaDiario() != null && blocos.getCronogramaDiario().getDia() != null) {
-            Optional<CronogramaDiario> cronogramaDiario = cronogramaDiarioRepository.findByDiaEquals(blocos.getCronogramaDiario().getDia());
-            if(cronogramaDiario.isPresent()) {
-                blocos.setCronogramaDiario(cronogramaDiario.get());
-            }else {
-                CronogramaDiario save = new CronogramaDiario();
-                save.setDia(blocos.getCronogramaDiario().getDia());
-                save = cronogramaDiarioRepository.save(save);
-                blocos.setCronogramaDiario(save);
-            }
-        }
+        sabeByDate(blocos);
 
         Blocos result = blocosRepository.save(blocos);
         return ResponseEntity
@@ -102,12 +92,29 @@ public class BlocosResource {
         if (!blocosRepository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
+        sabeByDate(blocos);
 
         Blocos result = blocosRepository.save(blocos);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, blocos.getId().toString()))
             .body(result);
+    }
+
+    private void sabeByDate(Blocos blocos) {
+        if (blocos.getCronogramaDiario() != null && blocos.getCronogramaDiario().getDia() != null) {
+            Optional<CronogramaDiario> cronogramaDiario = cronogramaDiarioRepository.findByDiaEquals(blocos.getCronogramaDiario().getDia());
+            if(cronogramaDiario.isPresent()) {
+                blocos.setCronogramaDiario(cronogramaDiario.get());
+            }else {
+                CronogramaDiario save = new CronogramaDiario();
+                save.setDia(blocos.getCronogramaDiario().getDia());
+                save = cronogramaDiarioRepository.save(save);
+                blocos.setCronogramaDiario(save);
+            }
+        }
+        Optional<Blocos> bloco = blocosRepository.findByCronogramaDiario_DiaEquals(blocos.getCronogramaDiario().getDia());
+        bloco.ifPresent(value -> blocos.setId(value.getId()));
     }
 
     /**
