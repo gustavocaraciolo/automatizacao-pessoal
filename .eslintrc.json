@@ -37,7 +37,7 @@
       }
     ],
     "@angular-eslint/relative-url-prefix": "error",
-    "@typescript-eslint/ban-types": [
+    /*"@typescript-eslint/ban-types": [
       "error",
       {
         "extendDefaults": true,
@@ -45,10 +45,10 @@
           "{}": false
         }
       }
-    ],
-    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    ],*/
+    /*"@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],*/
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/member-ordering": [
+    /*"@typescript-eslint/member-ordering": [
       "error",
       {
         "default": [
@@ -67,7 +67,7 @@
           "private-instance-method"
         ]
       }
-    ],
+    ],*/
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-non-null-assertion": "off",

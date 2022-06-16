@@ -1,0 +1,25 @@
+{
+  "automatizacaoPessoalApp": {
+    "cronogramaDiario": {
+      "home": {
+        "title": "Cronograma Diarios",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Cronograma Diario",
+        "createOrEditLabel": "Criar ou editar Cronograma Diario",
+        "notFound": "Nenhum Cronograma Diario encontrado"
+      },
+      "created": "Um novo Cronograma Diario foi criado com o identificador {{ param }}",
+      "updated": "Um Cronograma Diario foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Cronograma Diario foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Cronograma Diario {{ id }}?"
+      },
+      "detail": {
+        "title": "Cronograma Diario"
+      },
+      "id": "ID",
+      "dia": "Dia",
+      "blocos": "Blocos"
+    }
+  }
+}

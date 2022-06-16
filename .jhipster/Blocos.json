@@ -1,0 +1,607 @@
+{
+  "applications": "*",
+  "changelogDate": "20220616100513",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "blocos",
+  "fields": [
+    {
+      "fieldName": "zeroAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "zeroPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "umPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "doisPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "tresPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quatroPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "cincoPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seisPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "seteAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "setePMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "oitoPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "noveAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "novePMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dezPMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzeAMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePM",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePMeDez",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePMeVinte",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePMeTrinta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePMeQuarenta",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "onzePMeCinquenta",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Blocos",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "atividade",
+      "otherEntityRelationshipName": "blocos",
+      "ownerSide": true,
+      "relationshipName": "atividade",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "dia",
+      "otherEntityName": "cronogramaDiario",
+      "otherEntityRelationshipName": "blocos",
+      "relationshipName": "cronogramaDiario",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

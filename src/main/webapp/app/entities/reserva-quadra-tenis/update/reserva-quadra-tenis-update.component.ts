@@ -4,15 +4,15 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+
 import dayjs from 'dayjs/esm';
 import { DATE_TIME_FORMAT } from 'app/config/input.constants';
+
 import { IReservaQuadraTenis, ReservaQuadraTenis } from '../reserva-quadra-tenis.model';
 import { ReservaQuadraTenisService } from '../service/reserva-quadra-tenis.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
 import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';
 import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
-import { DatePipe } from '@angular/common';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-reserva-quadra-tenis-update',
@@ -53,7 +53,7 @@ export class ReservaQuadraTenisUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ reservaQuadraTenis }) => {
       if (reservaQuadraTenis.id === undefined) {
-        const today = dayjs().format(DATE_TIME_FORMAT);
+        const today = dayjs().startOf('day');
         reservaQuadraTenis.segundafeira = today;
         reservaQuadraTenis.tercafeira = today;
         reservaQuadraTenis.quartafeira = today;
@@ -65,27 +65,6 @@ export class ReservaQuadraTenisUpdateComponent implements OnInit {
 
       this.updateForm(reservaQuadraTenis);
     });
-  }
-
-  onDateSelect(ngbDate: NgbDate): void {
-    const datepipe: DatePipe = new DatePipe('pt-BR');
-
-    const segundafeira = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const tercafeira = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 1, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const quartafeira = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 2, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const quintafeira = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 3, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const sextafeira = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 4, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const sabado = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 5, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-    const domingo = datepipe.transform(new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day + 6, 20, 0, 0), 'yyyy-MM-ddTHH:mm')
-
-    this.editForm.get(['segundafeira'])!.setValue(segundafeira);
-    this.editForm.get(['tercafeira'])!.setValue(tercafeira);
-    this.editForm.get(['quartafeira'])!.setValue(quartafeira);
-    this.editForm.get(['quintafeira'])!.setValue(quintafeira);
-    this.editForm.get(['sextafeira'])!.setValue(sextafeira);
-    this.editForm.get(['sabado'])!.setValue(sabado);
-    this.editForm.get(['domingo'])!.setValue(domingo);
-
   }
 
   byteSize(base64String: string): string {
@@ -164,7 +143,7 @@ export class ReservaQuadraTenisUpdateComponent implements OnInit {
   protected createFromForm(): IReservaQuadraTenis {
     return {
       ...new ReservaQuadraTenis(),
-      id: this.editForm.get(['id'])!.value ? this.editForm.get(['id'])!.value : undefined,
+      id: this.editForm.get(['id'])!.value,
       emailDestino: this.editForm.get(['emailDestino'])!.value,
       templateEmail: this.editForm.get(['templateEmail'])!.value,
       semana: this.editForm.get(['semana'])!.value,
