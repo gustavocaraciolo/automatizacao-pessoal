@@ -1,6 +1,8 @@
 package com.br.gustavocaraciolo.repository;
 
 import com.br.gustavocaraciolo.domain.Blocos;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -22,9 +24,16 @@ public interface BlocosRepository extends BlocosRepositoryWithBagRelationships, 
         return this.fetchBagRelationships(this.findAllWithToOneRelationships());
     }
 
+    default List<Blocos> findAllAtividadeCronogramaships(LocalDate date) {
+        return this.fetchBagRelationships(this.findAllAtividadeCronograma(date));
+    }
+
     default Page<Blocos> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAllWithToOneRelationships(pageable));
     }
+
+    @Query("select b from Blocos b where b.cronogramaDiario.dia = ?1")
+    Optional<Blocos> findByCronogramaDiario_DiaEquals(LocalDate dia);
 
     @Query(
         value = "select distinct blocos from Blocos blocos left join fetch blocos.cronogramaDiario",
@@ -34,6 +43,9 @@ public interface BlocosRepository extends BlocosRepositoryWithBagRelationships, 
 
     @Query("select distinct blocos from Blocos blocos left join fetch blocos.cronogramaDiario")
     List<Blocos> findAllWithToOneRelationships();
+
+    @Query("select distinct blocos from Blocos blocos left join fetch blocos.cronogramaDiario where blocos.cronogramaDiario.dia = :date")
+    List<Blocos> findAllAtividadeCronograma(@Param("date") LocalDate date);
 
     @Query("select blocos from Blocos blocos left join fetch blocos.cronogramaDiario where blocos.id =:id")
     Optional<Blocos> findOneWithToOneRelationships(@Param("id") Long id);
