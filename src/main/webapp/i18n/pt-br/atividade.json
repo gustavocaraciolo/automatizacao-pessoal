@@ -4,9 +4,10 @@
       "home": {
         "title": "Atividades",
         "refreshListLabel": "Atualizar lista",
-        "createLabel": "Criar novo Atividade",
+        "createLabel": "Criar nova Atividade",
         "createOrEditLabel": "Criar ou editar Atividade",
-        "notFound": "Nenhum Atividade encontrado"
+        "notFound": "Nenhum Atividade encontrado",
+        "salvar": "Salvar"
       },
       "created": "Um novo Atividade foi criado com o identificador {{ param }}",
       "updated": "Um Atividade foi atualizado com o identificador {{ param }}",

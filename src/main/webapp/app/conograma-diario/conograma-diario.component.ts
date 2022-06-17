@@ -218,7 +218,6 @@ export class ConogramaDiarioComponent implements OnInit {
   }
 
   save(): void {
-    //this.saveCronogramaDiario();
     this.saveBlocos();
   }
 

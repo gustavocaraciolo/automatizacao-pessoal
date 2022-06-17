@@ -4,8 +4,8 @@
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="save()" [disabled]="isLoading">
-        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="automatizacaoPessoalApp.atividade.home.refreshListLabel">Refresh List</span>
+        <fa-icon icon="save" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="automatizacaoPessoalApp.atividade.home.salvar">Salvar Atividade</span>
       </button>
 
       <button
@@ -28,13 +28,21 @@
     <span jhiTranslate="automatizacaoPessoalApp.atividade.home.notFound">No atividades found</span>
   </div>
   <form name="editForm" role="form" novalidate [formGroup]="editFormBlocos">
-    <div class="col-md-3">
+    <div class="col-md-9">
       <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> <</button>
       <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> ></button>
       <h1 class="text-capitalize text-center">{{ dia }}</h1>
       <!--<h1 class="text-capitalize text-center" jhiTranslate="conograma-diario.title">Title</h1>
       <h5 class="text-center" jhiTranslate="conograma-diario.subtitle">Subtitle</h5>-->
       <hr/>
+      <div class="col-md-4" *ngIf="atividades && atividades.length > 0">
+        <label jhiTranslate="automatizacaoPessoalApp.atividade.home.title">Atividade</label>
+        <select class="form-control" id="atividade" name="atividade" formControlName="atividade">
+          <option *ngFor="let descricao of atividades" [value]="descricao.id">{{ descricao.descricao }}</option>
+        </select>
+      </div>
+      <br/>
+
       <div class="d-flex" role="group">
         <input type="checkbox" id="field_zeroAM" data-cy="zeroAM" class="btn-check" name="zeroAM"
                formControlName="zeroAM">
@@ -75,16 +83,7 @@
                name="umAMeCinquenta" formControlName="umAMeCinquenta">
         <label class="btn btn-outline-primary" for="field_umAMeCinquenta">01:50</label>
       </div>
-
       <!--<p class="text-justify" jhiTranslate="conograma-diario.content">Content</p>-->
-    </div>
-    <div class="row mb-3">
-      <div class="mb-3" *ngIf="atividades && atividades.length > 0">
-        <label jhiTranslate="automatizacaoPessoalApp.atividade.home.title">Atividade</label>
-        <select class="form-control" id="atividade" name="atividade" formControlName="atividade">
-          <option *ngFor="let descricao of atividades" [value]="descricao.id">{{ descricao.descricao }}</option>
-        </select>
-      </div>
     </div>
   </form>
 </div>
