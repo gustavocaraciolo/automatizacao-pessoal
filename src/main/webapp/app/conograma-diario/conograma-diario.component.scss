@@ -1,1 +1,13 @@
-/* conograma-diario.component.scss */
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"]:checked + .btn {
+    color: #fff;
+    background: #608dff !important;
+}
+
+input[type="checkbox"]:hover + .btn {
+  color: #fff;
+  background-color: #8260ff;
+}
