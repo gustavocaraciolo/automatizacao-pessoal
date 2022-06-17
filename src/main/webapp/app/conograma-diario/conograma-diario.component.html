@@ -1,6 +1,34 @@
-<div class="d-flex justify-content-center">
+<div>
+  <h2 id="page-heading" data-cy="AtividadeHeading">
+    <span jhiTranslate="automatizacaoPessoalApp.atividade.home.title">Atividades</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="save()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="automatizacaoPessoalApp.atividade.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-atividade"
+        [routerLink]="['/atividade/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="automatizacaoPessoalApp.atividade.home.createLabel"> Create a new Atividade </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="atividades?.length === 0">
+    <span jhiTranslate="automatizacaoPessoalApp.atividade.home.notFound">No atividades found</span>
+  </div>
   <form name="editForm" role="form" novalidate [formGroup]="editFormBlocos">
-    <div class="col-md-10">
+    <div class="col-md-3">
       <button class="btn btn-sm btn-outline-primary me-2" (click)="subDays()"> <</button>
       <button class="btn btn-sm btn-outline-primary me-2" (click)="addDays()"> ></button>
       <h1 class="text-capitalize text-center">{{ dia }}</h1>
@@ -50,22 +78,13 @@
 
       <!--<p class="text-justify" jhiTranslate="conograma-diario.content">Content</p>-->
     </div>
-
-    <div>
-      <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary"
-              (click)="previousState()">
-        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-      </button>
-
-      <button
-        (click)="save()"
-        id="save-entity"
-        data-cy="entityCreateSaveButton"
-        [disabled]="editFormBlocos.invalid || isSaving"
-        class="btn btn-primary"
-      >
-        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-      </button>
+    <div class="row mb-3">
+      <div class="mb-3" *ngIf="atividades && atividades.length > 0">
+        <label jhiTranslate="automatizacaoPessoalApp.atividade.home.title">Atividade</label>
+        <select class="form-control" id="atividade" name="atividade" formControlName="atividade">
+          <option *ngFor="let descricao of atividades" [value]="descricao.id">{{ descricao.descricao }}</option>
+        </select>
+      </div>
     </div>
   </form>
 </div>

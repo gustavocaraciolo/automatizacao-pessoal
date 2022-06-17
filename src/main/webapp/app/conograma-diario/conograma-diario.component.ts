@@ -29,7 +29,7 @@ export class ConogramaDiarioComponent implements OnInit {
   blocos?: IBlocos[] | null = null;
   bloco?: IBlocos | null = null;
   cronogramaDiario?: ICronogramaDiario | null = null;
-  atividades?: IAtividade[] | null = null;
+  atividades?: IAtividade[] = [];
 
   editFormBlocos = this.fb.group({
     id: [],
@@ -178,10 +178,16 @@ export class ConogramaDiarioComponent implements OnInit {
     onzePMeQuarenta: [],
     onzePMeCinquenta: [],
     cronogramaDiario: [],
+    atividade: [],
   });
   editFormCronogramaDiario = this.fb.group({
     id: [],
     dia: [],
+  });
+  editFormAtividades = this.fb.group({
+    id: [],
+    cor: [],
+    descricao: [],
   });
 
   constructor(@Inject(LOCALE_ID) private locale: string,
@@ -198,12 +204,12 @@ export class ConogramaDiarioComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllAtividades();
     this.loadBlocos();
-    this.activatedRoute.data.subscribe(({conogramaDiario}) => {
+    /*this.activatedRoute.data.subscribe(({conogramaDiario}) => {
 
       // this.updateFormBlocos(conogramaDiario);
 
       // this.loadRelationshipsOptions();
-    });
+    });*/
 
   }
 
@@ -245,21 +251,21 @@ export class ConogramaDiarioComponent implements OnInit {
     if (this.atividades) {
       this.atividades.forEach(function (atividade) {
         blocos.forEach(function (bloco) {
-          if (bloco.atividades) {
+         if (bloco.atividades) {
             bloco.atividades.forEach(function (ativi) {
               if (ativi.cor === atividade.cor) {
                 blocoAux = bloco;
               }
             });
           }
-        });
+         });
       });
     }
     return blocoAux;
   }
 
   protected updateFormBlocos(blocos: IBlocos[]): void {
-    let blocoAux = this.findBlocosByAtividades(blocos)
+    const blocoAux = this.findBlocosByAtividades(blocos)
     this.editFormBlocos.patchValue({
       id: blocoAux.id,
       zeroAM: !!blocoAux.zeroAM,
@@ -474,7 +480,7 @@ export class ConogramaDiarioComponent implements OnInit {
   protected createFromFormAtividades(): IAtividade {
     return {
       ...new Atividade(),
-      id: 1
+      id: this.editFormBlocos.get(['atividade'])!.value
     };
   }
 
