@@ -1,7 +1,9 @@
 package com.br.gustavocaraciolo.web.rest;
 
+import com.br.gustavocaraciolo.domain.Atividade;
 import com.br.gustavocaraciolo.domain.Blocos;
 import com.br.gustavocaraciolo.domain.CronogramaDiario;
+import com.br.gustavocaraciolo.repository.AtividadeRepository;
 import com.br.gustavocaraciolo.repository.BlocosRepository;
 import com.br.gustavocaraciolo.repository.CronogramaDiarioRepository;
 import com.br.gustavocaraciolo.web.rest.errors.BadRequestAlertException;
@@ -9,9 +11,8 @@ import com.br.gustavocaraciolo.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,12 +39,14 @@ public class BlocosResource {
     private String applicationName;
 
     private final BlocosRepository blocosRepository;
-
     private final CronogramaDiarioRepository cronogramaDiarioRepository;
+    private final AtividadeRepository atividadeRepository;
 
-    public BlocosResource(BlocosRepository blocosRepository, CronogramaDiarioRepository cronogramaDiarioRepository) {
+    public BlocosResource(BlocosRepository blocosRepository, CronogramaDiarioRepository cronogramaDiarioRepository,
+                          AtividadeRepository atividadeRepository) {
         this.blocosRepository = blocosRepository;
         this.cronogramaDiarioRepository = cronogramaDiarioRepository;
+        this.atividadeRepository = atividadeRepository;
     }
 
     /**
@@ -113,8 +116,20 @@ public class BlocosResource {
                 blocos.setCronogramaDiario(save);
             }
         }
-        Optional<Blocos> bloco = blocosRepository.findByCronogramaDiario_DiaEquals(blocos.getCronogramaDiario().getDia());
-        bloco.ifPresent(value -> blocos.setId(value.getId()));
+
+        List<Blocos> bloco = blocosRepository.findByCronogramaDiario_DiaEquals(blocos.getCronogramaDiario().getDia());
+
+        Optional<Atividade> at = blocos.getAtividades().stream().findFirst();
+
+        for (Blocos b : bloco) {
+            if (at.isPresent()) {
+                for (Atividade a : b.getAtividades()) {
+                    if (a.getId().equals(at.get().getId())) {
+                        blocos.setId(b.getId());
+                    }
+                }
+            }
+        }
     }
 
     /**

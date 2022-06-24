@@ -4,10 +4,10 @@ input[type="checkbox"]{
 
 input[type="checkbox"]:checked + .btn {
     color: #fff;
-    background: #608dff !important;
+    background: #608dff;
 }
 
 input[type="checkbox"]:hover + .btn {
   color: #fff;
-  background-color: #8260ff;
+  background-color: #0c0c0c;
 }

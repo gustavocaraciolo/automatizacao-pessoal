@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, LOCALE_ID, OnInit, Renderer2 } from '@angular/core';
 import dayjs from 'dayjs/esm';
 import { DATE_FORMAT, DATE_FORMAT_DESC, DATE_TIME_FORMAT } from '../config/input.constants';
 import { CronogramaDiario, ICronogramaDiario } from '../entities/cronograma-diario/cronograma-diario.model';
@@ -18,12 +18,15 @@ import { AtividadeService } from '../entities/atividade/service/atividade.servic
   templateUrl: './conograma-diario.component.html',
   styleUrls: ['./conograma-diario.component.scss'],
 })
-export class ConogramaDiarioComponent implements OnInit {
+export class ConogramaDiarioComponent implements OnInit, AfterViewInit {
   dia: string;
   data: dayjs.Dayjs;
 
   isSaving = false;
   isLoading = false;
+
+  private _colorBloco: string = '#608dff';
+  private _backgroundColorBloco: string = '#fff';
 
   cronogramaDiariosSharedCollection: ICronogramaDiario[] = [];
   blocos?: IBlocos[] | null = null;
@@ -196,13 +199,12 @@ export class ConogramaDiarioComponent implements OnInit {
               protected atividadeService: AtividadeService,
               protected activatedRoute: ActivatedRoute,
               protected fb: FormBuilder) {
-    dayjs.tz.setDefault("Africa/Luanda")
+    dayjs.tz.setDefault("Africa/Luanda");
     this.data = dayjs().startOf('day');
     this.dia = this.data.format(DATE_FORMAT_DESC);
   }
 
   ngOnInit(): void {
-    this.loadAllAtividades();
     this.loadBlocos();
     /*this.activatedRoute.data.subscribe(({conogramaDiario}) => {
 
@@ -213,8 +215,8 @@ export class ConogramaDiarioComponent implements OnInit {
 
   }
 
-  previousState(): void {
-    window.history.back();
+  ngAfterViewInit() {
+    this.loadAllAtividades();
   }
 
   save(): void {
@@ -250,14 +252,14 @@ export class ConogramaDiarioComponent implements OnInit {
     if (this.atividades) {
       this.atividades.forEach(function (atividade) {
         blocos.forEach(function (bloco) {
-         if (bloco.atividades) {
+          if (bloco.atividades) {
             bloco.atividades.forEach(function (ativi) {
               if (ativi.cor === atividade.cor) {
                 blocoAux = bloco;
               }
             });
           }
-         });
+        });
       });
     }
     return blocoAux;
@@ -456,6 +458,78 @@ export class ConogramaDiarioComponent implements OnInit {
     };
   }
 
+  changeColor(elem: HTMLElement) {
+    const elementId = elem.id.replace('label_', '');
+    const input = this.editFormBlocos.get([elementId])!.value;
+
+    if (input === false) {
+      this._backgroundColorBloco = '#608dff';
+      this._colorBloco = '#fff';
+      elem.style.backgroundColor = '#608dff';
+      elem.style.color = '#fff';
+    } else {
+      this._backgroundColorBloco = 'white';
+      this._colorBloco = '#608dff';
+      elem.style.backgroundColor = 'white';
+      elem.style.color = '#608dff';
+
+    }
+  }
+
+  onMouseEnter(elem: HTMLElement) {
+    this._backgroundColorBloco = elem.style.backgroundColor;
+    this._colorBloco = elem.style.color;
+    elem.style.backgroundColor = 'black';
+    elem.style.color = '#fff';
+  }
+
+  onMouseOut(elem: HTMLElement) {
+    elem.style.backgroundColor = this._backgroundColorBloco;
+    elem.style.color = this._colorBloco;
+  }
+
+  styleObject(): any {
+    const label_zeroAM = document.getElementById('label_zeroAM');
+    const label_zeroAMeDez = document.getElementById('label_zeroAMeDez');
+    const label_zeroAMeVinte = document.getElementById('label_zeroAMeVinte');
+    const label_zeroAMeTrinta = document.getElementById('label_zeroAMeTrinta');
+    const label_zeroAMeQuarenta = document.getElementById('label_zeroAMeQuarenta');
+    const label_zeroAMeCinquenta = document.getElementById('label_zeroAMeCinquenta');
+    if (this.blocos) {
+      this.blocos.map(b => {
+        if (b.atividades) {
+          b.atividades.map(a => {
+            if (typeof a.cor === "string" && label_zeroAM && b.zeroAM) {
+              label_zeroAM.style.background = a.cor;
+              label_zeroAM.style.color = 'white';
+              label_zeroAM.dir
+            }
+            if (typeof a.cor === "string" && label_zeroAMeDez && b.zeroAMeDez) {
+              label_zeroAMeDez.style.background = a.cor;
+              label_zeroAMeDez.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_zeroAMeVinte && b.zeroAMeVinte) {
+              label_zeroAMeVinte.style.background = a.cor;
+              label_zeroAMeVinte.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_zeroAMeTrinta && b.zeroAMeTrinta) {
+              label_zeroAMeTrinta.style.background = a.cor;
+              label_zeroAMeTrinta.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_zeroAMeQuarenta && b.zeroAMeQuarenta) {
+              label_zeroAMeQuarenta.style.background = a.cor;
+              label_zeroAMeQuarenta.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_zeroAMeCinquenta && b.zeroAMeCinquenta) {
+              label_zeroAMeCinquenta.style.background = a.cor;
+              label_zeroAMeCinquenta.style.color = 'white';
+            }
+          })
+        }
+      });
+    }
+  }
+
   //* ATIVIDADES */
   loadAllAtividades(): void {
     this.isLoading = true;
@@ -494,6 +568,7 @@ export class ConogramaDiarioComponent implements OnInit {
         this.blocos = res.body;
         if (this.blocos) {
           this.updateFormBlocos(this.blocos);
+          this.styleObject();
         }
       },
       error: () => {

@@ -6,6 +6,8 @@ import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -15,6 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "blocos")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Blocos implements Serializable {
 
     private static final long serialVersionUID = 1L;

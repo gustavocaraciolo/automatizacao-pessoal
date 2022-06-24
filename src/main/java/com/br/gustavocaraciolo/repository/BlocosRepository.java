@@ -33,7 +33,7 @@ public interface BlocosRepository extends BlocosRepositoryWithBagRelationships, 
     }
 
     @Query("select b from Blocos b where b.cronogramaDiario.dia = ?1")
-    Optional<Blocos> findByCronogramaDiario_DiaEquals(LocalDate dia);
+    List<Blocos> findByCronogramaDiario_DiaEquals(LocalDate dia);
 
     @Query(
         value = "select distinct blocos from Blocos blocos left join fetch blocos.cronogramaDiario",

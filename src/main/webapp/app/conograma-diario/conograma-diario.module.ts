@@ -6,7 +6,6 @@ import { SharedModule } from 'app/shared/shared.module';
 import { CONOGRAMA_DIARIO_ROUTE } from './conograma-diario.route';
 import { ConogramaDiarioComponent } from './conograma-diario.component';
 
-
 @NgModule({
   imports: [SharedModule, RouterModule.forRoot([CONOGRAMA_DIARIO_ROUTE], { useHash: true })],
   declarations: [ConogramaDiarioComponent],

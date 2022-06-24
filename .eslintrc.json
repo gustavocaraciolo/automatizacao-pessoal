@@ -20,6 +20,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "@typescript-eslint/no-inferrable-types": "off",
     "@angular-eslint/component-selector": [
       "error",
       {
