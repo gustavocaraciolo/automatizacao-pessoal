@@ -495,6 +495,14 @@ export class ConogramaDiarioComponent implements OnInit, AfterViewInit {
     const label_zeroAMeTrinta = document.getElementById('label_zeroAMeTrinta');
     const label_zeroAMeQuarenta = document.getElementById('label_zeroAMeQuarenta');
     const label_zeroAMeCinquenta = document.getElementById('label_zeroAMeCinquenta');
+
+    const label_umAM = document.getElementById('label_umAM');
+    const label_umAMeDez = document.getElementById('label_umAMeDez');
+    const label_umAMeVinte = document.getElementById('label_umAMeVinte');
+    const label_umAMeTrinta = document.getElementById('label_umAMeTrinta');
+    const label_umAMeQuarenta = document.getElementById('label_umAMeQuarenta');
+    const label_umAMeCinquenta = document.getElementById('label_umAMeCinquenta');
+
     if (this.blocos) {
       this.blocos.map(b => {
         if (b.atividades) {
@@ -502,7 +510,6 @@ export class ConogramaDiarioComponent implements OnInit, AfterViewInit {
             if (typeof a.cor === "string" && label_zeroAM && b.zeroAM) {
               label_zeroAM.style.background = a.cor;
               label_zeroAM.style.color = 'white';
-              label_zeroAM.dir
             }
             if (typeof a.cor === "string" && label_zeroAMeDez && b.zeroAMeDez) {
               label_zeroAMeDez.style.background = a.cor;
@@ -523,6 +530,30 @@ export class ConogramaDiarioComponent implements OnInit, AfterViewInit {
             if (typeof a.cor === "string" && label_zeroAMeCinquenta && b.zeroAMeCinquenta) {
               label_zeroAMeCinquenta.style.background = a.cor;
               label_zeroAMeCinquenta.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAM && b.umAM) {
+              label_umAM.style.background = a.cor;
+              label_umAM.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAMeDez && b.umAMeDez) {
+              label_umAMeDez.style.background = a.cor;
+              label_umAMeDez.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAMeVinte && b.umAMeVinte) {
+              label_umAMeVinte.style.background = a.cor;
+              label_umAMeVinte.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAMeTrinta && b.umAMeTrinta) {
+              label_umAMeTrinta.style.background = a.cor;
+              label_umAMeTrinta.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAMeQuarenta && b.umAMeQuarenta) {
+              label_umAMeQuarenta.style.background = a.cor;
+              label_umAMeQuarenta.style.color = 'white';
+            }
+            if (typeof a.cor === "string" && label_umAMeCinquenta && b.umAMeCinquenta) {
+              label_umAMeCinquenta.style.background = a.cor;
+              label_umAMeCinquenta.style.color = 'white';
             }
           })
         }
